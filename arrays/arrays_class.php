@@ -31,7 +31,16 @@ class myArray {
 
 	// Checks whether the array is full and needs to increase by chunk size in preparation for adding an item to the array.
 	private function check_increase() {
+		$index = array_search('none', $this->items);
 
+		// If 'none' is found in the array...
+		if ($index !== false) {
+			return $index;
+		}
+
+		else {
+			return true;
+		}
 	}
 
 	// Checks whether the array has too many empty spots and can be decreased by chunk size.If a decrease is warranted, it should be done by allocating a new array and copying thedata into it (don't allocate multiple arrays if multiple chunks need decreasing).
@@ -42,18 +51,18 @@ class myArray {
 	// Adds an item to the end of the array, allocating a larger array if necessary.
 	function add($item) {
 
-		$index = array_search('none', $this->items);
+		$index = $this->check_increase();
 
 		// print_r($this->items);
 
 		// If 'none' is found in the array...
-		if ($index !== false) {
+		if ($index !== true) {
 			echo "<p>'None' WAS found in the array!</p>";
 
 			// Replace the first 'none' with the added value.
 			$this->items[$index] = $item;
 
-			echo '<p>---</p>';
+			echo '<p>Items (after adding new item):</p>';
 			print_r($this->items);
 		}
 
@@ -61,12 +70,17 @@ class myArray {
 		else {
 			echo "<p>'None' was NOT found in the array!</p>";
 
-			// TODO: Move the functionality for adding more memory to the alloc() helper function.
-
 			// Use the $chunk_size to add that many spaces to the array...
-			for ($i = 0; $i < $this->chunk_size; $i++) {
-				array_push($this->items, "none");
-			}
+			$alloc_array = alloc($this->chunk_size);
+
+			echo '<p>None: </p>';
+			print_r($alloc_array);
+
+			// Merges arrays together.
+			$this->items = array_merge($this->items, $alloc_array);
+
+			echo '<p>Items: </p>';
+			print_r($this->items);
 
 			// ...then call our function again.
 			$this->add($item);
@@ -76,28 +90,34 @@ class myArray {
 	// Inserts an item at the given index, shifting remaining items right and allocating a larger array if necessary.
 	function insert($index, $item) {
 
-		// Create a new array with the shifted items.
+		// Copy the shifted items to another array.
 		$copy = array_splice($this->items, $index);
 
-		echo '<br>';
+		echo '<p>Array_splice: $this:</p>';
 		print_r($this->items);
-		echo '<br>';
+		echo '<p>Array_splice: $copy:</p>';
 		print_r($copy);
 
-		// Assign the new value.
+		// $mem_loc = $this->check_increase();
+
+		// // If no space is allocated...
+		// if ($mem_loc == true) {
+		// 	$alloc_array = alloc($this->chunk_size);
+
+		// 	$this->items = array_merge($this->items, $alloc_array);
+			
+		// 	echo '<p>Array_splice: $this:</p>';
+		// 	print_r($this->items);
+		// }
+
+		// Insert the new value into $this->items.
 		$this->items[$index] = $item;
 
-		echo '<br>';
+		echo '<p>Array_splice: $this:</p>';
 		print_r($this->items);
 
-		// // Merges arrays together.
-		// $this->items = array_merge($this->items, $copy);
-
-		// echo '<p>New Array</p>';
-		// print_r($this->items);
-
 		foreach($copy as $item) {
-			echo '<p>' . $item . '</p>';
+			echo '<p>Item copied: ' . $item . '</p>';
 
 			$this->add($item);
 		}
@@ -132,7 +152,16 @@ class myArray {
 
 // Allocates array space in memory. This is similar to C's alloc function.
 function alloc($size) {
+	// TODO: Move the functionality for adding more memory to the alloc() helper function.
 
+	$items = array();
+
+	// Use the $chunk_size to add that many spaces to the array...
+	for ($i = 0; $i < $size; $i++) {
+		array_push($items, "none");
+	}
+
+	return $items;
 }
 
 // Copies items from one array to another.  This is similar to C's memcpy function.
