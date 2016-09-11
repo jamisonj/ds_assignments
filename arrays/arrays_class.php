@@ -90,41 +90,58 @@ class myArray {
 	// Inserts an item at the given index, shifting remaining items right and allocating a larger array if necessary.
 	function insert($index, $item) {
 
-		// Copy the shifted items to another array.
-		$copy = array_splice($this->items, $index);
+		$keys = array_keys($this->items, 'none');
 
-		echo '<p>Array_splice: $this:</p>';
-		print_r($this->items);
-		echo '<p>Array_splice: $copy:</p>';
-		print_r($copy);
+		echo 'Keys: <br>';
+		print_r($keys);
 
-		// $mem_loc = $this->check_increase();
-
-		// // If no space is allocated...
-		// if ($mem_loc == true) {
-		// 	$alloc_array = alloc($this->chunk_size);
-
-		// 	$this->items = array_merge($this->items, $alloc_array);
-			
-		// 	echo '<p>Array_splice: $this:</p>';
-		// 	print_r($this->items);
-		// }
-
-		// Insert the new value into $this->items.
-		$this->items[$index] = $item;
-
-		echo '<p>Array_splice: $this:</p>';
-		print_r($this->items);
-
-		foreach($copy as $item) {
-			echo '<p>Item copied: ' . $item . '</p>';
-
-			$this->add($item);
+		// If the $index is in the array of "none" keys.
+		if (in_array($index, $keys)) {
+			throw new Exception('Error: Cannot insert at specified index. Range out of bounds.');
 		}
 
-		// for ($i = 0; $i <= $index; $i++) {
-		// 	array_push();
-		// }
+		else {
+			// Copy the shifted items to another array.
+			$copy = array_splice($this->items, $index);
+
+			echo '<p>Array_splice: $this:</p>';
+			print_r($this->items);
+			echo '<p>Array_splice: $copy:</p>';
+			print_r($copy);
+
+			// $mem_loc = $this->check_increase();
+
+			// // If no space is allocated...
+			// if ($mem_loc == true) {
+			// 	$alloc_array = alloc($this->chunk_size);
+
+			// 	$this->items = array_merge($this->items, $alloc_array);
+				
+			// 	echo '<p>Array_splice: $this:</p>';
+			// 	print_r($this->items);
+			// }
+
+			// Insert the new value into $this->items.
+			$this->items[$index] = $item;
+
+			echo '<p>Array_splice: $this:</p>';
+			print_r($this->items);
+
+			foreach($copy as $item) {
+				echo '<p>Item copied: ' . $item . '</p>';
+
+				// // If the value of item is 'none', we remove it from the copy.
+				// if ($item)
+
+				$this->add($item);
+			}
+
+			// for ($i = 0; $i <= $index; $i++) {
+			// 	array_push();
+			// }
+		}
+
+
 	}
 
 	// Sets the given item at the given index.  Throws an exception if the index is not within the bounds of the array.
@@ -152,8 +169,6 @@ class myArray {
 
 // Allocates array space in memory. This is similar to C's alloc function.
 function alloc($size) {
-	// TODO: Move the functionality for adding more memory to the alloc() helper function.
-
 	$items = array();
 
 	// Use the $chunk_size to add that many spaces to the array...
