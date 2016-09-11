@@ -43,7 +43,7 @@ class myArray {
 		}
 	}
 
-	// Checks whether the array has too many empty spots and can be decreased by chunk size.If a decrease is warranted, it should be done by allocating a new array and copying thedata into it (don't allocate multiple arrays if multiple chunks need decreasing).
+	// Checks whether the array has too many empty spots and can be decreased by chunk size. If a decrease is warranted, it should be done by allocating a new array and copying thedata into it (don't allocate multiple arrays if multiple chunks need decreasing).
 	private function check_decrease() {
 
 	}
@@ -140,23 +140,78 @@ class myArray {
 			// 	array_push();
 			// }
 		}
-
-
 	}
 
 	// Sets the given item at the given index.  Throws an exception if the index is not within the bounds of the array.
 	function set($index, $item) {
+		$key = array_search('none', $this->items);
 
+		if ($this->items[$index] == 'none') {
+			throw new Exception('Error: Index is not within the bounds of the array. Index: ' . $index . ', Item: ' . $item . '.');
+		}
+
+		else {
+			$this->items[$index] = $item;
+
+			echo '<p>Set(): $this:</p>';
+			print_r($this->items);
+		}
 	}
 
 	// Retrieves the item at the given index.  Throws an exception if the index is not within the bounds of the array.
 	function get($index) {
+		if ($this->items[$index] == 'none') {
+			throw new Exception('Error: Index is not within the bounds of the array. Index: ' . $index . '.');
+		}
 
+		else {
+			return $this->items[$index];
+		}
 	}
 
 	// Deletes the item at the given index, decreasing the allocated memory if needed. Throws an exception if the index is not within the bounds of the array.
-	function delete() {
+	function delete($index) {
+		if ($this->items[$index] == 'none') {
+			throw new Exception('Error: Index is not within the bounds of the array. Index: ' . $index . '.');
+		}
 
+		else {
+			// Copy the shifted items to another array.
+			$copy = array_splice($this->items, $index + 1);
+
+			echo '<p>Delete: $this:</p>';
+			print_r($this->items);
+			echo '<p>Delete: $copy:</p>';
+			print_r($copy);
+
+			// If the next value is NOT 'none', then we append the copy onto the array.
+			if ($copy[0] !== 'none') {
+
+				// Unset all the 'none' keys.
+				$keys = array_keys($copy, 'none');
+
+				foreach ($keys as $key) {
+					unset($copy[$key]);
+					echo '<p>Delete ($copy after unset):</p>';
+					print_r($copy);
+				}
+
+				// Remove the last item from $this->items, and replace it with $copy.
+				array_splice($this->items, $index, 1, $copy);
+
+				$this->add('none');
+
+				echo '<p>Delete:</p>';
+				print_r($this->items);
+			}
+
+			// If there are already no 'none' values, then replace the single value we are deleting with 'none'.
+			else {
+				$this->items[$index] = 'none';
+				echo '<p>Delete:</p>';
+				print_r($this->items);
+			}
+		}
 	}
 
 	// Swaps the values at the given indices.
