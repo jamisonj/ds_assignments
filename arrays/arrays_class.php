@@ -187,19 +187,20 @@ class myArray {
 			// If the next value is NOT 'none', then we append the copy onto the array.
 			if ($copy[0] !== 'none') {
 
-				// Unset all the 'none' keys.
-				$keys = array_keys($copy, 'none');
-
-				foreach ($keys as $key) {
-					unset($copy[$key]);
-					echo '<p>Delete ($copy after unset):</p>';
-					print_r($copy);
-				}
+				// Add a space to copy, to replace the lost one.
+				array_push($copy, 'none');
 
 				// Remove the last item from $this->items, and replace it with $copy.
 				array_splice($this->items, $index, 1, $copy);
 
-				$this->add('none');
+				// If we have more than 5 "none" spaces, remove them.
+				$keys = array_keys($this->items, 'none');
+
+				if (count($keys) > 5) {
+					$output = array_splice($this->items, -5);
+					echo '<p>Delete: Splice: </p>';
+					print_r($output);
+				}
 
 				echo '<p>Delete:</p>';
 				print_r($this->items);

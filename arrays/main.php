@@ -32,6 +32,14 @@
 	catch (Exception $e) {
 		echo $e;
 	}
+
+	try {
+		$array->delete(2);
+	}
+
+	catch (Exception $e) {
+		echo $e;
+	}
 	
 	// $array->insert(3, 'Hi there!');
 	// $array->insert(0, 'Test');
