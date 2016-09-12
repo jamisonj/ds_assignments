@@ -6,6 +6,7 @@ class myArray {
 	protected $items;
 	protected $initial_size;
 	protected $chunk_size;
+	protected $current_size;
 	
 	// Creates an array with an intial size.
 	function __construct($initial_size = 10, $chunk_size = 5) {
@@ -13,6 +14,7 @@ class myArray {
 		$this->items = array();
 		$this->initial_size = $initial_size;
 		$this->chunk_size = $chunk_size;
+		$this->current_size = 0;
 
 		$this->items = array_fill(0, $this->initial_size, 'none');
 
@@ -62,21 +64,28 @@ class myArray {
 			// Replace the first 'none' with the added value.
 			$this->items[$index] = $item;
 
+			$this->current_size++;
+
 			echo '<p>Items (after adding new item):</p>';
 			print_r($this->items);
+			echo '<p>Current size = ' . $this->current_size . '.</p>';
 		}
 
 		// If 'none' is not found in the array...
 		else {
 			// echo "<p>'None' was NOT found in the array!</p>";
 
-			// Use the $chunk_size to add that many spaces to the array...
+			// Use the $chunk_size to add that many spaces to the array.
 			$alloc_array = alloc($this->chunk_size);
+
+			$this->initial_size += $this->chunk_size;
+
+			echo '<p>Initial_size is now ' . $this->initial_size . '.</p>';
 
 			// echo '<p>None: </p>';
 			// print_r($alloc_array);
 
-			// Merges arrays together.
+			// Merge arrays together...
 			$this->items = array_merge($this->items, $alloc_array);
 
 			// echo '<p>Items: </p>';
@@ -90,13 +99,7 @@ class myArray {
 	// Inserts an item at the given index, shifting remaining items right and allocating a larger array if necessary.
 	function insert($index, $item) {
 
-		$keys = array_keys($this->items, 'none');
-
-		// echo 'Keys: <br>';
-		// print_r($keys);
-
-		// If the $index is in the array of "none" keys.
-		if (in_array($index, $keys)) {
+		if ($index >= $this->current_size) {
 			throw new Exception('Error: '. $index . ' is not within the bounds of the current array.');
 		}
 
@@ -111,8 +114,12 @@ class myArray {
 
 			// If $copy does not have 'none' in it.
 			if (!(in_array('none', $copy))) {
-				$alloc = alloc(5);
+				$alloc = alloc($this->chunk_size);
 				$copy = array_merge($copy, $alloc);
+
+				$this->initial_size += $this->chunk_size;
+
+				echo '<p>Initial_size is now ' . $this->initial_size . '.</p>';
 
 				// echo '<p>Insert ($copy): </p>';
 				// print_r($copy);
@@ -124,8 +131,11 @@ class myArray {
 			// Remove the last "none" from the array - not needed anymore!
 			array_pop($this->items);
 
+			$this->current_size++;
+
 			echo '<p>Insert: $this:</p>';
 			print_r($this->items);
+			echo '<p>Current size = ' . $this->current_size . '.</p>';
 		}
 	}
 
@@ -133,7 +143,7 @@ class myArray {
 	function set($index, $item) {
 		$key = array_search('none', $this->items);
 
-		if ($this->items[$index] == 'none') {
+		if ($index >= $this->current_size) {
 			throw new Exception('Error: '. $index . ' is not within the bounds of the current array.');
 		}
 
@@ -147,7 +157,7 @@ class myArray {
 
 	// Retrieves the item at the given index. Throws an exception if the index is not within the bounds of the array.
 	function get($index) {
-		if ($this->items[$index] == 'none') {
+		if ($index >= $this->current_size) {
 			throw new Exception('Error: '. $index . ' is not within the bounds of the current array.');
 		}
 
@@ -158,7 +168,7 @@ class myArray {
 
 	// Deletes the item at the given index, decreasing the allocated memory if needed. Throws an exception if the index is not within the bounds of the array.
 	function delete($index) {
-		if ($this->items[$index] == 'none') {
+		if ($index >= $this->current_size) {
 			throw new Exception('Error: '. $index . ' is not within the bounds of the current array.');
 		}
 
@@ -171,8 +181,8 @@ class myArray {
 			// echo '<p>Delete: $copy:</p>';
 			// print_r($copy);
 
-			// If the next value is NOT 'none', then we append the copy onto the array.
-			if ($copy[0] !== 'none') {
+			// If the next value is NOT 'none'...
+			// if ($copy[0] !== 'none') {
 
 				// Add a space to copy, to replace the deleted value.
 				array_push($copy, 'none');
@@ -183,43 +193,55 @@ class myArray {
 				$keys = array_keys($this->items, 'none');
 
 				// If we have more than 5 "none" spaces, remove them.
-				if (count($keys) > 5) {
-					$output = array_splice($this->items, -5);
-					// echo '<p>Delete: Splice: </p>';
-					// print_r($output);
+				if (count($keys) > $this->chunk_size) {
+					$output = array_splice($this->items, -($this->chunk_size));
+
+					$this->initial_size -= $this->chunk_size;
+					echo '<p>Delete: Splice: </p>';
+					print_r($output);
+					echo '<p>Initial_size is now ' . $this->initial_size . '.</p>';
 				}
 
-				echo '<p>Delete:</p>';
-				print_r($this->items);
-			}
+				$this->current_size--;
 
-			// If there are already no 'none' values, then replace the single value we are deleting with 'none'.
-			else {
-				$this->items[$index] = 'none';
 				echo '<p>Delete:</p>';
 				print_r($this->items);
-			}
+				echo '<p>Current size = ' . $this->current_size . '.</p>';
+			// }
+
+			// If we are removing the last value from $this->items, then replace the single value we are deleting with 'none'.
+			// else {
+				// $this->items[$index] = 'none';
+				// $this->current_size--;
+
+				// echo '<p>Delete:</p>';
+				// print_r($this->items);
+				// echo '<p>Current size = ' . $this->current_size . '.</p>';
+			// }
 		}
 	}
 
 	// Swaps the values at the given indices.
 	function swap($index1, $index2) {
-		if ($this->items[$index1] == 'none' || $this->items[$index2] == 'none') {
-			if ($this->items[$index1] == 'none') {
+		if ($index1 >= $this->current_size || $index2 >= $this->current_size) {
+			if ($index1 >= $this->current_size) {
 				throw new Exception('Error: '. $index1 . ' is not within the bounds of the current array.');
 			}
 
-			if ($this->items[$index2] == 'none') {
+			elseif ($index2 >= $this->current_size) {
 				throw new Exception('Error: '. $index2 . ' is not within the bounds of the current array.');
 			}
 		}
 
 		else {
-			$value1 = $this->items[$index1];
-			$value2 = $this->items[$index2];
+			$value1 = $this->items[$index1]; //Will
+			$value2 = $this->items[$index2]; //Ryan
 
-			$this->items[$index1] = $value2;
-			$this->items[$index2] = $value1;
+			// echo '<p>Value 1: ' . $value1 . '</p>';
+			// echo '<p>Value 2: ' . $value2 . '</p>';
+
+			$this->items[$index1] = $value2; //Ryan
+			$this->items[$index2] = $value1; //Will
 
 			echo '<p>Swap:</p>';
 			print_r($this->items);
