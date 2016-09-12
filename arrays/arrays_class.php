@@ -21,7 +21,7 @@ class myArray {
 
 	// Prints a representation of the entire allocated space, including unused spots.
 	function debug_print() {
-
+		echo '';
 	}
 
 	// Ensures the index is within the bounds of the array: 0 <= index <= size.
@@ -57,7 +57,7 @@ class myArray {
 
 		// If 'none' is found in the array...
 		if ($index !== true) {
-			echo "<p>'None' WAS found in the array!</p>";
+			// echo "<p>'None' WAS found in the array!</p>";
 
 			// Replace the first 'none' with the added value.
 			$this->items[$index] = $item;
@@ -68,19 +68,19 @@ class myArray {
 
 		// If 'none' is not found in the array...
 		else {
-			echo "<p>'None' was NOT found in the array!</p>";
+			// echo "<p>'None' was NOT found in the array!</p>";
 
 			// Use the $chunk_size to add that many spaces to the array...
 			$alloc_array = alloc($this->chunk_size);
 
-			echo '<p>None: </p>';
-			print_r($alloc_array);
+			// echo '<p>None: </p>';
+			// print_r($alloc_array);
 
 			// Merges arrays together.
 			$this->items = array_merge($this->items, $alloc_array);
 
-			echo '<p>Items: </p>';
-			print_r($this->items);
+			// echo '<p>Items: </p>';
+			// print_r($this->items);
 
 			// ...then call our function again.
 			$this->add($item);
@@ -92,62 +92,49 @@ class myArray {
 
 		$keys = array_keys($this->items, 'none');
 
-		echo 'Keys: <br>';
-		print_r($keys);
+		// echo 'Keys: <br>';
+		// print_r($keys);
 
 		// If the $index is in the array of "none" keys.
 		if (in_array($index, $keys)) {
-			throw new Exception('Error: Cannot insert at specified index. Range out of bounds.');
+			throw new Exception('Error: '. $index . ' is not within the bounds of the current array.');
 		}
 
 		else {
 			// Copy the shifted items to another array.
 			$copy = array_splice($this->items, $index);
 
-			echo '<p>Array_splice: $this:</p>';
-			print_r($this->items);
-			echo '<p>Array_splice: $copy:</p>';
-			print_r($copy);
-
-			// $mem_loc = $this->check_increase();
-
-			// // If no space is allocated...
-			// if ($mem_loc == true) {
-			// 	$alloc_array = alloc($this->chunk_size);
-
-			// 	$this->items = array_merge($this->items, $alloc_array);
-				
-			// 	echo '<p>Array_splice: $this:</p>';
-			// 	print_r($this->items);
-			// }
-
 			// Insert the new value into $this->items.
 			$this->items[$index] = $item;
 
-			echo '<p>Array_splice: $this:</p>';
-			print_r($this->items);
+			// $keys = array_keys($copy, 'none');
 
-			foreach($copy as $item) {
-				echo '<p>Item copied: ' . $item . '</p>';
+			// If $copy does not have 'none' in it.
+			if (!(in_array('none', $copy))) {
+				$alloc = alloc(5);
+				$copy = array_merge($copy, $alloc);
 
-				// // If the value of item is 'none', we remove it from the copy.
-				// if ($item)
-
-				$this->add($item);
+				// echo '<p>Insert ($copy): </p>';
+				// print_r($copy);
 			}
 
-			// for ($i = 0; $i <= $index; $i++) {
-			// 	array_push();
-			// }
+			// Merge $copy back into the array.
+			$this->items = array_merge($this->items, $copy);
+
+			// Remove the last "none" from the array - not needed anymore!
+			array_pop($this->items);
+
+			echo '<p>Insert: $this:</p>';
+			print_r($this->items);
 		}
 	}
 
-	// Sets the given item at the given index.  Throws an exception if the index is not within the bounds of the array.
+	// Sets the given item at the given index. Throws an exception if the index is not within the bounds of the array.
 	function set($index, $item) {
 		$key = array_search('none', $this->items);
 
 		if ($this->items[$index] == 'none') {
-			throw new Exception('Error: Index is not within the bounds of the array. Index: ' . $index . ', Item: ' . $item . '.');
+			throw new Exception('Error: '. $index . ' is not within the bounds of the current array.');
 		}
 
 		else {
@@ -158,10 +145,10 @@ class myArray {
 		}
 	}
 
-	// Retrieves the item at the given index.  Throws an exception if the index is not within the bounds of the array.
+	// Retrieves the item at the given index. Throws an exception if the index is not within the bounds of the array.
 	function get($index) {
 		if ($this->items[$index] == 'none') {
-			throw new Exception('Error: Index is not within the bounds of the array. Index: ' . $index . '.');
+			throw new Exception('Error: '. $index . ' is not within the bounds of the current array.');
 		}
 
 		else {
@@ -172,34 +159,34 @@ class myArray {
 	// Deletes the item at the given index, decreasing the allocated memory if needed. Throws an exception if the index is not within the bounds of the array.
 	function delete($index) {
 		if ($this->items[$index] == 'none') {
-			throw new Exception('Error: Index is not within the bounds of the array. Index: ' . $index . '.');
+			throw new Exception('Error: '. $index . ' is not within the bounds of the current array.');
 		}
 
 		else {
 			// Copy the shifted items to another array.
 			$copy = array_splice($this->items, $index + 1);
 
-			echo '<p>Delete: $this:</p>';
-			print_r($this->items);
-			echo '<p>Delete: $copy:</p>';
-			print_r($copy);
+			// echo '<p>Delete: $this:</p>';
+			// print_r($this->items);
+			// echo '<p>Delete: $copy:</p>';
+			// print_r($copy);
 
 			// If the next value is NOT 'none', then we append the copy onto the array.
 			if ($copy[0] !== 'none') {
 
-				// Add a space to copy, to replace the lost one.
+				// Add a space to copy, to replace the deleted value.
 				array_push($copy, 'none');
 
 				// Remove the last item from $this->items, and replace it with $copy.
 				array_splice($this->items, $index, 1, $copy);
 
-				// If we have more than 5 "none" spaces, remove them.
 				$keys = array_keys($this->items, 'none');
 
+				// If we have more than 5 "none" spaces, remove them.
 				if (count($keys) > 5) {
 					$output = array_splice($this->items, -5);
-					echo '<p>Delete: Splice: </p>';
-					print_r($output);
+					// echo '<p>Delete: Splice: </p>';
+					// print_r($output);
 				}
 
 				echo '<p>Delete:</p>';
@@ -217,7 +204,26 @@ class myArray {
 
 	// Swaps the values at the given indices.
 	function swap($index1, $index2) {
+		if ($this->items[$index1] == 'none' || $this->items[$index2] == 'none') {
+			if ($this->items[$index1] == 'none') {
+				throw new Exception('Error: '. $index1 . ' is not within the bounds of the current array.');
+			}
 
+			if ($this->items[$index2] == 'none') {
+				throw new Exception('Error: '. $index2 . ' is not within the bounds of the current array.');
+			}
+		}
+
+		else {
+			$value1 = $this->items[$index1];
+			$value2 = $this->items[$index2];
+
+			$this->items[$index1] = $value2;
+			$this->items[$index2] = $value1;
+
+			echo '<p>Swap:</p>';
+			print_r($this->items);
+		}
 	}
 }
 
