@@ -1,6 +1,7 @@
 <?php
     include 'arrays_class.php';
 
+    // Set the starting row number, the file to read, and the initial $output string.
     $row = 1;
     $handle = fopen('data.csv','r');
     $output = '';
@@ -8,7 +9,7 @@
     if ($handle !== FALSE) {
     	while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
     		
-    		$num = count($data);
+    		// Output string for each row: The $row and $data values are added to $output string.
     		$output .= $row . ':' . $data[0] . ',' . $data[1] . ',' . $data[2] . PHP_EOL;
     		
     		switch ($data[0]) {
@@ -84,7 +85,7 @@
     		$row++;
     	}
 
-    	// echo '<p>' . $output . '</p>';
+    	// Writing to the output.txt file. This also creates it if it doesn't already exist.
     	$file = fopen("output.txt", "w") or die("Could not open file.");
     	fwrite($file, $output);
     }
