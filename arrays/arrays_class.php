@@ -23,7 +23,18 @@ class myArray {
 
 	// Prints a representation of the entire allocated space, including unused spots.
 	function debug_print() {
-		echo '';
+		
+		$value = $this->current_size . ' of ' . $this->initial_size . ' >>>';
+		$output = '';
+
+		foreach ($this->items as $item) {
+			$output = $output . ' '. $item . ',';
+		}
+
+		// Remove the last comma.
+		$output = rtrim($output, ',');
+		$value .= $output;
+		return $value;
 	}
 
 	// Ensures the index is within the bounds of the array: 0 <= index <= size.
@@ -66,9 +77,9 @@ class myArray {
 
 			$this->current_size++;
 
-			echo '<p>Items (after adding new item):</p>';
-			print_r($this->items);
-			echo '<p>Current size = ' . $this->current_size . '.</p>';
+			// echo '<p>Items (after adding new item):</p>';
+			// print_r($this->items);
+			// echo '<p>Current size = ' . $this->current_size . '.</p>';
 		}
 
 		// If 'none' is not found in the array...
@@ -80,7 +91,7 @@ class myArray {
 
 			$this->initial_size += $this->chunk_size;
 
-			echo '<p>Initial_size is now ' . $this->initial_size . '.</p>';
+			// echo '<p>Initial_size is now ' . $this->initial_size . '.</p>';
 
 			// echo '<p>None: </p>';
 			// print_r($alloc_array);
@@ -119,7 +130,7 @@ class myArray {
 
 				$this->initial_size += $this->chunk_size;
 
-				echo '<p>Initial_size is now ' . $this->initial_size . '.</p>';
+				// echo '<p>Initial_size is now ' . $this->initial_size . '.</p>';
 
 				// echo '<p>Insert ($copy): </p>';
 				// print_r($copy);
@@ -133,9 +144,9 @@ class myArray {
 
 			$this->current_size++;
 
-			echo '<p>Insert: $this:</p>';
-			print_r($this->items);
-			echo '<p>Current size = ' . $this->current_size . '.</p>';
+			// echo '<p>Insert: $this:</p>';
+			// print_r($this->items);
+			// echo '<p>Current size = ' . $this->current_size . '.</p>';
 		}
 	}
 
@@ -150,8 +161,8 @@ class myArray {
 		else {
 			$this->items[$index] = $item;
 
-			echo '<p>Set(): $this:</p>';
-			print_r($this->items);
+			// echo '<p>Set(): $this:</p>';
+			// print_r($this->items);
 		}
 	}
 
@@ -197,16 +208,16 @@ class myArray {
 					$output = array_splice($this->items, -($this->chunk_size));
 
 					$this->initial_size -= $this->chunk_size;
-					echo '<p>Delete: Splice: </p>';
-					print_r($output);
-					echo '<p>Initial_size is now ' . $this->initial_size . '.</p>';
+					// echo '<p>Delete: Splice: </p>';
+					// print_r($output);
+					// echo '<p>Initial_size is now ' . $this->initial_size . '.</p>';
 				}
 
 				$this->current_size--;
 
-				echo '<p>Delete:</p>';
-				print_r($this->items);
-				echo '<p>Current size = ' . $this->current_size . '.</p>';
+				// echo '<p>Delete:</p>';
+				// print_r($this->items);
+				// echo '<p>Current size = ' . $this->current_size . '.</p>';
 			// }
 
 			// If we are removing the last value from $this->items, then replace the single value we are deleting with 'none'.
@@ -243,8 +254,8 @@ class myArray {
 			$this->items[$index1] = $value2; //Ryan
 			$this->items[$index2] = $value1; //Will
 
-			echo '<p>Swap:</p>';
-			print_r($this->items);
+			// echo '<p>Swap:</p>';
+			// print_r($this->items);
 		}
 	}
 }
