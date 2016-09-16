@@ -15,15 +15,14 @@ class LinkedList {
 	// Prints a representation of the entire list.
 	function debug_print() {
 
-		$string = '<p>' . $this->size . ' >>> ';
+		$string = '<p>' . $this->size . ' >>>';
 
 		$node = $this->head;
 
 		// TODO: Iterate over each linkedlist item and add it to a string.
 		while ($node->next != NULL) {
 			$node = $node->next;
-			$string .= $node->value;
-			$string .= ', ';
+			$string .= ' ' . $node->value . ',';
 		}
 
 		$string = rtrim($string, ',');
@@ -64,7 +63,38 @@ class LinkedList {
 
 	// Inserts an item at the given index, shifting remaining items right.
 	function insert($index, $item) {
+		
+		if ($index < 0 || $index >= $this->size) {
+			throw new Exception('Error: '. $index . ' is not within the bounds of the current list.');
+		}
 
+		else {
+			$node = $this->get_node($index - 1);
+
+			// Copy the items after the insert point over to another variable.
+			$list = $this->get_node($index);
+
+			// Create a new node to insert into the list.
+			$node->next = new Node($item);
+
+			// Move the list pointer onto the new item.
+			$node = $node->next;
+
+			// If $node is the last item on the list, set next to NULL.
+			if ($index == $this->size - 1) {
+				echo 'Last item';
+				$node->next = NULL;
+			}
+
+			// If the $node is not the last in the list, set the value of next to the next node after the added one.
+			else {
+				print_r($list);
+				$node->next = $list;
+			}
+
+			$this->size++;
+			echo '<p>Size: ' . $this->size . '</p>';
+		}
 	}
 
 	// Sets the given item at the given index.  Throws an exception if the index is not within the bounds of the linked list.
@@ -91,8 +121,6 @@ class LinkedList {
 	// Deletes the item at the given index. Throws an exception if the index is not within the bounds of the linked list.
 	function delete($index) {
 
-		echo "<p>Delete called</p>";
-
 		if ($index < 0 || $index >= $this->size) {
 			throw new Exception('Error: '. $index . ' is not within the bounds of the current list.');
 		}
@@ -113,6 +141,7 @@ class LinkedList {
 			}
 
 			$this->size--;
+			echo '<p>Size: ' . $this->size . '</p>';
 		}
 	}
 

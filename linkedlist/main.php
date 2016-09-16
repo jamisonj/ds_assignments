@@ -1,6 +1,18 @@
 <?php
     include 'linkedlist_class.php';
 
+    // Set the starting row number, the file to read, and the initial $output string.
+    $row = 1;
+    $handle = fopen('data.csv','r');
+    $output = '';
+
+    if ($handle !== FALSE) {
+    	while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
+
+    		// Output string for each row: The $row and $data values are added to $output string.
+    		$output .= $row . ':' . $data[0] . ',' . $data[1] . ',' . $data[2] . PHP_EOL;
+    	}
+
     $list = new LinkedList();
 
    	echo '<pre>';
@@ -8,34 +20,29 @@
 
    	// $list->debug_print();
 
-   	$list->add(5);
-   	$list->add(6);
-   	$list->add(7);
-   	$list->add(8);
-   	$list->add(9);
-   	$list->add(10);
-   	$list->get(2);
-
-   	// print_r($list);
-
-   	$list->debug_print();
-
-   	$list->delete(2);
-   	$list->debug_print();
-
-   	$list->swap(0, 1);
-   	$list->debug_print();
-
-   	$list->swap(4, 1);
-   	$list->debug_print();
-
-
-
-   	// print_r($list);
+   	// $list->add(5);
+   	// $list->add(6);
+   	// $list->add(7);
+   	// $list->add(8);
+   	// $list->add(9);
+   	// $list->add(10);
+   	// $list->get(2);
 
    	// $list->debug_print();
 
-   	echo '</pre>';
+   	// $list->delete(2);
+   	// $list->debug_print();
+
+   	// $list->swap(0, 1);
+   	// $list->debug_print();
+
+   	// $list->swap(4, 1);
+   	// $list->debug_print();
+
+   	// $list->insert(4, 'Harry Potter');
+   	// $list->debug_print();
+
+   	// echo '</pre>';
 
     // Set the starting row number, the file to read, and the initial $output string.
     // $row = 1;
