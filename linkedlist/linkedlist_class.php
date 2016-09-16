@@ -58,9 +58,7 @@ class LinkedList {
 		}
 
 		$node->next = new Node($item);
-
 		$this->size++;
-
 		echo '<p>Size: ' . $this->size . '</p>';
 	}
 
@@ -71,30 +69,66 @@ class LinkedList {
 
 	// Sets the given item at the given index.  Throws an exception if the index is not within the bounds of the linked list.
 	function set($index, $item) {
-		
-		$node = $this->get_node($index);
-		$node->value = $item;
+
+		if ($index < 0 || $index >= $this->size) {
+			throw new Exception('Error: '. $index . ' is not within the bounds of the current list.');
+		}
+
+		else {
+			$node = $this->get_node($index);
+			$node->value = $item;
+		}
 	}
 
 	// Retrieves the item at the given index.  Throws an exception if the index is not within the bounds of the linked list.
 	function get($index) {
-		
+
+		$node = $this->get_node($index);
+		echo '<p>Get: ' . $node->value . '</p>';
+		return $node->value;
 	}
 
 	// Deletes the item at the given index. Throws an exception if the index is not within the bounds of the linked list.
 	function delete($index) {
-		
+
+		echo "<p>Delete called</p>";
+
+		if ($index < 0 || $index >= $this->size) {
+			throw new Exception('Error: '. $index . ' is not within the bounds of the current list.');
+		}
+
+		else {
+			// Get the item right before the one at the given index.
+			$node = $this->get_node($index - 1);
+
+			// If this is the last item on the list, set next to NULL.
+			if ($index == $this->size - 1) {
+				echo 'Last item';
+				$node->next = NULL;
+			}
+
+			// If the $index is not the last in the list, set the value of next to the next node after the deleted one.
+			else {
+				$node->next = $this->get_node($index + 1);
+			}
+
+			$this->size--;
+		}
 	}
 
 	// Swaps the values at the given indices.
 	function swap($index1, $index2) {
-		
+
+		$value1 = $this->get($index1);
+		$value2 = $this->get($index2);
+
+		$this->set($index1, $value2);
+		$this->set($index2, $value1);
 	}
 }
 
 /* A node in the linked list */
 
-// A node on the linked list
 class Node {
 
 	function __construct($value) {

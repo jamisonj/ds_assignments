@@ -12,10 +12,21 @@
    	$list->add(6);
    	$list->add(7);
    	$list->add(8);
-   	$list->set(3, 'frank');
+   	$list->add(9);
+   	$list->add(10);
+   	$list->get(2);
 
    	// print_r($list);
 
+   	$list->debug_print();
+
+   	$list->delete(2);
+   	$list->debug_print();
+
+   	$list->swap(0, 1);
+   	$list->debug_print();
+
+   	$list->swap(4, 1);
    	$list->debug_print();
 
 
