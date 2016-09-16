@@ -4,21 +4,25 @@
     $list = new LinkedList();
 
    	echo '<pre>';
-   	print_r($list);
+   	// print_r($list);
 
-   	$list->debug_print();
+   	// $list->debug_print();
 
    	$list->add(5);
-
-   	print_r($list);
-
-   	$list->debug_print();
-
    	$list->add(6);
+   	$list->add(7);
+   	$list->add(8);
+   	$list->set(3, 'frank');
 
-   	print_r($list);
+   	// print_r($list);
 
    	$list->debug_print();
+
+
+
+   	// print_r($list);
+
+   	// $list->debug_print();
 
    	echo '</pre>';
 

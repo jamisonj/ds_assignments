@@ -17,32 +17,51 @@ class LinkedList {
 
 		$string = '<p>' . $this->size . ' >>> ';
 
+		$node = $this->head;
+
 		// TODO: Iterate over each linkedlist item and add it to a string.
-		foreach($this->head as $node) {
+		while ($node->next != NULL) {
+			$node = $node->next;
 			$string .= $node->value;
 			$string .= ', ';
 		}
 
+		$string = rtrim($string, ',');
 		$string .= '</p>';
 		echo $string;
 	}
 
 	// Retrieves the Node object at the given index.  Throws an exception if the index is not within the bounds of the linked list.
 	private function get_node($index) {
+		if ($index < 0 || $index >= $this->size) {
+			throw new Exception('Error: '. $index . ' is not within the bounds of the current list.');
+		}
 
+		else {
+			$node = $this->head;
+
+			for ($i = 0; $i <= $index; $i++) {
+				$node = $node->next;
+			}
+
+			return $node;
+		}
 	}
 
 	// Adds an item to the end of the linked list.
 	function add($item) {
 
-		$this->head->next = new Node($item);
+		$node = $this->head;
+
+		while ($node->next != NULL) {
+			$node = $node->next;
+		}
+
+		$node->next = new Node($item);
 
 		$this->size++;
 
-		// Loop through all the 
-		// foreach ($this->head as $node) {
-
-		// }
+		echo '<p>Size: ' . $this->size . '</p>';
 	}
 
 	// Inserts an item at the given index, shifting remaining items right.
@@ -53,6 +72,8 @@ class LinkedList {
 	// Sets the given item at the given index.  Throws an exception if the index is not within the bounds of the linked list.
 	function set($index, $item) {
 		
+		$node = $this->get_node($index);
+		$node->value = $item;
 	}
 
 	// Retrieves the item at the given index.  Throws an exception if the index is not within the bounds of the linked list.
