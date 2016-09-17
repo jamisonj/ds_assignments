@@ -6,16 +6,27 @@
     $handle = fopen('data.csv','r');
     $output = '';
 
+    echo '<pre>';
+
     if ($handle !== FALSE) {
     	while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
 
     		// Output string for each row: The $row and $data values are added to $output string.
-    		$output .= $row . ':' . $data[0] . ',' . $data[1] . ',' . $data[2] . PHP_EOL;
+    		$output .= '<p>' . $row . ':' . $data[0] . ',' . $data[1] . ',' . $data[2] . PHP_EOL . '</p>';
+
+    		print_r($data);
+
+    		$row++;
     	}
 
-    $list = new LinkedList();
+    	echo $output;
+    }
 
-   	echo '<pre>';
+    echo '</pre>';
+
+    // $list = new LinkedList();
+
+   	// echo '<pre>';
    	// print_r($list);
 
    	// $list->debug_print();
