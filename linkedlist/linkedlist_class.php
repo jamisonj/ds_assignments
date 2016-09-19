@@ -15,7 +15,7 @@ class LinkedList {
 	// Prints a representation of the entire list.
 	function debug_print() {
 
-		$string = '<p>' . $this->size . ' >>>';
+		$string = $this->size . ' >>>';
 
 		$node = $this->head;
 
@@ -26,8 +26,7 @@ class LinkedList {
 		}
 
 		$string = rtrim($string, ',');
-		$string .= '</p>';
-		echo $string;
+		return $string;
 	}
 
 	// Retrieves the Node object at the given index.  Throws an exception if the index is not within the bounds of the linked list.
@@ -58,7 +57,6 @@ class LinkedList {
 
 		$node->next = new Node($item);
 		$this->size++;
-		echo '<p>Size: ' . $this->size . '</p>';
 	}
 
 	// Inserts an item at the given index, shifting remaining items right.
@@ -81,19 +79,16 @@ class LinkedList {
 			$node = $node->next;
 
 			// If $node is the last item on the list, set next to NULL.
-			if ($index == $this->size - 1) {
-				echo 'Last item';
+			if ($index == $this->size) {
 				$node->next = NULL;
 			}
 
 			// If the $node is not the last in the list, set the value of next to the next node after the added one.
 			else {
-				print_r($list);
 				$node->next = $list;
 			}
 
 			$this->size++;
-			echo '<p>Size: ' . $this->size . '</p>';
 		}
 	}
 
@@ -114,7 +109,6 @@ class LinkedList {
 	function get($index) {
 
 		$node = $this->get_node($index);
-		echo '<p>Get: ' . $node->value . '</p>';
 		return $node->value;
 	}
 
@@ -131,7 +125,6 @@ class LinkedList {
 
 			// If this is the last item on the list, set next to NULL.
 			if ($index == $this->size - 1) {
-				echo 'Last item';
 				$node->next = NULL;
 			}
 
@@ -141,7 +134,6 @@ class LinkedList {
 			}
 
 			$this->size--;
-			echo '<p>Size: ' . $this->size . '</p>';
 		}
 	}
 
