@@ -6,9 +6,9 @@
     $handle = fopen('data.csv','r');
     $output = '';
 
-    echo '<pre>';
+    phpinfo();
 
-    echo phpinfo();
+    echo '<pre>';
 
     if ($handle !== FALSE) {
     	while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
