@@ -6,8 +6,6 @@
     $handle = fopen('data.csv','r');
     $output = '';
 
-    phpinfo();
-
     echo '<pre>';
 
     if ($handle !== FALSE) {
