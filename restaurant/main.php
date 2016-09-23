@@ -42,7 +42,15 @@
             $this->callahead->add(5);
             $this->callahead->add(6);
             $this->callahead->add(7);
-//            $this->callahead->debug_print();
+            $this->callahead->insert(6, "tooth");
+            $this->callahead->insert(7, "brain");
+            $this->callahead->set(5, "pimble");
+            $this->callahead->get(5);
+            $this->callahead->get(4);
+            $this->callahead->get(2);
+            $this->callahead->get(0);
+            $this->callahead->delete(0);
+            $this->callahead->debug_print();
 
 //            if ($handle !== FALSE) {
 //                while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {

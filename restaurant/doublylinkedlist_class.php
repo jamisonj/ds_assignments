@@ -5,16 +5,15 @@
         // Creates a linked list.
         function __construct() {
             $this->size = 0;
-            $this->head = NULL;
-            $this->tail = NULL;
+            $this->head = new Node(NULL);
+            $this->tail = $this->head;
         }
 
         // Prints a representation of the entire list.
         function debug_print() {
 
-            $string = $this->size . ' >>>';
-
             $node = $this->head;
+            $string = $this->size . ' >>> ' . $node->value . ',';
 
             while ($node->next != NULL) {
                 $node = $node->next;
@@ -22,7 +21,10 @@
             }
 
             $string = rtrim($string, ',');
-            $string .= ' >>>';
+            $string .= ' >>> ';
+
+            $node = $this->tail;
+            $string .= $node->value . ',';
 
             while ($node->prev != NULL) {
                 $node = $node->prev;
@@ -31,7 +33,7 @@
 
             $string = rtrim($string, ',');
 
-            echo $string;
+            echo $string . '<br>';
 
             print_r($this->head);
 
@@ -58,28 +60,46 @@
         // Adds an item to the end of the linked list.
         function add($item) {
 
-            // Create a new node.
-            $node = new Node($item);
-
             // If this is the first list item...
             if ($this->size == 0) {
-                $this->head = &$node;
-                $node->prev = NULL;
-                echo 'This-size (0) = ' . $this->size . '<br>';
+                $this->head->value = $item;
             }
 
             else {
-                echo 'This-size = ' . $this->size . '<br>';
-                $node->prev = $this->get_node($this->size - 1);
+                $node = $this->tail;
+
+                $node->next = new Node($item);
+
+                $node->next->prev = $node;
+                $this->tail = $node->next;
             }
 
-            // Next is always NULL, because it doesn't exist yet!
-            $node->next = NULL;
-            $this->tail = $node;
-
-            print_r($node);
-
             $this->size++;
+
+//            // Create a new node.
+//            $node = new Node($item);
+//
+//            // Next is always NULL, because it doesn't exist yet!
+//            $node->next = NULL;
+//
+//            // If this is the first list item...
+//            if ($this->size == 0) {
+//                $this->head = $node;
+//                $node->prev = NULL;
+//                echo 'This-size (0) = ' . $this->size . '<br>';
+//            }
+//
+//            else {
+//                echo 'This-size = ' . $this->size . '<br>';
+//                $node->prev = $this->get_node($this->size - 1);
+//                $this->get_node($this->size -1)->next = $node;
+//            }
+//
+//            $this->tail = $node;
+//
+//            print_r($node);
+//
+//            $this->size++;
         }
 
         // Inserts an item at the given index, shifting remaining items right.
@@ -90,25 +110,42 @@
             }
 
             else {
-                $node = $this->get_node($index - 1);
 
                 // Copy the items after the insert point over to another variable.
-                $list = $this->get_node($index);
+                $next = $this->get_node($index);
 
                 // Create a new node to insert into the list.
-                $node->next = new Node($item);
+                $node = new Node($item);
 
-                // Move the list pointer onto the new item.
-                $node = $node->next;
+                // If $index - 1 is positive...
+                if ($index - 1 >= 0) {
 
-                // If $node is the last item on the list, set next to NULL.
-                if ($index == $this->size) {
-                    $node->next = NULL;
+                    $prev = $this->get_node($index - 1);
+
+                    $next->prev = $node;
+                    $prev->next = $node;
+
+                    // If $node is the last item on the list, set next to NULL.
+                    if ($index == $this->size) {
+                        $node->next = NULL;
+                    }
+
+                    // If the $node is not the last in the list, set the value of next to the next node after the added one.
+                    else {
+                        $node->next = $next;
+
+                        // Point the new node to the previous one.
+                        $node->prev = $prev;
+                    }
                 }
 
-                // If the $node is not the last in the list, set the value of next to the next node after the added one.
                 else {
-                    $node->next = $list;
+
+                    $next->prev = $node;
+                    $node->next = $next;
+
+                    // Set this node to $this->head.
+                    $this->head = $node;
                 }
 
                 $this->size++;
@@ -143,17 +180,31 @@
             }
 
             else {
-                // Get the item right before the one at the given index.
-                $node = $this->get_node($index - 1);
 
-                // If this is the last item on the list, set next to NULL.
-                if ($index == $this->size - 1) {
-                    $node->next = NULL;
+                $next = $this->get_node($index + 1);
+
+                if ($index - 1 >= 0) {
+                    // Get the item right before the one at the given index.
+                    $prev = $this->get_node($index - 1);
+
+                    // If this is the last item on the list, set next to NULL.
+                    if ($index == $this->size - 1) {
+                        $prev->next = NULL;
+                    }
+
+                    // If the $index is not the last in the list, set the value of next to the next node after the deleted one.
+                    else {
+                        $prev->next = $next;
+                        $next->prev = $prev;
+                    }
                 }
 
-                // If the $index is not the last in the list, set the value of next to the next node after the deleted one.
                 else {
-                    $node->next = $this->get_node($index + 1);
+                    // Unset $prev for the next node.
+                    $next->prev = NULL;
+
+                    // Change $this->head.
+                    $this->head = $next;
                 }
 
                 $this->size--;
