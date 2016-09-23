@@ -75,31 +75,6 @@
             }
 
             $this->size++;
-
-//            // Create a new node.
-//            $node = new Node($item);
-//
-//            // Next is always NULL, because it doesn't exist yet!
-//            $node->next = NULL;
-//
-//            // If this is the first list item...
-//            if ($this->size == 0) {
-//                $this->head = $node;
-//                $node->prev = NULL;
-//                echo 'This-size (0) = ' . $this->size . '<br>';
-//            }
-//
-//            else {
-//                echo 'This-size = ' . $this->size . '<br>';
-//                $node->prev = $this->get_node($this->size - 1);
-//                $this->get_node($this->size -1)->next = $node;
-//            }
-//
-//            $this->tail = $node;
-//
-//            print_r($node);
-//
-//            $this->size++;
         }
 
         // Inserts an item at the given index, shifting remaining items right.
