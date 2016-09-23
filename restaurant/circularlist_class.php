@@ -148,15 +148,6 @@
 
     }
 
-    /* A node in the linked list */
-    class Node {
-
-        function __construct($value) {
-            $this->value = $value;
-            $this->next = NULL;
-        }
-    }
-
     /* An iterator for the circular list. */
     class CircularLinkedListIterator {
 

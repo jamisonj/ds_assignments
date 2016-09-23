@@ -1,15 +1,17 @@
 <?php
     /* A doubly-linked list implementation that holds arbitrary objects. */
-    class CircularLinkedList {
+    class DoublyLinkedList {
 
         // Creates a linked list.
         function __construct() {
             $this->size = 0;
-            $this->head = new Node(NULL);
+            $this->head = NULL;
+            $this->tail = NULL;
         }
 
         // Prints a representation of the entire list.
         function debug_print() {
+
             $string = $this->size . ' >>>';
 
             $node = $this->head;
@@ -20,6 +22,19 @@
             }
 
             $string = rtrim($string, ',');
+            $string .= ' >>>';
+
+            while ($node->prev != NULL) {
+                $node = $node->prev;
+                $string .= ' ' . $node->value . ',';
+            }
+
+            $string = rtrim($string, ',');
+
+            echo $string;
+
+            print_r($this->head);
+
             return $string;
         }
 
@@ -32,7 +47,7 @@
             else {
                 $node = $this->head;
 
-                for ($i = 0; $i <= $index; $i++) {
+                for ($i = 0; $i < $index; $i++) {
                     $node = $node->next;
                 }
 
@@ -42,13 +57,28 @@
 
         // Adds an item to the end of the linked list.
         function add($item) {
-            $node = $this->head;
 
-            while ($node->next != NULL) {
-                $node = $node->next;
+            // Create a new node.
+            $node = new Node($item);
+
+            // If this is the first list item...
+            if ($this->size == 0) {
+                $this->head = &$node;
+                $node->prev = NULL;
+                echo 'This-size (0) = ' . $this->size . '<br>';
             }
 
-            $node->next = new Node($item);
+            else {
+                echo 'This-size = ' . $this->size . '<br>';
+                $node->prev = $this->get_node($this->size - 1);
+            }
+
+            // Next is always NULL, because it doesn't exist yet!
+            $node->next = NULL;
+            $this->tail = $node;
+
+            print_r($node);
+
             $this->size++;
         }
 
@@ -138,35 +168,6 @@
 
             $this->set($index1, $value2);
             $this->set($index2, $value1);
-        }
-    }
-
-    /* A node in the linked list */
-    class Node {
-
-        function __construct($value) {
-            $this->value = $value;
-            $this->next = NULL;
-            $this->prev = NULL;
-        }
-    }
-
-    /* An iterator for the circular list. */
-    class CircularLinkedListIterator {
-
-        // Starts the iterator on the given circular list.
-        function __construct($circular_list) {
-
-        }
-
-        // Returns whether there is another value in the list.
-        function has_next() {
-
-        }
-
-        // Returns the next value, and increments the iterator by one value.
-        function next() {
-
         }
     }
 ?>

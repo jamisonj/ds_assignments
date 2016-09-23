@@ -1,0 +1,47 @@
+1:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+2:SONG,,Start the next song using the songs iterator: print the song name.
+3:APPETIZER_READY,Shrimp,The shrimp appetizer is ready
+4:APPETIZER_READY,Wings,The wings appetizer is ready
+5:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+6:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+7:ARRIVE,Anderson,The Anderson party shows up
+8:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+9:CALL,Bradshaw,The Bradshaw party calls ahead
+10:CALL,Cooper,The Cooper party calls ahead
+11:ARRIVE,Dean,The Dean party shows up
+12:SONG,,Start the next song using the songs iterator: print the song name.
+13:ARRIVE,Erikson,The Erikson party shows up
+14:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+15:ARRIVE,Cooper,The Cooper party shows up and moves to the waiting list (up to 5 spots in)
+16:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+17:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+18:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+19:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+20:SONG,,Start the next song using the songs iterator: print the song name.
+21:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+22:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+23:CALL,Fredericks,The Fredericks party calls ahead
+24:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+25:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+26:APPETIZER_READY,Cheese,The cheese appetizer is ready
+27:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+28:ARRIVE,Gehling,The Gehling party has arrived
+29:SONG,,Start the next song using the songs iterator: print the song name.
+30:ARRIVE,Hansen,The Hansen party has arrived
+31:APPETIZER_READY,Chips,The chips appetizer is ready
+32:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+33:ARRIVE,Indy,The Indy party has arrived
+34:ARRIVE,Jackson,The Jackson party has arrived
+35:ARRIVE,Kane,The Kane party has arrived
+36:ARRIVE,Fredericks,The Fredericks party has arrived
+37:APPETIZER_READY,Chocolate,The chocolate appetizer is ready
+38:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+39:SONG,,Start the next song using the songs iterator: print the song name.
+40:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+41:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+42:LEAVE,Indy,The Indy party has decided to go elsewhere
+43:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+44:SONG,,Start the next song using the songs iterator: print the song name.
+45:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+46:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+47:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs

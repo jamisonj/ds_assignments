@@ -1,5 +1,4 @@
 <?php
-    include 'linkedlist_class.php';
 
     /* A linked list implementation of a queue.
      * This contains a LinkedList internally.  It does not extend LinkedList.

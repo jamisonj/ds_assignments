@@ -153,6 +153,7 @@ class Node {
 	function __construct($value) {
 		$this->value = $value;
 		$this->next = NULL;
+        $this->prev = NULL;
 	}
 }
         
