@@ -7,20 +7,33 @@
         function __construct() {
             $this->size = 0;
             $this->head = new Node(NULL);
+            $this->tail = $this->head;
         }
 
         // Prints a representation of the entire list.
         function debug_print() {
-            $string = $this->size . ' >>>';
 
             $node = $this->head;
+            $string = $this->size . ' >>> ' . $node->value . ',';
 
-            while ($node->next != NULL) {
+            for ($i = 1; $i < $this->size; $i++) {
                 $node = $node->next;
                 $string .= ' ' . $node->value . ',';
             }
 
             $string = rtrim($string, ',');
+
+            echo 'Head: ' . $this->head->value . '<br>';
+            echo 'Tail: ' . $this->tail->value . '<br>';
+            echo '0: ' . $this->get_node(0)->value . '<br>';
+            echo '1: ' . $this->get_node(1)->value . '<br>';
+            echo '2: ' . $this->get_node(2)->value . '<br>';
+//            echo '3: ' . $this->get_node(3)->value . '<br>';
+//            echo '4: ' . $this->get_node(4)->value . '<br>';
+            echo $string . '<br>';
+
+            print_r($this->head);
+
             return $string;
         }
 
@@ -48,13 +61,20 @@
 
         // Adds an item to the end of the linked list.
         function add($item) {
-            $node = $this->head;
 
-            while ($node->next != NULL) {
-                $node = $node->next;
+            // If this is the first list item to be added...
+            if ($this->size == 0) {
+                $this->head->value = $item;
+                $this->head->next = $this->head;
             }
 
-            $node->next = new Node($item);
+            else {
+                $node = $this->tail;
+                $node->next = new Node($item);
+                $node->next->next = $this->head;
+                $this->tail = $node->next;
+            }
+
             $this->size++;
         }
 
@@ -66,25 +86,27 @@
             }
 
             else {
-                $node = $this->get_node($index - 1);
-
                 // Copy the items after the insert point over to another variable.
-                $list = $this->get_node($index);
+                $next = $this->get_node($index-1);
+                echo '$next->value: ' . $next->value .'<br>';
 
                 // Create a new node to insert into the list.
-                $node->next = new Node($item);
+                $node = new Node($item);
 
-                // Move the list pointer onto the new item.
-                $node = $node->next;
+                // If we are not inserting at the very first spot...
+                if ($index > 0) {
+                    $prev = $this->get_node($index - 1);
 
-                // If $node is the last item on the list, set next to NULL.
-                if ($index == $this->size) {
-                    $node->next = NULL;
+                    $prev->next = $node;
+
+                    $node->next = $next;
                 }
 
-                // If the $node is not the last in the list, set the value of next to the next node after the added one.
                 else {
-                    $node->next = $list;
+                    $node->next = $this->head;
+
+                    // Set $this->head to the new head.
+                    $this->head = $node;
                 }
 
                 $this->size++;

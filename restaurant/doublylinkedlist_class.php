@@ -33,6 +33,14 @@
 
             $string = rtrim($string, ',');
 
+            echo 'Head: ' . $this->head->value . '<br>';
+            echo 'Tail: ' . $this->tail->value . '<br>';
+            echo '0: ' . $this->get_node(0)->value . '<br>';
+            echo '1: ' . $this->get_node(1)->value . '<br>';
+            echo '2: ' . $this->get_node(2)->value . '<br>';
+//            echo '3: ' . $this->get_node(3)->value . '<br>';
+//            echo '4: ' . $this->get_node(4)->value . '<br>';
+
             echo $string . '<br>';
 
             print_r($this->head);
@@ -85,16 +93,14 @@
             }
 
             else {
-
                 // Copy the items after the insert point over to another variable.
                 $next = $this->get_node($index);
 
                 // Create a new node to insert into the list.
                 $node = new Node($item);
 
-                // If $index - 1 is positive...
+                // If we are not inserting at the very first spot...
                 if ($index - 1 >= 0) {
-
                     $prev = $this->get_node($index - 1);
 
                     $next->prev = $node;
@@ -115,11 +121,10 @@
                 }
 
                 else {
-
                     $next->prev = $node;
                     $node->next = $next;
 
-                    // Set this node to $this->head.
+                    // Set $this->head to the new head.
                     $this->head = $node;
                 }
 

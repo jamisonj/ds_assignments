@@ -21,7 +21,7 @@
 //            $this->buzzers->push('Buzzer');
 //            $this->buzzers->push('Buzzer');
 //            $this->buzzers->push('Buzzer');
-//            $this->songs = new CircularLinkedList();
+            $this->songs = new CircularLinkedList();
 //            $this->songs->add('Song 1');
 //            $this->songs->add('Song 2');
 //            $this->songs->add('Song 3');
@@ -35,14 +35,14 @@
 
             echo '<pre>';
 
-            $this->callahead->add(1);
-            $this->callahead->add(2);
-            $this->callahead->add(3);
-            $this->callahead->add(4);
-            $this->callahead->add(5);
-            $this->callahead->add(6);
+//            $this->callahead->add(1);
+//            $this->callahead->add(2);
+//            $this->callahead->add(3);
+//            $this->callahead->add(4);
+//            $this->callahead->add(5);
+//            $this->callahead->add(6);
 //            $this->callahead->add(7);
-            $this->callahead->insert(5, "tooth");
+//            $this->callahead->insert(0, "tooth");
 //            $this->callahead->insert(7, "brain");
 //            $this->callahead->set(5, "pimble");
 //            $this->callahead->get(5);
@@ -50,7 +50,17 @@
 //            $this->callahead->get(2);
 //            $this->callahead->get(0);
 //            $this->callahead->delete(0);
-            $this->callahead->debug_print();
+//            $this->callahead->debug_print();
+
+            $this->songs->add('Song 1');
+            $this->songs->add('Song 2');
+            $this->songs->add('Song 3');
+//            $this->songs->add('Song 4');
+//            $this->songs->add('Song 5');
+//            $this->songs->insert(0, 'Song 4');
+//            $this->songs->insert(0, 'Song 5');
+//            $this->songs->insert(2, 'Song 6');
+            $this->songs->debug_print();
 
 //            if ($handle !== FALSE) {
 //                while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
