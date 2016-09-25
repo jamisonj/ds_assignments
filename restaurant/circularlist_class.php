@@ -28,8 +28,10 @@
             echo '0: ' . $this->get_node(0)->value . '<br>';
             echo '1: ' . $this->get_node(1)->value . '<br>';
             echo '2: ' . $this->get_node(2)->value . '<br>';
-//            echo '3: ' . $this->get_node(3)->value . '<br>';
-//            echo '4: ' . $this->get_node(4)->value . '<br>';
+            echo '3: ' . $this->get_node(3)->value . '<br>';
+            echo '4: ' . $this->get_node(4)->value . '<br>';
+            echo '5: ' . $this->get_node(5)->value . '<br>';
+            echo '6: ' . $this->get_node(6)->value . '<br>';
             echo $string . '<br>';
 
             print_r($this->head);
@@ -51,8 +53,10 @@
             else {
                 $node = $this->head;
 
-                for ($i = 0; $i <= $index; $i++) {
+                for ($i = 0; $i < $index; $i++) {
                     $node = $node->next;
+//                    echo ('Index: ' . $index);
+//                    print_r($node);
                 }
 
                 return $node;
@@ -73,6 +77,11 @@
                 $node->next = new Node($item);
                 $node->next->next = $this->head;
                 $this->tail = $node->next;
+
+                // If this is the second item, reset where $head->next points.
+                if ($this->size == 1) {
+                    $this->head->next = $node->next;
+                }
             }
 
             $this->size++;
@@ -87,7 +96,7 @@
 
             else {
                 // Copy the items after the insert point over to another variable.
-                $next = $this->get_node($index-1);
+                $next = $this->get_node($index);
                 echo '$next->value: ' . $next->value .'<br>';
 
                 // Create a new node to insert into the list.

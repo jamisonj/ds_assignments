@@ -55,11 +55,11 @@
             $this->songs->add('Song 1');
             $this->songs->add('Song 2');
             $this->songs->add('Song 3');
-//            $this->songs->add('Song 4');
-//            $this->songs->add('Song 5');
-//            $this->songs->insert(0, 'Song 4');
-//            $this->songs->insert(0, 'Song 5');
-//            $this->songs->insert(2, 'Song 6');
+            $this->songs->add('Song 4');
+            $this->songs->add('Song 5');
+            $this->songs->insert(0, 'Song 6');
+            $this->songs->insert(0, 'Song 7');
+            $this->songs->insert(2, 'Song 8');
             $this->songs->debug_print();
 
 //            if ($handle !== FALSE) {
