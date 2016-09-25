@@ -35,15 +35,15 @@
 
             echo 'Head: ' . $this->head->value . '<br>';
             echo 'Tail: ' . $this->tail->value . '<br>';
-            echo '0: ' . $this->get_node(0)->value . '<br>';
-            echo '1: ' . $this->get_node(1)->value . '<br>';
-            echo '2: ' . $this->get_node(2)->value . '<br>';
+//            echo '0: ' . $this->get_node(0)->value . '<br>';
+//            echo '1: ' . $this->get_node(1)->value . '<br>';
+//            echo '2: ' . $this->get_node(2)->value . '<br>';
 //            echo '3: ' . $this->get_node(3)->value . '<br>';
 //            echo '4: ' . $this->get_node(4)->value . '<br>';
 
             echo $string . '<br>';
 
-            print_r($this->head);
+//            print_r($this->head);
 
             return $string;
         }
@@ -161,31 +161,53 @@
 
             else {
 
-                $next = $this->get_node($index + 1);
+                switch ($index) {
 
-                if ($index - 1 >= 0) {
-                    // Get the item right before the one at the given index.
-                    $prev = $this->get_node($index - 1);
+                    // Index is the first in the list.
+                    case 0:
+                        $this->head = $this->get_node(1);
+//                        $this->tail->next = $this->head;
+                        break;
 
-                    // If this is the last item on the list, set next to NULL.
-                    if ($index == $this->size - 1) {
-                        $prev->next = NULL;
-                    }
+                    // Index is the last in the list.
+                    case $this->size - 1:
+                        $node = $this->get_node($index - 1);
+                        $node->next = NULL;
+                        $this->tail = $node;
+                        break;
 
-                    // If the $index is not the last in the list, set the value of next to the next node after the deleted one.
-                    else {
-                        $prev->next = $next;
-                        $next->prev = $prev;
+                    default: {
+                        $node = $this->get_node($index - 1);
+                        $node->next = $this->get_node($index + 1);
+                        break;
                     }
                 }
 
-                else {
-                    // Unset $prev for the next node.
-                    $next->prev = NULL;
-
-                    // Change $this->head.
-                    $this->head = $next;
-                }
+//                $next = $this->get_node($index + 1);
+//
+//                if ($index - 1 >= 0) {
+//                    // Get the item right before the one at the given index.
+//                    $prev = $this->get_node($index - 1);
+//
+//                    // If this is the last item on the list, set next to NULL.
+//                    if ($index == $this->size - 1) {
+//                        $prev->next = NULL;
+//                    }
+//
+//                    // If the $index is not the last in the list, set the value of next to the next node after the deleted one.
+//                    else {
+//                        $prev->next = $next;
+//                        $next->prev = $prev;
+//                    }
+//                }
+//
+//                else {
+//                    // Unset $prev for the next node.
+//                    $next->prev = NULL;
+//
+//                    // Change $this->head.
+//                    $this->head = $next;
+//                }
 
                 $this->size--;
             }
