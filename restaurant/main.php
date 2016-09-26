@@ -14,10 +14,10 @@
             $this->appetizers = new Queue();
 
 
-//            $this->buzzers = new Stack();
-//            $this->buzzers->push('Buzzer');
-//            $this->buzzers->push('Buzzer');
-//            $this->buzzers->push('Buzzer');
+            $this->buzzers = new Stack();
+            $this->buzzers->push('Buzzer');
+            $this->buzzers->push('Buzzer');
+            $this->buzzers->push('Buzzer');
 //            $this->buzzers->push('Buzzer');
 //            $this->buzzers->push('Buzzer');
 //            $this->buzzers->push('Buzzer');
@@ -47,6 +47,7 @@
             $this->appetizers->debug_print();
             $this->appetizers->dequeue();
             $this->appetizers->debug_print();
+            $this->appetizers->size();
 
 //            $this->callahead->add(1);
 //            $this->callahead->add(2);

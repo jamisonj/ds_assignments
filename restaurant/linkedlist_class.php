@@ -7,6 +7,7 @@ class LinkedList {
 	function __construct() {
 		$this->size = 0;
 		$this->head = new Node(NULL);
+        $this->tail = $this->head;
 	}
 
 	// Prints a representation of the entire list.
@@ -30,7 +31,7 @@ class LinkedList {
 	}
 
 	// Retrieves the Node object at the given index.  Throws an exception if the index is not within the bounds of the linked list.
-	private function get_node($index) {
+	protected function get_node($index) {
 		if ($index < 0 || $index >= $this->size) {
 			throw new Exception('Error: '. $index . ' is not within the bounds of the current list.');
 		}
@@ -58,12 +59,9 @@ class LinkedList {
         }
 
         else {
-            echo "Size was not 0<br>";
-            while ($node->next != NULL) {
-                $node = $node->next;
-            }
-
+            $node = $this->tail;
             $node->next = new Node($item);
+            $this->tail = $node->next;
         }
 
         $this->size++;
@@ -77,26 +75,28 @@ class LinkedList {
 		}
 
 		else {
-			$node = $this->get_node($index - 1);
+            // Copy the items after the insert point over to another variable.
+            $next = $this->get_node($index);
+            echo '$next->value: ' . $next->value .'<br>';
 
-			// Copy the items after the insert point over to another variable.
-			$list = $this->get_node($index);
+            // Create a new node to insert into the list.
+            $node = new Node($item);
 
-			// Create a new node to insert into the list.
-			$node->next = new Node($item);
+            // If we are not inserting at the very first spot...
+            if ($index > 0) {
+                $prev = $this->get_node($index - 1);
 
-			// Move the list pointer onto the new item.
-			$node = $node->next;
+                $prev->next = $node;
 
-			// If $node is the last item on the list, set next to NULL.
-			if ($index == $this->size) {
-				$node->next = NULL;
-			}
+                $node->next = $next;
+            }
 
-			// If the $node is not the last in the list, set the value of next to the next node after the added one.
-			else {
-				$node->next = $list;
-			}
+            else {
+                $node->next = $this->head;
+
+                // Set $this->head to the new head.
+                $this->head = $node;
+            }
 
 			$this->size++;
 		}
@@ -142,7 +142,7 @@ class LinkedList {
                 case $this->size - 1:
                     $node = $this->get_node($index - 1);
 //                    $node->next = $this->head;
-//                    $this->tail = $node;
+                    $this->tail = $node;
                     break;
 
                 default: {

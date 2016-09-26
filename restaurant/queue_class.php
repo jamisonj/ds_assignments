@@ -36,6 +36,7 @@
 
         // Returns the number of items in the queue.
         function size() {
+            echo 'Size: ' . $this->list->size . '<br>';
             return $this->list->size;
         }
     }

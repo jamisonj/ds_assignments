@@ -8,7 +8,9 @@
 
         // Pushes an item onto the stack.
         function push($item) {
-
+            $node = $this->get_node($this->size - 1);
+            $node->next = new Node($item);
+            echo 'New node: ' . $node->next->value . '<br>';
         }
 
         /* Pops an item from the stack.  This is done as follows:
