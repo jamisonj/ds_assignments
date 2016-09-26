@@ -11,7 +11,9 @@
             // Creates the lists.
             $this->callahead = new DoublyLinkedList();
             $this->waiting = new DoublyLinkedList();
-//            $this->appetizers = new Queue();
+            $this->appetizers = new Queue();
+
+
 //            $this->buzzers = new Stack();
 //            $this->buzzers->push('Buzzer');
 //            $this->buzzers->push('Buzzer');
@@ -21,7 +23,7 @@
 //            $this->buzzers->push('Buzzer');
 //            $this->buzzers->push('Buzzer');
 //            $this->buzzers->push('Buzzer');
-            $this->songs = new CircularLinkedList();
+//            $this->songs = new CircularLinkedList();
 //            $this->songs->add('Song 1');
 //            $this->songs->add('Song 2');
 //            $this->songs->add('Song 3');
@@ -35,24 +37,35 @@
 
             echo '<pre>';
 
-            $this->callahead->add(1);
-            $this->callahead->add(2);
-            $this->callahead->add(3);
-            $this->callahead->add(4);
-            $this->callahead->add(5);
-            $this->callahead->add(6);
-            $this->callahead->add(7);
-            $this->callahead->add(8);
-            $this->callahead->add(9);
+            $this->appetizers->enqueue('Shrimp');
+            $this->appetizers->debug_print();
+            $this->appetizers->enqueue('Nachos');
+            $this->appetizers->debug_print();
+            $this->appetizers->enqueue('Potstickers');
+            $this->appetizers->debug_print();
+            $this->appetizers->enqueue('Varna');
+            $this->appetizers->debug_print();
+            $this->appetizers->dequeue();
+            $this->appetizers->debug_print();
+
+//            $this->callahead->add(1);
+//            $this->callahead->add(2);
+//            $this->callahead->add(3);
+//            $this->callahead->add(4);
+//            $this->callahead->add(5);
+//            $this->callahead->add(6);
+//            $this->callahead->add(7);
+//            $this->callahead->add(8);
+//            $this->callahead->add(9);
 //            $this->callahead->insert(0, "tooth");
 //            $this->callahead->insert(7, "brain");
 //            $this->callahead->set(5, "pimble");
-            $this->callahead->delete(0);
-            $this->callahead->debug_print();
-            $this->callahead->delete(4);
-            $this->callahead->debug_print();
-            $this->callahead->delete(6);
-            $this->callahead->debug_print();
+//            $this->callahead->delete(0);
+//            $this->callahead->debug_print();
+//            $this->callahead->delete(4);
+//            $this->callahead->debug_print();
+//            $this->callahead->delete(6);
+//            $this->callahead->debug_print();
 
 //            $this->songs->add('Song 1');
 //            $this->songs->add('Song 2');

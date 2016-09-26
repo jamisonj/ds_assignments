@@ -212,20 +212,24 @@
         function __construct($circular_list) {
             $list = new CircularLinkedList();
             $this->start = $list->get(0);
+            $index = 0;
         }
 
         // Returns whether there is another value in the list.
         function has_next() {
-            $index = 0;
+            if ($this->list->get($this->index) != NULL) {
+                return true;
+            }
 
-            for ($i = 0; $i < $index; $i++){
-                $truth = $list->get($index);
+            else {
+                return false;
             }
         }
 
         // Returns the next value, and increments the iterator by one value.
         function next() {
-
+            $this->index++;
+            $this->list->get($this->index);
         }
     }
 

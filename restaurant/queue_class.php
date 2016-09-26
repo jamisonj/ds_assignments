@@ -9,25 +9,17 @@
         // Constructor
         function __construct() {
             //TODO: Create the LinkedList in here.
+            $this->list = new LinkedList();
         }
 
         function debug_print() {
-            $string = $this->size . ' >>>';
-
-            $node = $this->head;
-
-            while ($node->next != NULL) {
-                $node = $node->next;
-                $string .= ' ' . $node->value . ',';
-            }
-
-            $string = rtrim($string, ',');
+            $string = $this->list->debug_print();
             return $string;
         }
 
         // Adds an item to the end of the queue.
         function enqueue($item) {
-
+            $this->list->add($item);
         }
 
         /* Dequeues the first item from the list.  This involves the following:
@@ -36,12 +28,15 @@
          * 3. Return the value of the node.
          */
         function dequeue() {
-
+            $value = $this->list->get(0);
+            $this->list->delete(0);
+            echo 'Get: ' . $value . '<br>';
+            return $value;
         }
 
         // Returns the number of items in the queue.
         function size() {
-
+            return $this->list->size;
         }
     }
 
