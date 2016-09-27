@@ -8,7 +8,6 @@
             $this->size = 0;
             $this->head = new Node(NULL);
             $this->tail = $this->head;
-            echo 'Size = ' . $this->size . '<br>';
         }
 
         // Prints a representation of the entire list.
@@ -23,13 +22,6 @@
             }
 
             $string = rtrim($string, ',');
-
-//            echo 'Head: ' . $this->head->value . '<br>';
-//            echo 'Tail: ' . $this->tail->value . '<br>';
-//            echo $string . '<br>';
-
-//            print_r($this->head);
-
             return $string;
         }
 
@@ -45,13 +37,6 @@
             }
 
             $string = rtrim($string, ',');
-
-//            echo 'Head: ' . $this->head->value . '<br>';
-//            echo 'Tail: ' . $this->tail->value . '<br>';
-//            echo $string . '<br>';
-
-//            print_r($this->head);
-
             return $string;
         }
 
@@ -66,8 +51,6 @@
 
                 for ($i = 0; $i < $index; $i++) {
                     $node = $node->next;
-//                    echo ('Index: ' . $index);
-//                    print_r($node);
                 }
 
                 return $node;
@@ -115,7 +98,6 @@
             else {
                 // Copy the items after the insert point over to another variable.
                 $next = $this->get_node($index);
-//                echo '$next->value: ' . $next->value .'<br>';
 
                 // Create a new node to insert into the list.
                 $node = new Node($item);

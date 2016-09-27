@@ -22,12 +22,7 @@ class LinkedList {
         }
 
 		$string = rtrim($string, ',');
-
-//        echo $string . '<br>';
-//
-//        print_r($this->head);
-
-		return $string;
+        return $string;
 	}
 
 	// Retrieves the Node object at the given index.  Throws an exception if the index is not within the bounds of the linked list.
@@ -55,7 +50,6 @@ class LinkedList {
         // If this is the first list item...
         if ($this->size == 0) {
             $node->value = $item;
-//            echo "Size was 0<br>";
         }
 
         else {
@@ -77,7 +71,6 @@ class LinkedList {
 		else {
             // Copy the items after the insert point over to another variable.
             $next = $this->get_node($index);
-//            echo '$next->value: ' . $next->value .'<br>';
 
             // Create a new node to insert into the list.
             $node = new Node($item);

@@ -1,47 +1,115 @@
 1:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+0 >>>  >>> 
+0 >>>  >>> 
+0 >>> 
+8 >>> Buzzer, Buzzer, Buzzer, Buzzer, Buzzer, Buzzer, Buzzer, Buzzer
+3 >>> Song 1, Song 2, Song 3
 2:SONG,,Start the next song using the songs iterator: print the song name.
+Song 1
 3:APPETIZER_READY,Shrimp,The shrimp appetizer is ready
 4:APPETIZER_READY,Wings,The wings appetizer is ready
 5:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+Error: 0 is not within the bounds of the current list.
 6:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+0 >>>  >>> 
+0 >>>  >>> 
+2 >>> Shrimp, Wings
+8 >>> Buzzer, Buzzer, Buzzer, Buzzer, Buzzer, Buzzer, Buzzer, Buzzer
+3 >>> Song 1, Song 2, Song 3
 7:ARRIVE,Anderson,The Anderson party shows up
 8:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+Shrimp >>> Anderson
 9:CALL,Bradshaw,The Bradshaw party calls ahead
 10:CALL,Cooper,The Cooper party calls ahead
 11:ARRIVE,Dean,The Dean party shows up
 12:SONG,,Start the next song using the songs iterator: print the song name.
+Song 2
 13:ARRIVE,Erikson,The Erikson party shows up
 14:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+2 >>> Bradshaw, Cooper >>> Cooper, Bradshaw
+3 >>> Anderson, Dean, Erikson >>> Erikson, Dean, Anderson
+1 >>> Wings
+5 >>> Buzzer, Buzzer, Buzzer, Buzzer, Buzzer
+3 >>> Song 1, Song 2, Song 3
 15:ARRIVE,Cooper,The Cooper party shows up and moves to the waiting list (up to 5 spots in)
 16:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+1 >>> Bradshaw >>> Bradshaw
+4 >>> Cooper, Anderson, Dean, Erikson >>> Erikson, Dean, Anderson, Cooper
+1 >>> Wings
+4 >>> Buzzer, Buzzer, Buzzer, Buzzer
+3 >>> Song 1, Song 2, Song 3
 17:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+Cooper
 18:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+Wings >>> Erikson, Dean, Anderson
 19:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+1 >>> Bradshaw >>> Bradshaw
+3 >>> Anderson, Dean, Erikson >>> Erikson, Dean, Anderson
+0 >>> 
+5 >>> Buzzer, Buzzer, Buzzer, Buzzer, Buzzer
+3 >>> Song 1, Song 2, Song 3
 20:SONG,,Start the next song using the songs iterator: print the song name.
+Song 3
 21:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+Anderson
 22:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+1 >>> Bradshaw >>> Bradshaw
+2 >>> Dean, Erikson >>> Erikson, Dean
+0 >>> 
+6 >>> Buzzer, Buzzer, Buzzer, Buzzer, Buzzer, Buzzer
+3 >>> Song 1, Song 2, Song 3
 23:CALL,Fredericks,The Fredericks party calls ahead
 24:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+Error: 0 is not within the bounds of the current list.
 25:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+Dean
 26:APPETIZER_READY,Cheese,The cheese appetizer is ready
 27:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+2 >>> Bradshaw, Fredericks >>> Fredericks, Bradshaw
+1 >>> Erikson >>> Erikson
+1 >>> Cheese
+7 >>> Buzzer, Buzzer, Buzzer, Buzzer, Buzzer, Buzzer, Buzzer
+3 >>> Song 1, Song 2, Song 3
 28:ARRIVE,Gehling,The Gehling party has arrived
 29:SONG,,Start the next song using the songs iterator: print the song name.
+Song 1
 30:ARRIVE,Hansen,The Hansen party has arrived
 31:APPETIZER_READY,Chips,The chips appetizer is ready
 32:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+Cheese >>> Hansen, Gehling, Erikson
 33:ARRIVE,Indy,The Indy party has arrived
 34:ARRIVE,Jackson,The Jackson party has arrived
 35:ARRIVE,Kane,The Kane party has arrived
 36:ARRIVE,Fredericks,The Fredericks party has arrived
 37:APPETIZER_READY,Chocolate,The chocolate appetizer is ready
 38:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+1 >>> Bradshaw >>> Bradshaw
+7 >>> Erikson, Gehling, Fredericks, Hansen, Indy, Jackson, Kane >>> Kane, Jackson, Indy, Hansen, Fredericks, Gehling, Erikson
+2 >>> Chips, Chocolate
+1 >>> Buzzer
+3 >>> Song 1, Song 2, Song 3
 39:SONG,,Start the next song using the songs iterator: print the song name.
+Song 2
 40:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+Chips >>> Kane, Jackson, Indy
 41:APPETIZER,,Give next appetizer to the last 3 waiting: print appetizer; print the three party names in reverse order
+Chocolate >>> Kane, Jackson, Indy
 42:LEAVE,Indy,The Indy party has decided to go elsewhere
 43:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+1 >>> Bradshaw >>> Bradshaw
+6 >>> Erikson, Gehling, Fredericks, Hansen, Jackson, Kane >>> Kane, Jackson, Hansen, Fredericks, Gehling, Erikson
+0 >>> 
+1 >>> Buzzer
+3 >>> Song 1, Song 2, Song 3
 44:SONG,,Start the next song using the songs iterator: print the song name.
+Song 3
 45:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+Erikson
 46:SEAT,,Seat the next party: add buzzer back to stack; remove from waiting list; print the party name
+Gehling
 47:DEBUG,,Print callahead; waiting; appetizers; buzzers; songs
+1 >>> Bradshaw >>> Bradshaw
+4 >>> Fredericks, Hansen, Jackson, Kane >>> Kane, Jackson, Hansen, Fredericks
+0 >>> 
+3 >>> Buzzer, Buzzer, Buzzer
+3 >>> Song 1, Song 2, Song 3
