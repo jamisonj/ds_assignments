@@ -134,14 +134,22 @@ class LinkedList {
 
                 // Index is the first in the list.
                 case 0:
-                    $this->head = $this->get_node($index + 1);
-//                    $this->tail->next = $this->head;
+                    if ($this->size == 1) {
+                        $node = $this->get_node(0);
+                        $node->value = NULL;
+                        $node->next = NULL;
+                    }
+
+                    else {
+                        $this->head = $this->get_node($index + 1);
+                    }
+
                     break;
 
                 // Index is the last in the list.
                 case $this->size - 1:
                     $node = $this->get_node($index - 1);
-//                    $node->next = $this->head;
+                    $node->next = NULL;
                     $this->tail = $node;
                     break;
 

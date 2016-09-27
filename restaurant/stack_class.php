@@ -8,9 +8,10 @@
 
         // Pushes an item onto the stack.
         function push($item) {
-            $node = $this->get_node($this->size - 1);
-            $node->next = new Node($item);
-            echo 'New node: ' . $node->next->value . '<br>';
+
+            $node = new Node($item);
+            echo 'New node: ' . $node->value . '<br>';
+            $this->add($item);
         }
 
         /* Pops an item from the stack.  This is done as follows:
@@ -19,7 +20,18 @@
          * 3. Return the value of the node.
          */
         function pop() {
+            $node = $this->head;
 
+            for ($i = 0; $i < $this->size - 1; $i++) {
+                $node = $node->next;
+            }
+
+            $value = $node->value;
+            $this->delete($i);
+
+            echo 'Value deleted: ' . $value . '<br>';
+
+            return $value;
         }
     }
 

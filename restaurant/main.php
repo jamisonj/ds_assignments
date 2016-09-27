@@ -15,9 +15,9 @@
 
 
             $this->buzzers = new Stack();
-            $this->buzzers->push('Buzzer');
-            $this->buzzers->push('Buzzer');
-            $this->buzzers->push('Buzzer');
+//            $this->buzzers->push('Buzzer');
+//            $this->buzzers->push('Buzzer');
+//            $this->buzzers->push('Buzzer');
 //            $this->buzzers->push('Buzzer');
 //            $this->buzzers->push('Buzzer');
 //            $this->buzzers->push('Buzzer');
@@ -37,17 +37,30 @@
 
             echo '<pre>';
 
-            $this->appetizers->enqueue('Shrimp');
-            $this->appetizers->debug_print();
-            $this->appetizers->enqueue('Nachos');
-            $this->appetizers->debug_print();
-            $this->appetizers->enqueue('Potstickers');
-            $this->appetizers->debug_print();
-            $this->appetizers->enqueue('Varna');
-            $this->appetizers->debug_print();
-            $this->appetizers->dequeue();
-            $this->appetizers->debug_print();
-            $this->appetizers->size();
+            $this->buzzers->push('Buzzer1');
+            $this->buzzers->debug_print();
+            $this->buzzers->push('Buzzer2');
+            $this->buzzers->debug_print();
+            $this->buzzers->push('Buzzer3');
+            $this->buzzers->debug_print();
+            $this->buzzers->pop();
+            $this->buzzers->debug_print();
+            $this->buzzers->pop();
+            $this->buzzers->debug_print();
+            $this->buzzers->pop();
+            $this->buzzers->debug_print();
+
+//            $this->appetizers->enqueue('Shrimp');
+//            $this->appetizers->debug_print();
+//            $this->appetizers->enqueue('Nachos');
+//            $this->appetizers->debug_print();
+//            $this->appetizers->enqueue('Potstickers');
+//            $this->appetizers->debug_print();
+//            $this->appetizers->enqueue('Varna');
+//            $this->appetizers->debug_print();
+//            $this->appetizers->dequeue();
+//            $this->appetizers->debug_print();
+//            $this->appetizers->size();
 
 //            $this->callahead->add(1);
 //            $this->callahead->add(2);
