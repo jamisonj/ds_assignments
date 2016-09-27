@@ -12,8 +12,6 @@
             $this->callahead = new DoublyLinkedList();
             $this->waiting = new DoublyLinkedList();
             $this->appetizers = new Queue();
-
-
             $this->buzzers = new Stack();
             $this->buzzers->push('Buzzer');
             $this->buzzers->push('Buzzer');
