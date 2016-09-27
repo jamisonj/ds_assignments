@@ -10,7 +10,7 @@
         function push($item) {
 
             $node = new Node($item);
-            echo 'New node: ' . $node->value . '<br>';
+//            echo 'New node: ' . $node->value . '<br>';
             $this->add($item);
         }
 
@@ -28,8 +28,7 @@
 
             $value = $node->value;
             $this->delete($i);
-
-            echo 'Value deleted: ' . $value . '<br>';
+//            echo 'Value deleted: ' . $value . '<br>';
 
             return $value;
         }

@@ -15,19 +15,19 @@
 
 
             $this->buzzers = new Stack();
-//            $this->buzzers->push('Buzzer');
-//            $this->buzzers->push('Buzzer');
-//            $this->buzzers->push('Buzzer');
-//            $this->buzzers->push('Buzzer');
-//            $this->buzzers->push('Buzzer');
-//            $this->buzzers->push('Buzzer');
-//            $this->buzzers->push('Buzzer');
-//            $this->buzzers->push('Buzzer');
-//            $this->songs = new CircularLinkedList();
-//            $this->songs->add('Song 1');
-//            $this->songs->add('Song 2');
-//            $this->songs->add('Song 3');
-//            $this->songs_iter = new CircularLinkedListIterator($this->songs);
+            $this->buzzers->push('Buzzer');
+            $this->buzzers->push('Buzzer');
+            $this->buzzers->push('Buzzer');
+            $this->buzzers->push('Buzzer');
+            $this->buzzers->push('Buzzer');
+            $this->buzzers->push('Buzzer');
+            $this->buzzers->push('Buzzer');
+            $this->buzzers->push('Buzzer');
+            $this->songs = new CircularLinkedList();
+            $this->songs->add('Song 1');
+            $this->songs->add('Song 2');
+            $this->songs->add('Song 3');
+            $this->songs_iter = new CircularLinkedListIterator($this->songs);
         }
 
         function run($handle) {
@@ -37,18 +37,18 @@
 
             echo '<pre>';
 
-            $this->buzzers->push('Buzzer1');
-            $this->buzzers->debug_print();
-            $this->buzzers->push('Buzzer2');
-            $this->buzzers->debug_print();
-            $this->buzzers->push('Buzzer3');
-            $this->buzzers->debug_print();
-            $this->buzzers->pop();
-            $this->buzzers->debug_print();
-            $this->buzzers->pop();
-            $this->buzzers->debug_print();
-            $this->buzzers->pop();
-            $this->buzzers->debug_print();
+//            $this->buzzers->push('Buzzer1');
+//            $this->buzzers->debug_print();
+//            $this->buzzers->push('Buzzer2');
+//            $this->buzzers->debug_print();
+//            $this->buzzers->push('Buzzer3');
+//            $this->buzzers->debug_print();
+//            $this->buzzers->pop();
+//            $this->buzzers->debug_print();
+//            $this->buzzers->pop();
+//            $this->buzzers->debug_print();
+//            $this->buzzers->pop();
+//            $this->buzzers->debug_print();
 
 //            $this->appetizers->enqueue('Shrimp');
 //            $this->appetizers->debug_print();
@@ -89,102 +89,119 @@
 //            $this->songs->add('Song 6');
 //            $this->songs->add('Song 7');
 //            $this->songs->add('Song 8');
-//            $this->songs->debug_print();
+//            $this->songs->debug_cycle(15);
 //            $this->songs->delete(7);
 //            $this->songs->debug_print();
 //            $this->songs->delete(0);
 //            $this->songs->debug_print();
 //            $this->songs->delete(2);
 //            $this->songs->debug_print();
+//            $this->songs->delete(2);
+//            $this->songs->debug_print();
+//            $this->songs->delete(2);
+//            $this->songs->debug_print();
+//            $this->songs->delete(2);
+//            $this->songs->debug_print();
+//            $this->songs->delete(1);
+//            $this->songs->debug_print();
+//            $this->songs->delete(0);
+//            $this->songs->debug_print();
 
-//            if ($handle !== FALSE) {
-//                while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
-//
-//                    // Output string for each row: The $row and $data values are added to $output string.
-//                    $output .= $row . ':' . $data[0] . ',' . $data[1] . ',' . $data[2] . PHP_EOL;
-//
-//            		switch ($data[0]) {
-//            			case 'CREATE':
-//            				$list = new LinkedList();
-//            				break;
-//
-//            			case 'ADD':
-//            			 	try {
-//            			 		$list->add($data[1]);
-//            			 	}
-//
-//            			 	catch (Exception $e) {
-//            					$output .= $e->getMessage() . PHP_EOL;
-//            				}
-//
-//            				break;
-//
-//            			case 'INSERT':
-//            				try {
-//            					$list->insert($data[1], $data[2]);
-//            				}
-//
-//            				catch (Exception $e) {
-//            					$output .= $e->getMessage() . PHP_EOL;
-//            				}
-//
-//            				break;
-//
-//            			case 'SET':
-//            				try {
-//            					$list->set($data[1], $data[2]);
-//            				}
-//
-//            				catch (Exception $e) {
-//            					$output .= $e->getMessage() . PHP_EOL;
-//            				}
-//
-//            				break;
-//
-//            			case 'GET':
-//            				try {
-//            					$get = $list->get($data[1]);
-//            					$output .= $get . PHP_EOL;
-//            				}
-//
-//            				catch (Exception $e) {
-//            					$output .= $e->getMessage() . PHP_EOL;
-//            				}
-//
-//            				break;
-//
-//            			case 'DELETE':
-//            				try {
-//            					$list->delete($data[1]);
-//            				}
-//
-//            				catch (Exception $e) {
-//            					$output .= $e->getMessage() . PHP_EOL;
-//            				}
-//
-//            				break;
-//
-//            			case 'SWAP':
-//            				try {
-//            					$list->swap($data[1], $data[2]);
-//            				}
-//
-//            				catch (Exception $e) {
-//            					$output .= $e->getMessage() . PHP_EOL;
-//            				}
-//
-//            				break;
-//
-//            			case "DEBUG":
-//            				$output .= $list->debug_print() . PHP_EOL;
-//            				break;
-//            		}
-//
-//                    $row++;
-//                }
-//
-//                echo $output;
-//            }
+            if ($handle !== FALSE) {
+                while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
+
+                    // Output string for each row: The $row and $data values are added to $output string.
+                    $output .= $row . ':' . $data[0] . ',' . $data[1] . ',' . $data[2] . PHP_EOL;
+
+            		switch ($data[0]) {
+
+                        case "SONG":
+                            if ($this->songs_iter->has_next()) {
+                                $song = $this->songs_iter->next();
+                                $output .= $song . ' Size: ' . $this->songs->size . PHP_EOL;
+                            }
+
+                            break;
+
+                        case "APPETIZER_READY":
+                            $this->appetizers->enqueue($data[1]);
+//                            echo $this->appetizers->debug_print();
+                            break;
+
+                        case "APPETIZER":
+
+                            $index = $this->waiting->size - 1;
+
+                            $app_output = '';
+
+                            try {
+                                $app_output .= $this->appetizers->dequeue() . ' >>>';
+
+                                for ($i = 0; $i < 3; $i++){
+                                    $app_output .= ' ' . $this->waiting->get($index) . ',';
+                                    $index--;
+                                }
+                            }
+
+                            catch (Exception $e) {
+                                // If waiting list or appetizers have no contents, print out the exception. Otherwise, do nothing.
+                                if ($this->waiting->size == 0 || $this->appetizers->size == 0) {
+                                    $app_output = $e->getMessage();
+                                }
+                            }
+
+                            $app_output = rtrim($app_output, ',') . PHP_EOL;
+                            $output .= $app_output;
+                            break;
+
+                        case "SEAT":
+                            try {
+                                $output .= $this->waiting->get(0);
+                                $this->waiting->delete(0);
+                            }
+
+                            catch (Exception $e) {
+                                $output .= $e->getMessage();
+                            }
+
+                            $output .= PHP_EOL;
+
+                            break;
+
+                        case "ARRIVE":
+                            $this->waiting->add($data[1]);
+                            break;
+
+                        case "CALL":
+                            break;
+
+                        case "LEAVE":
+                            $index = 0;
+
+                            do {
+                                $index++;
+                            }
+
+                            while ($this->waiting->get($index) != $data[1]);
+
+                            $this->waiting->delete($index);
+
+                            break;
+
+            			case "DEBUG":
+            				$output .= $this->callahead->debug_print() . PHP_EOL;
+                            $output .= $this->waiting->debug_print() . PHP_EOL;
+                            $output .= $this->appetizers->debug_print() . PHP_EOL;
+                            $output .= $this->buzzers->debug_print() . PHP_EOL;
+                            $output .= $this->songs->debug_print() . PHP_EOL;
+            				break;
+            		}
+
+                    $row++;
+                }
+
+                echo $output;
+            }
 
             echo '</pre>';
 

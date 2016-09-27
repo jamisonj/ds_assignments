@@ -33,16 +33,16 @@
 
             $string = rtrim($string, ',');
 
-            echo 'Head: ' . $this->head->value . '<br>';
-            echo 'Tail: ' . $this->tail->value . '<br>';
+//            echo 'Head: ' . $this->head->value . '<br>';
+//            echo 'Tail: ' . $this->tail->value . '<br>';
 //            echo '0: ' . $this->get_node(0)->value . '<br>';
 //            echo '1: ' . $this->get_node(1)->value . '<br>';
 //            echo '2: ' . $this->get_node(2)->value . '<br>';
 //            echo '3: ' . $this->get_node(3)->value . '<br>';
 //            echo '4: ' . $this->get_node(4)->value . '<br>';
-
-            echo $string . '<br>';
-
+//
+//            echo $string . '<br>';
+//
 //            print_r($this->head);
 
             return $string;
@@ -189,6 +189,7 @@
                     default: {
                         $node = $this->get_node($index - 1);
                         $node->next = $this->get_node($index + 1);
+                        $node->next->prev = $this->get_node($index - 1);
                         break;
                     }
                 }

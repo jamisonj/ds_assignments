@@ -10,6 +10,7 @@
         function __construct() {
             //TODO: Create the LinkedList in here.
             $this->list = new LinkedList();
+            $this->size = $this->list->size;
         }
 
         function debug_print() {
@@ -30,13 +31,13 @@
         function dequeue() {
             $value = $this->list->get(0);
             $this->list->delete(0);
-            echo 'Get: ' . $value . '<br>';
+//            echo 'Get: ' . $value . '<br>';
             return $value;
         }
 
         // Returns the number of items in the queue.
         function size() {
-            echo 'Size: ' . $this->list->size . '<br>';
+//            echo 'Size: ' . $this->list->size . '<br>';
             return $this->list->size;
         }
     }
