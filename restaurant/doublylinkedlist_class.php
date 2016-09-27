@@ -163,51 +163,35 @@
 
                 switch ($index) {
 
-                    // Index is the first in the list.
+                    // If $index is the first in the list.
                     case 0:
-                        $this->head = $this->get_node(1);
-//                        $this->tail->next = $this->head;
+                        // If the first item is the only item in the list.
+                        if ($this->size == 1) {
+                            $node = $this->get_node(0);
+                            $node->value = NULL;
+                            $node->next = NULL;
+                        }
+
+                        else {
+                            $this->head = $this->get_node($index + 1);
+                        }
+
                         break;
 
-                    // Index is the last in the list.
+                    // If $index is the last in the list.
                     case $this->size - 1:
                         $node = $this->get_node($index - 1);
                         $node->next = NULL;
                         $this->tail = $node;
                         break;
 
+                    // Everything else.
                     default: {
                         $node = $this->get_node($index - 1);
                         $node->next = $this->get_node($index + 1);
                         break;
                     }
                 }
-
-//                $next = $this->get_node($index + 1);
-//
-//                if ($index - 1 >= 0) {
-//                    // Get the item right before the one at the given index.
-//                    $prev = $this->get_node($index - 1);
-//
-//                    // If this is the last item on the list, set next to NULL.
-//                    if ($index == $this->size - 1) {
-//                        $prev->next = NULL;
-//                    }
-//
-//                    // If the $index is not the last in the list, set the value of next to the next node after the deleted one.
-//                    else {
-//                        $prev->next = $next;
-//                        $next->prev = $prev;
-//                    }
-//                }
-//
-//                else {
-//                    // Unset $prev for the next node.
-//                    $next->prev = NULL;
-//
-//                    // Change $this->head.
-//                    $this->head = $next;
-//                }
 
                 $this->size--;
             }

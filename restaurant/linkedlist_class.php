@@ -132,8 +132,9 @@ class LinkedList {
 		else {
             switch ($index) {
 
-                // Index is the first in the list.
+                // If $index is the first in the list.
                 case 0:
+                    // If the first item is the only item in the list.
                     if ($this->size == 1) {
                         $node = $this->get_node(0);
                         $node->value = NULL;
@@ -146,13 +147,14 @@ class LinkedList {
 
                     break;
 
-                // Index is the last in the list.
+                // If $index is the last in the list.
                 case $this->size - 1:
                     $node = $this->get_node($index - 1);
                     $node->next = NULL;
                     $this->tail = $node;
                     break;
 
+                // Everything else.
                 default: {
                     $node = $this->get_node($index - 1);
                     $node->next = $this->get_node($index + 1);
