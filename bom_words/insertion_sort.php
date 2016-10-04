@@ -10,47 +10,25 @@
             }
         }
 
-        $count = count($list);
         $new_list = array();
+        $i = 0;
 
-        for ($i = 0; $i < $count - 1; $i++) {
-
-            echo 'Old list: <br>';
-            print_r($list);
-
-            if ($list[$i+1] < $list[$i]) {
-                $moved = $list[$i];
-                $list[$i] = $list[$i+1];
-                $list[$i+1] = $moved;
-            }
+        while (count($list) > 0) {
 
             $new_list[$i] = $list[$i];
-
-//            if ($i = ($count - 1)) {
-//                $new_list[$i+1] = $list[$i+1];
-//            }
-
-            //TODO: Figure out how to get the last value added!
-
-            echo 'New List: <br>';
-            print_r($new_list);
+            unset($list[$i]);
 
             for ($j = count($new_list) - 1; $j > 0; $j--) {
 
                 if ($new_list[$j] < $new_list[$j-1]) {
-//                    echo 'Swap ' . $new_list[$j] . ' and ' . $new_list[$j-1] . '<br>';
                     $moved = $new_list[$j];
                     $new_list[$j] = $new_list[$j-1];
                     $new_list[$j-1] = $moved;
                 }
             }
-//            array_splice($list, 0, 1);
 
+            $i++;
         }
-
-//        }
-
-//        print_r($new_list);
 
         return $new_list;
     }
