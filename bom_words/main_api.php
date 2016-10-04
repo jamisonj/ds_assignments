@@ -1,5 +1,8 @@
 <?php
 
+    include 'bubble_sort.php';
+    include 'insertion_sort.php';
+
     $filenames = array(
         '1 Nephi' => '01-1 Nephi.txt',
         '2 Nephi' => '02-2 Nephi.txt',
@@ -69,7 +72,15 @@
 
         # read the full text of the BoM and analyze it
         echo 'FULL TEXT > 2%';
+
+        echo '<pre>';
+        $list = array(-1, 17, 20, 10, 4.00, 5, 4, -10, 6, 3, 2, 1, 15, 15);
+        $new_list = insertion_sort($list);
+        print_r($new_list);
+        echo '</pre>';
     }
+
+    main();
 
     /* Runner */
 //    if __name__ == '__main__':

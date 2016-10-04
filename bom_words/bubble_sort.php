@@ -28,10 +28,4 @@
         return $list;
     }
 
-    echo '<pre>';
-    $list = array(-1, 17, 20, 10, 4.00, 5, 4, -10, 6, 3, 2, 1, 15, 15);
-    $new_list = bubble_sort($list);
-    print_r($new_list);
-    echo '</pre>';
-
 ?>
