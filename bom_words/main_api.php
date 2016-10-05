@@ -2,6 +2,7 @@
 
     include 'bubble_sort.php';
     include 'insertion_sort.php';
+    include 'selection_sort.php';
 
     $filenames = array(
         '1 Nephi' => '01-1 Nephi.txt',
@@ -75,7 +76,7 @@
 
         echo '<pre>';
         $list = array(-1, 17, 20, 10, 4.00, 5, 4, -10, 6, 3, 2, 1, 15, 15);
-        $new_list = insertion_sort($list);
+        $new_list = selection_sort($list);
         print_r($new_list);
         echo '</pre>';
     }
