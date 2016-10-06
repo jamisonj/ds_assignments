@@ -26,9 +26,34 @@
 
     // Performs a very naive analysis of the words in the text, returning the SORTED list of WordData items
     function analyze_text($book, $text) {
+
         # lowercase the entire text
+        $text = strtolower($text);
 
         # split the text by whitespace to get a list of words
+
+        $text = preg_replace('/([0-9])/', '', $text);
+        $text = preg_replace('/chapter/', '', $text);
+        $text = preg_replace('/—/', '', $text);
+        $text = preg_replace('/[^\w\s]|_/', '', $text); // Punctuation.
+
+        $text = preg_replace('/\n/', '', $text);
+        $text = preg_replace('/\r/', ' ', $text);
+
+        $text = preg_split('/[ ]/', $text);
+        $text = array_values($text);
+//        $text = array_diff($text, array(''));
+//
+        foreach( $text as $key => $value ){
+            echo $value . '<br>';
+        }
+
+
+//        print_r($text);
+
+
+
+//        echo $text . '<br>';
 
         # convert each word to the longest run of characters
         # eliminate any words that are empty after conversion to characters
@@ -39,6 +64,7 @@
 
         # sort the WordData list using Bubble Sort, Insertion Sort, or Selection Sort:
         # 1. highest percentage [descending]
+//        word_data_list = bubble_sort_percent(word_data_list)
         # 2. highest count (if percentages are equal) [descending]
         # 3. lowest alpha order (if percentages and count are equal) [ascending]
 
@@ -57,40 +83,34 @@
 
     /* Main Loop */
 
-    // Main Program
-    function main() {
-        $master = array();
+    echo '<pre>';
 
-        # loop through the filenames and analyze each one
-        # after analyzing each file, merge the master and words lists into a single, sorted list (which becomes the new master list)
-        echo 'INDIVIDUAL BOOKS > 2%';
+    $master = array();
 
-        # print each book, word, count, percent in master list with percent over 2
-        echo 'MASTER LIST > 2%';
+    # loop through the filenames and analyze each one
 
-        # print each book, word, count, percent in master list with word == 'christ'
-        echo 'MASTER LIST == christ';
+//    foreach ($filenames as $key => $filename) {
+//        analyze_text($key, file_get_contents($filename));
+//    }
 
-        # read the full text of the BoM and analyze it
-        echo 'FULL TEXT > 2%';
+    analyze_text('1 Nephi', file_get_contents('01-1 Nephi.txt'));
 
-        echo '<pre>';
-        $list = array(-1, 17, 20, 10, 4.00, 5, 4, -10, 6, 3, 2, 1, 15, 15);
-        $new_list = selection_sort($list);
-        print_r($new_list);
-        echo '</pre>';
-    }
 
-    main();
+    # after analyzing each file, merge the master and words lists into a single, sorted list (which becomes the new master list)
+    echo 'INDIVIDUAL BOOKS > 2% <br>';
 
-    /* Runner */
-//    if __name__ == '__main__':
-//    main();
+    # print each book, word, count, percent in master list with percent over 2
+    echo 'MASTER LIST > 2% <br>';
 
-#######################
-###   Runner
+    # print each book, word, count, percent in master list with word == 'christ'
+    echo 'MASTER LIST == christ <br>';
 
-//if __name__ == '__main__':
-//main()
+    # read the full text of the BoM and analyze it
+    echo 'FULL TEXT > 2% <br>';
+
+    $list = array(-1, 17, 20, 10, 4.00, 5, 4, -10, 6, 3, 2, 1, 15, 15);
+    $new_list = selection_sort($list);
+    print_r($new_list);
+    echo '</pre>';
 
 ?>

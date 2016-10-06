@@ -1,5 +1,11 @@
 <?php
 
+    /*
+     * For this, you can use something like get_attr($object, $attribute_string); to get the value of the object attribute you need.
+     * Then you can just use a check for that within your function, without re-writing the function all over again!
+     * Thanks to John for this tip!
+     */
+
     function insertion_sort($list) {
 
         foreach ($list as $value) {

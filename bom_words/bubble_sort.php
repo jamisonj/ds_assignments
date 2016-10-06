@@ -17,7 +17,7 @@
 
             for ($i = 0; $i < count($list) - $j; $i++) {
 
-                if ($list[$i+1] < $list[$i]){
+                if ($list[$i+1].percent < $list[$i]){
                     $moved = $list[$i];
                     $list[$i] = $list[$i+1];
                     $list[$i+1] = $moved;
