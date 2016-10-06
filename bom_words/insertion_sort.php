@@ -5,7 +5,7 @@
         foreach ($list as $value) {
             $type = gettype($value);
 
-            if ($type === 'object' || $type === 'string' || $type === 'boolean') {
+            if ($type === 'string' || $type === 'boolean') {
                 throw new Exception('Error: This array contains the value ' . $value . ', which is of the type '. $type .'. This type is not permitted.');
             }
         }
