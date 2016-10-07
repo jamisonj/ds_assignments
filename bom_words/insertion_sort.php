@@ -16,23 +16,35 @@
             }
         }
 
+//        $list = array_filter($list, "is_object");
+
         $new_list = array();
         $i = 0;
 
         while (count($list) > 0) {
 
             $new_list[$i] = $list[$i];
-            unset($list[$i]);
 
             for ($j = count($new_list) - 1; $j > 0; $j--) {
 
-                if ($new_list[$j] < $new_list[$j-1]) {
-                    $moved = $new_list[$j];
-                    $new_list[$j] = $new_list[$j-1];
-                    $new_list[$j-1] = $moved;
+                if (gettype($list[$i] == 'object')) {
+                    if ($new_list[$j]->percent < $new_list[$j-1]->percent) {
+                        $moved = $new_list[$j];
+                        $new_list[$j] = $new_list[$j-1];
+                        $new_list[$j-1] = $moved;
+                    }
+                }
+
+                else {
+                    if ($new_list[$j] < $new_list[$j-1]) {
+                        $moved = $new_list[$j];
+                        $new_list[$j] = $new_list[$j-1];
+                        $new_list[$j-1] = $moved;
+                    }
                 }
             }
 
+            unset($list[$i]);
             $i++;
         }
 
