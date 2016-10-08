@@ -88,7 +88,10 @@
 
         $list = array(1, 2, 5, 2, 1, 6, 10, 52, 32);
 
-        $words_list = insertion_sort($words_list);
+        $words_list = insertion_sort($words_list, 'percent', 'count', 'word');
+
+//        $words_list = array_reverse($words_list);
+//        $words_list = insertion_sort($words_list, 'word');
 
         print_r($words_list);
 
