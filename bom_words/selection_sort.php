@@ -1,14 +1,14 @@
 <?php
 
-    function selection_sort($list) {
+    function selection_sort($list, ...$properties) {
 
-        foreach ($list as $value) {
-            $type = gettype($value);
-
-            if ($type === 'string' || $type === 'boolean') {
-                throw new Exception('Error: This array contains the value ' . $value . ', which is of the type '. $type .'. This type is not permitted.');
-            }
-        }
+//        foreach ($list as $value) {
+//            $type = gettype($value);
+//
+//            if ($type === 'string' || $type === 'boolean') {
+//                throw new Exception('Error: This array contains the value ' . $value . ', which is of the type '. $type .'. This type is not permitted.');
+//            }
+//        }
 
         for ($i = (count($list) - 1); $i > 0; $i--) {
 
