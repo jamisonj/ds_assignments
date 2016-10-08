@@ -33,6 +33,16 @@
                         $new_list[$j] = $new_list[$j-1];
                         $new_list[$j-1] = $moved;
                     }
+
+                    elseif ($new_list[$j]->percent == $new_list[$j-1]->percent) {
+                        if ($new_list[$j]->count < $new_list[$j-1]->count) {
+                            $moved = $new_list[$j];
+                            $new_list[$j] = $new_list[$j-1];
+                            $new_list[$j-1] = $moved;
+                        }
+
+                        // elseif - Check the word alphabetical sorting.
+                    }
                 }
 
                 else {
