@@ -29,12 +29,12 @@
 
                 foreach ($properties as $property) {
 
+                    $prop_type = gettype($property);
+
                     // If this $property is the first one.
                     if ($property == $properties[0]){
 
-                        $type = gettype($property);
-
-                        if ($type = 'string'){
+                        if ($prop_type = 'string'){
                             if ($new_list[$j]->{$property} > $new_list[$j - 1]->{$property}) {
                                 $moved = $new_list[$j];
                                 $new_list[$j] = $new_list[$j - 1];
@@ -55,7 +55,7 @@
                     // Otherwise, sort only within the categories of the previous sort.
                     else {
                         if ($new_list[$j]->{$properties[$p-1]} == $new_list[$j - 1]->{$properties[$p-1]}){
-                            if ($type = 'string') {
+                            if ($prop_type = 'string') {
                                 if ($new_list[$j]->{$property} < $new_list[$j - 1]->{$property}) {
                                     $moved = $new_list[$j];
                                     $new_list[$j] = $new_list[$j - 1];
