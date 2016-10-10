@@ -86,15 +86,18 @@
 
 //        insertion_sort($words_list);
 
-        $list = array(1, 2, 5, 2, 1, 6, 10, 52, 32);
+//        $list = array(1, 2, 5, 2, 1, 6, 10, 52, 32);
 
 //        print_r($words_list);
 
-        $words_list = selection_sort($words_list, 'percent', 'count');
+        $words_list = insertion_sort($words_list, 'object', 'percent', 'count', 'word');
+//        $words_list = selection_sort($words_list, 'object', 'percent', 'count', 'word');
+//        $words_list = bubble_sort($words_list, 'object', 'percent', 'count', 'word');
 
-        print_r($words_list);
+//        $words_list = bubble_sort($list, 'other');
 
         # return
+        return $words_list;
     }
 
     /* Prints a word list */
@@ -103,7 +106,43 @@
     function print_words($words, $threshold=NULL, $word=NULL) {
 
         # print the words over the threshold_percent or that match the given word
+        $list = array();
+        $i = 0;
 
+        $word = strtolower($word);
+
+        if ($threshold != NULL && $word != NULL) {
+            throw new Exception('Error: At least one of the two parameters must be NULL.');
+        }
+
+        if ($threshold != NULL) {
+
+            foreach ($words as $item) {
+                if ($item->percent >= $threshold) {
+                    $list[$i] = $item;
+                }
+
+                $i++;
+            }
+        }
+
+        if ($word != NULL) {
+            foreach ($words as $item) {
+                if ($item->word == $word) {
+                    $list[$i] = $item;
+                }
+
+                $i++;
+            }
+        }
+
+        foreach ($list as $item) {
+            echo $item->book . ',' . $item->word . ',' . $item->count . ',' . $item->percent . PHP_EOL;
+        }
+
+        echo PHP_EOL;
+
+//        print_r($list);
         # print an empty line
     }
 
@@ -121,11 +160,11 @@
 //        analyze_text($key, file_get_contents($filename));
 //    }
 
-    analyze_text('Omni', file_get_contents('06-Omni.txt'));
-
+    $words = analyze_text('Omni', file_get_contents('06-Omni.txt'));
 
     # after analyzing each file, merge the master and words lists into a single, sorted list (which becomes the new master list)
     echo 'INDIVIDUAL BOOKS > 2% <br>';
+    print_words($words, 2);
 
     # print each book, word, count, percent in master list with percent over 2
     echo 'MASTER LIST > 2% <br>';
