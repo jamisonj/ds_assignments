@@ -4,23 +4,24 @@
     include 'insertion_sort.php';
     include 'selection_sort.php';
     include 'worddata.php';
+    include 'merge_api.php';
 
     $filenames = array(
-        '1 Nephi' => '01-1 Nephi.txt',
-        '2 Nephi' => '02-2 Nephi.txt',
-        'Jacob' => '03-Jacob.txt',
+//        '1 Nephi' => '01-1 Nephi.txt',
+//        '2 Nephi' => '02-2 Nephi.txt',
+//        'Jacob' => '03-Jacob.txt',
         'Enos' => '04-Enos.txt',
         'Jarom' => '05-Jarom.txt',
         'Omni' => '06-Omni.txt',
         'Words of Mormon' => '07-Words of Mormon.txt',
-        'Mosiah' => '08-Mosiah.txt',
-        'Alma' => '09-Alma.txt',
-        'Helaman' => '10-Helaman.txt',
-        '3 Nephi' => '11-3 Nephi.txt',
-        '4 Nephi' => '12-4 Nephi.txt',
-        'Mormon' => '13-Mormon.txt',
-        'Ether' => '14-Ether.txt',
-        'Moroni' => '15-Moroni.txt'
+//        'Mosiah' => '08-Mosiah.txt',
+//        'Alma' => '09-Alma.txt',
+//        'Helaman' => '10-Helaman.txt',
+//        '3 Nephi' => '11-3 Nephi.txt',
+//        '4 Nephi' => '12-4 Nephi.txt',
+//        'Mormon' => '13-Mormon.txt',
+//        'Ether' => '14-Ether.txt',
+//        'Moroni' => '15-Moroni.txt'
     );
 
     /* Analyze a string of words */
@@ -156,18 +157,22 @@
 
     # loop through the filenames and analyze each one
 
-//    foreach ($filenames as $key => $filename) {
-//        analyze_text($key, file_get_contents($filename));
-//    }
-
-    $words = analyze_text('Omni', file_get_contents('06-Omni.txt'));
-
     # after analyzing each file, merge the master and words lists into a single, sorted list (which becomes the new master list)
     echo 'INDIVIDUAL BOOKS > 2% <br>';
+
+//    foreach ($filenames as $key => $filename) {
+//        $words = analyze_text($key, file_get_contents($filename));
+//        $master = merge_lists($master, $key);
+//        print_words($words, 2);
+//    }
+
+    $words = analyze_text('Words of Mormon', file_get_contents('07-Words of Mormon.txt'));
+    $master = merge_lists($master, $words);
     print_words($words, 2);
 
     # print each book, word, count, percent in master list with percent over 2
     echo 'MASTER LIST > 2% <br>';
+    print_r($master);
 
     # print each book, word, count, percent in master list with word == 'christ'
     echo 'MASTER LIST == christ <br>';
