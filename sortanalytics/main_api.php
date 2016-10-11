@@ -1,4 +1,10 @@
 <?php
+
+    include '../bom_words/bubble_sort.php';
+    include '../bom_words/insertion_sort.php';
+    include '../bom_words/selection_sort.php';
+    include 'quick_sort.php';
+
     $filenames = array(
         'list1.txt' => 'int',
         'list2.txt' => 'int',
@@ -20,5 +26,10 @@
 //            function main() {
 //
 //            }
+    }
+
+    /* Main processing */
+    foreach ($filenames as $filename => $type) {
+        //Run each sort function.
     }
 ?>
