@@ -1,19 +1,76 @@
 INDIVIDUAL BOOKS > 2%
-1 Nephi,the,2156,8.2
-1 Nephi,and,1661,6.3
-1 Nephi,of,1334,5
-1 Nephi,that,702,2.7
-1 Nephi,to,574,2.2
-1 Nephi,i,578,2.2
+Jacob,the,750,7.9
+Jacob,and,563,6
+Jacob,of,413,4.4
+Jacob,that,255,2.7
+Jacob,i,211,2.2
+Jacob,to,185,2
+
+Enos,and,90,7.5
+Enos,the,70,5.8
+Enos,i,48,4
+Enos,of,45,3.7
+Enos,in,29,2.4
+Enos,that,26,2.2
+Enos,to,27,2.2
+Enos,my,25,2.1
+
+Jarom,the,78,10.1
+Jarom,and,57,7.4
+Jarom,of,48,6.2
+Jarom,to,21,2.7
+Jarom,they,19,2.5
+
+Omni,the,118,8.1
+Omni,and,100,6.8
+Omni,of,74,5.1
+Omni,i,35,2.4
+Omni,to,35,2.4
+Omni,that,31,2.1
+
+Words of Mormon,the,63,7.1
+Words of Mormon,and,49,5.5
+Words of Mormon,of,49,5.5
+Words of Mormon,to,26,2.9
+Words of Mormon,i,22,2.5
 
 MASTER LIST > 2%
-1 Nephi,the,2156,8.2
-1 Nephi,and,1661,6.3
-1 Nephi,of,1334,5
-1 Nephi,that,702,2.7
-1 Nephi,to,574,2.2
-1 Nephi,i,578,2.2
+Jarom,the,78,10.1
+Omni,the,118,8.1
+Jacob,the,750,7.9
+Enos,and,90,7.5
+Jarom,and,57,7.4
+Words of Mormon,the,63,7.1
+Omni,and,100,6.8
+Jarom,of,48,6.2
+Jacob,and,563,6
+Enos,the,70,5.8
+Words of Mormon,and,49,5.5
+Words of Mormon,of,49,5.5
+Omni,of,74,5.1
+Jacob,of,413,4.4
+Enos,i,48,4
+Enos,of,45,3.7
+Words of Mormon,to,26,2.9
+Jacob,that,255,2.7
+Jarom,to,21,2.7
+Words of Mormon,i,22,2.5
+Jarom,they,19,2.5
+Omni,i,35,2.4
+Omni,to,35,2.4
+Enos,in,29,2.4
+Jacob,i,211,2.2
+Enos,that,26,2.2
+Enos,to,27,2.2
+Omni,that,31,2.1
+Enos,my,25,2.1
+Jacob,to,185,2
 
 MASTER LIST == christ
+Words of Mormon,christ,4,0.5
+Jacob,christ,31,0.3
+Enos,christ,3,0.2
+Jarom,christ,1,0.1
+Omni,christ,2,0.1
 
 FULL TEXT > 2%

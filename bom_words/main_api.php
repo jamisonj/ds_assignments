@@ -7,21 +7,21 @@
     include 'merge_api.php';
 
     $filenames = array(
-        '1 Nephi' => '01-1 Nephi.txt',
-        '2 Nephi' => '02-2 Nephi.txt',
+//        '1 Nephi' => '01-1 Nephi.txt',
+//        '2 Nephi' => '02-2 Nephi.txt',
         'Jacob' => '03-Jacob.txt',
         'Enos' => '04-Enos.txt',
         'Jarom' => '05-Jarom.txt',
         'Omni' => '06-Omni.txt',
         'Words of Mormon' => '07-Words of Mormon.txt',
-        'Mosiah' => '08-Mosiah.txt',
-        'Alma' => '09-Alma.txt',
-        'Helaman' => '10-Helaman.txt',
-        '3 Nephi' => '11-3 Nephi.txt',
-        '4 Nephi' => '12-4 Nephi.txt',
-        'Mormon' => '13-Mormon.txt',
-        'Ether' => '14-Ether.txt',
-        'Moroni' => '15-Moroni.txt'
+//        'Mosiah' => '08-Mosiah.txt',
+//        'Alma' => '09-Alma.txt',
+//        'Helaman' => '10-Helaman.txt',
+//        '3 Nephi' => '11-3 Nephi.txt',
+//        '4 Nephi' => '12-4 Nephi.txt',
+//        'Mormon' => '13-Mormon.txt',
+//        'Ether' => '14-Ether.txt',
+//        'Moroni' => '15-Moroni.txt'
     );
 
     /* Analyze a string of words */
@@ -70,7 +70,6 @@
 
         # sort the WordData list using Bubble Sort, Insertion Sort, or Selection Sort:
         # 1. highest percentage [descending]
-//        $word_data_list = bubble_sort_percent($words_list);
         # 2. highest count (if percentages are equal) [descending]
         # 3. lowest alpha order (if percentages and count are equal) [ascending]
 
@@ -173,8 +172,8 @@
     # read the full text of the BoM and analyze it
     echo 'FULL TEXT > 2% <br>';
     $output .= 'FULL TEXT > 2%' . PHP_EOL;
-    $full_text = analyze_text('Book of Mormon', file_get_contents('00-Book of Mormon.txt'));
-    $output .= print_words($full_text, 2);
+//    $full_text = analyze_text('Book of Mormon', file_get_contents('00-Book of Mormon.txt'));
+//    $output .= print_words($full_text, 2);
 
     $file = fopen("output.txt", "w") or die("Could not open file.");
     fwrite($file, $output);
