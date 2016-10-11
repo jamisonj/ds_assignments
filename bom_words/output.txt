@@ -1,0 +1,19 @@
+INDIVIDUAL BOOKS > 2%
+1 Nephi,the,2156,8.2
+1 Nephi,and,1661,6.3
+1 Nephi,of,1334,5
+1 Nephi,that,702,2.7
+1 Nephi,to,574,2.2
+1 Nephi,i,578,2.2
+
+MASTER LIST > 2%
+1 Nephi,the,2156,8.2
+1 Nephi,and,1661,6.3
+1 Nephi,of,1334,5
+1 Nephi,that,702,2.7
+1 Nephi,to,574,2.2
+1 Nephi,i,578,2.2
+
+MASTER LIST == christ
+
+FULL TEXT > 2%

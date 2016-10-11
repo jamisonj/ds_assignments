@@ -8,14 +8,6 @@
 
     function insertion_sort($list, $list_type, ...$properties) {
 
-//        foreach ($list as $value) {
-//            $type = gettype($value);
-//
-//            if ($type === 'string' || $type === 'boolean') {
-//                throw new Exception('Error: This array contains the value ' . $value . ', which is of the type '. $type .'. This type is not permitted.');
-//            }
-//        }
-
         $new_list = array();
         $i = 0;
 
