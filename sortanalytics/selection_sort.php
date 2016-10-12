@@ -153,7 +153,7 @@
 
                 while ($index < $i) {
 
-                    if ($list[$index + 1] < $greatest) {
+                    if ($list[$index + 1] > $greatest) {
                         $greatest = $list[$index + 1];
                         $key = $index + 1;
                     }

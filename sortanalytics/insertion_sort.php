@@ -6,7 +6,7 @@
      * Thanks to John for this tip!
      */
 
-    function insertion_sort($list, $list_type, ...$properties) {
+    function insertion_sort($list, $type, ...$properties) {
 
         $new_list = array();
         $i = 0;
@@ -19,7 +19,7 @@
 
                 $p = 0;
 
-                if ($list_type == 'object') {
+                if ($type == 'object') {
                     foreach ($properties as $property) {
 
                         $prop_type = gettype($property);
@@ -71,7 +71,7 @@
                 }
 
                 else {
-                    if ($new_list[$j] > $new_list[$j - 1]) {
+                    if ($new_list[$j] < $new_list[$j - 1]) {
                         $moved = $new_list[$j];
                         $new_list[$j] = $new_list[$j - 1];
                         $new_list[$j - 1] = $moved;

@@ -1,60 +1,71 @@
 <?php
 
-//    function quick_sort_split($split_value, $list) {
-//
-//        $a = 0;
-//        $b =
-//
-//        while ($list[$a] < $split_value) {
-//           $new_list[$a] = $list[$a];
-//        }
-//    }
-
     function quick_sort($list, $type, $pivot) {
 
         if ($type == 'integer' || $type == 'float') {
-            $left = 1;
-            $right = count($list) - 1;
 
-            $pivot = $list[0];
+            $new_list = array();
 
-            echo 'pivot: ' . $pivot . '<br>';
-
-            $done = false;
-
-            while(!($done)) {
-
-                while ($list[$left] <= $pivot && $left < $right) {
-                    $left++;
-                }
-
-                while ($list[$right] >= $pivot && $left < $right) {
-                    $right--;
-                }
-
-                echo 'left '. $list[$left] . '<br>';
-                echo 'right '. $list[$right] . '<br>';
-
-                if ($left >= $right) {
-                    $done = true;
-
-                }
-
-                else {
-                    $moved = $list[$left];
-                    $list[$left] = $list[$right];
-                    $list[$right] = $moved;
-                }
-
-                echo '<pre>';
-
-                print_r($list);
-
-                echo '</pre>';
+            if (count($list) <= 1) {
+                return $list;
             }
 
-            return $list;
+            else {
+                $left = 1;
+                $right = count($list) - 1;
 
+                $done = false;
+
+                while(!($done)) {
+
+                    while (@($list[$left]) <= $pivot && $left <= $right) {
+                        $left++;
+                    }
+
+                    while (@($list[$right]) >= $pivot && $left <= $right) {
+                        $right--;
+                    }
+
+                    if ($left > $right) {
+
+                        $done = true;
+
+                        $moved = $list[0];
+                        $list[0] = $list[$right];
+                        $list[$right] = $moved;
+                    }
+
+                    else {
+                        $moved = $list[$left];
+                        $list[$left] = $list[$right];
+                        $list[$right] = $moved;
+                    }
+                }
+
+                if ($right >= 0 && $left <= count($list)) {
+
+                    // Split the lists and call the function again.
+                    $array1 = array_slice($list, 0, $right);
+                    $array2 = array_slice($list, $left);
+
+                    $listA = array();
+                    $listB = array();
+
+                    if (!(empty($array1))){
+                        $listA = quick_sort($array1, $type, $array1[0]);
+                    }
+
+                    if (!(empty($array2))) {
+                        $listB = quick_sort($array2, $type, $array2[0]);
+                    }
+
+                    $new_list = $listA;
+                    $new_list[$right] = $pivot;
+                    $new_list = array_merge($new_list, $listB);
+                }
+
+                return $new_list;
+            }
         }
 
         else {
