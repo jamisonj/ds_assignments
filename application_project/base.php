@@ -1,6 +1,4 @@
 <?php
-    echo "<p>Test</p>";
-
     include 'post.php';
 
     $posts = array();
@@ -71,6 +69,7 @@
         $filepath = 'posts/' . $filenames[$a];
         $handle = fopen($filepath, 'r') or die('Unable to open file ' . $filepath . '!');
         $post->text = fread($handle, filesize($filepath));
+        $post->short_text = substr($post->text, 0, 150);
         fclose($handle);
         $a++;
     }

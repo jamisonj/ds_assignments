@@ -6,4 +6,5 @@
         public $date;
         public $author;
         public $text;
+        public $short_text;
 }
