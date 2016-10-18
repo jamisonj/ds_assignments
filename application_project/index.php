@@ -78,22 +78,28 @@
                 </h1>
 
                 <?php
-                    foreach ($posts as $post) { ?>
-                        <!-- Blog Post -->
-                        <h2>
-                            <a href="#"><?php echo $post->title; ?></a>
-                        </h2>
-                        <p class="lead">
-                            by <a href="index.php"><?php echo $post->author; ?></a>
-                        </p>
-                        <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $post->date; ?></p>
-                        <hr>
-                        <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                        <hr>
-                        <p><?php echo $post->short_text; ?></p>
-                        <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    if (!empty($_SESSION['posts'])) {
+                        foreach ($_SESSION['posts'] as $post) { ?>
+                            <!-- Blog Post -->
+                            <h2>
+                                <a href="#"><?php echo $post->title; ?></a>
+                            </h2>
+                            <p class="lead">
+                                by <a href="index.php"><?php echo $post->author; ?></a>
+                            </p>
+                            <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $post->date; ?></p>
+                            <hr>
+                            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                            <hr>
+                            <p><?php echo $post->short_text; ?></p>
+                            <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-                        <hr>
+                            <hr>
+                        <?php }
+                    }
+
+                    else { ?>
+                        <p>There are no posts that match your search query.</p>
                 <?php    }
                 ?>
 
@@ -116,12 +122,14 @@
                 <div class="well">
                     <h4>Blog Search</h4>
                     <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
+                        <form method="post">
+                            <input type="text" name="search" class="form-control">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit" value="Submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </form>
                     </div>
                     <!-- /.input-group -->
                 </div>
@@ -177,7 +185,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Your Website 2016</p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
