@@ -17,8 +17,6 @@
         $query_array = explode(' ', $query);
         $common_words = array("i","in","it","a","the","and","of","or","do","I","you","he","me","us","they","she","to","but","that","this","those","then","is","why","when","where","how","what","who");
 
-//        print_r($query_array);
-
         $keys = array();
         $score_array = array();
         $i = 0;
@@ -36,10 +34,10 @@
         }
 
         foreach ($query_array as $word) {
-            // If the word is in the $array, add the post to the list of $keys.
 
-                echo 'Word "' . $word . '".<br>';
+            echo 'Word "' . $word . '".<br>';
 
+            // If the word is in the post, add the post to the list of $keys.
             foreach ($array as $key => $value) {
 
                 $score = 0;
@@ -48,19 +46,17 @@
 
                 foreach ($properties as $property) {
 
-//                    echo 'Property is ' . $property . '<br>';
-
                     $count = substr_count(strtolower($value->{$property}), strtolower($word));
 
                     if ($count !== 0) {
-                        echo 'Found "' . $word . '" in property ' . $property . ' of key ' . $key . '. Number of times = ' . $count . '<br>';
-                        $score += $count;
+                        echo 'Found "' . $word . '" in property "' . $property . '" of key ' . $key . '. Number of times = ' . $count . '<br>';
+                        $score += $count; // Score is the number of times the search term appeared in the post.
                     }
                 }
 
                 if ($score !== 0) {
                     $score_array[$i] = new score();
-                    $score_array[$i]->key = $key;
+                    $score_array[$i]->key = $key; // Key is the ID of the post that contained the search term.
                     $score_array[$i]->score = $score;
                     $i++;
                 }
@@ -69,12 +65,11 @@
 
         usort($score_array, "compare_scores");
 
-
-
+        // Remove duplicate posts and add the scores together.
         $deduplicate = array();
 
         foreach ($score_array as $value) {
-            if ( !(in_array((string)$value, $deduplicate))) {
+            if (!(in_array((string)$value, $deduplicate))) {
                 echo "added " . (string)$value . " to deduplicate.<br>";
                 echo "Score: " . $value->score . "<br>";
                 $deduplicate[] = $value;
@@ -93,6 +88,8 @@
 
         print_r($deduplicate);
 
+        //Populate the returned $result_array. This array contains the posts that the page will display.
+
         $result_array = array();
         $j = 0;
 
@@ -110,6 +107,8 @@
         return $result_array;
 
     }
+
+    /* Main Processing */
 
     session_start();
 
