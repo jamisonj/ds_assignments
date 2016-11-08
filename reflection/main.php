@@ -81,6 +81,6 @@ $p3 = new Person('River Song/Melody Pond', 'F', $b3, true, 91234.56, 2001, $p1, 
 // Print
 //var_dump($p3);
 header('Content-Type: text/plain');
-echo to_json($p3);
+print to_json($p3);
 
 ?>

@@ -20,12 +20,10 @@ function to_json($obj, $level = 0){
     $properties = $reflector->getProperties();
 
 	$output .= "{" . "\n";
-    // echo "{" . "\n";
 
     foreach($properties as $property) {
 
     	$output .= $tabs . "\"" . $property->getName() . "\": ";
-    	// echo $tabs . "\"" . $property->getName() . "\": ";
 
     	switch (gettype($property->getvalue($obj))) {
     		case 'object':
@@ -39,19 +37,15 @@ function to_json($obj, $level = 0){
 
     		case 'boolean':
     			$output .= $property->getvalue($obj) ? "true" : "false" ;
-    			// echo $property->getvalue($obj) ? "true" : "false" ;
     			break;
 
     		case 'string':
     			$string = addslashes($property->getvalue($obj));
-    			// $string = str_replace('"', '\"', $string);
     			$output .= "\"" . $string . "\"";
-    			// echo "\"" . $string . "\"";
     			break;
 
 			case 'double':
 				$output .= number_format($property->getvalue($obj), 2, ".", "");
-				// echo number_format($property->getvalue($obj), 2, ".", "");
 				break;
 
 			default:
@@ -59,22 +53,13 @@ function to_json($obj, $level = 0){
 
 				// Handles the "null" case as well.
 				$output .= isset($value) ? $value : "null";
-				// echo isset($value) ? $value : "null";
 				break;
     	}
 
     	$output .= "," . "\n";
-    	// echo "," . "\n";
     }
 
     $output .= $tabsless . "}";
-    // echo $tabsless . "}";
-
-    // echo $tabs . 'Level: ' . $level . "\n";
-
-    // return json_encode($obj, JSON_PRETTY_PRINT) . ",";
-
-    // var_dump($properties);
 
 	return $output;
 }
