@@ -79,8 +79,10 @@ $b3 = new Date(2017, 8, 9);
 $p3 = new Person('River Song/Melody Pond', 'F', $b3, true, 91234.56, 2001, $p1, $p2, $f3);
 
 // Print
-//var_dump($p3);
-header('Content-Type: text/plain');
 print to_json($p3);
+
+// Writing to the output.txt file. This also creates it if it doesn't already exist.
+$file = fopen("output.txt", "w") or die("Could not open file.");
+fwrite($file, to_json($p3));
 
 ?>

@@ -1,0 +1,67 @@
+{
+	"name": "River Song/Melody Pond",
+	"gender": "F",
+	"birth_date": {
+		"year": 2017,
+		"month": 8,
+		"day": 9,
+	},
+	"is_cool": true,
+	"net_worth": 91234.56,
+	"debut_year": 2001,
+	"father": {
+		"name": "Peter \"Spidey\" Parker",
+		"gender": "M",
+		"birth_date": {
+			"year": 2011,
+			"month": 2,
+			"day": 3,
+		},
+		"is_cool": false,
+		"net_worth": 15000.00,
+		"debut_year": 1967,
+		"father": null,
+		"mother": null,
+		"franchise": {
+			"name": "Spiderman",
+			"owner": "Marvel",
+			"started": {
+				"year": 1962,
+				"month": 8,
+				"day": 1,
+			},
+		},
+	},
+	"mother": {
+		"name": "Lois Lane",
+		"gender": "F",
+		"birth_date": {
+			"year": 2014,
+			"month": 5,
+			"day": 6,
+		},
+		"is_cool": true,
+		"net_worth": 40000.50,
+		"debut_year": 1981,
+		"father": null,
+		"mother": null,
+		"franchise": {
+			"name": "Superman",
+			"owner": "DC\\Comics",
+			"started": {
+				"year": 1962,
+				"month": 8,
+				"day": 1,
+			},
+		},
+	},
+	"franchise": {
+		"name": "Doctor Who",
+		"owner": "BBC",
+		"started": {
+			"year": 1963,
+			"month": 1,
+			"day": 1,
+		},
+	},
+}

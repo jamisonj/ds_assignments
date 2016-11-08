@@ -19,7 +19,7 @@ function to_json($obj, $level = 0){
     $reflector = new ReflectionClass($obj);
     $properties = $reflector->getProperties();
 
-	$output .= "{" . "\n";
+	$output .= "{" . PHP_EOL;
 
     foreach($properties as $property) {
 
@@ -56,7 +56,7 @@ function to_json($obj, $level = 0){
 				break;
     	}
 
-    	$output .= "," . "\n";
+    	$output .= "," . PHP_EOL;
     }
 
     $output .= $tabsless . "}";
