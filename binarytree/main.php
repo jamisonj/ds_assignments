@@ -18,16 +18,18 @@
 	$tree->set('t', 'T');
 
 
-	echo $tree->get('f');
+	// echo $tree->get('f');
 
-	echo $tree->debug_print() . PHP_EOL;
+	// echo $tree->debug_print() . PHP_EOL;
 
-	// echo $tree->walk_bfs($tree);
+	// $tree->walk_bfs($tree);
+	// $tree->walk_bfs($tree->root);
 
-	foreach ($tree->walk_bfs($tree) as $item) {
-		print_r($item);
-	}
+	// foreach ($tree->walk_bfs() as $item) {
+	// 	echo $item;
+	// }
 
+	echo $tree->walk_bfs();
 	echo '</pre>';
 
 ?>

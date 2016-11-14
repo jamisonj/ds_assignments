@@ -111,109 +111,44 @@
 
 		}
 
-		function walk_bfs($tree) {
+		function walk_bfs() {
 
-			// $selected = $this->root;
+			$q = new SplQueue();
+			$q->enqueue($this->root);
 
-			// yield $selected;
+			$output = '';
 
-			foreach ($tree as $selected) {
+			while (count($q) > 0) {
+				$node = $q->dequeue();
 
-				print_r($selected);
-				// if ($selected->left !== '-') {
-				// 	yield from $this->walk_bfs($selected->left);
-				// 	continue;
-				// }
+				if ($node->left !== '-') {
+					$q->enqueue($node->left);
+				}
 
-				// if ($selected->right !== '-') {
-				// 	yield from $this->walk_bfs($selected->right);
-				// 	continue;
-				// }
+				if ($node->right !== '-') {
+					$q->enqueue($node->right);
+				}
+				
+				$output .= $node->key;
 			}
 
-			yield $selected->key;
-
-			// yield $selected;
-
-			// yield $selected;
-			
-			// $selected = $this->root; // 'c'
-
-			// $q = new SplQueue();
-			// $q->enqueue($selected);
-
-			// print_r($selected->left);
-			// print_r($selected->right);
-
-			// if (gettype($selected->left == 'object')) {
-			// 	$q->enqueue($selected->left);
-			// 	echo "Called left" . PHP_EOL;
-			// }
-
-			// if (gettype($selected->right == 'object')) {
-			// 	$q->enqueue($selected->left);
-			// 	echo "Called right" . PHP_EOL;
-			// }
-
-			// foreach ($this->generate($selected) as $value) {
-			//     print_r($value);
-			// }
-
-			// foreach ($this->generate(8) as $item) {
-
-			// 	print_r($this->generate($selected));
-				
-			// 	// if ($this->generate($selected->left)) {
-			// 	// 	// $q->enqueue($selected->left);
-			// 	// 	echo "Called left" . PHP_EOL;
-			// 	// }
-
-			// 	// if ($this->generate($selected->right)) {
-			// 	// 	// $q->enqueue($selected->right);
-			// 	// 	echo "Called right" . PHP_EOL;
-			// 	// }
-
-			// 	// print_r($item);
-			// 	// $q->enqueue($item);
-			// }
-
-			
-
-			// foreach ($q as $item) {
-			// 	echo $item->key . PHP_EOL;
-			// }
-
-			// $c = 0;
-
-			
-				// $q->enqueue($this->generate_left($selected->left));
-				// echo $this->generate_left($selected->left)->key;
-				// $q->enqueue($this->generate_right($selected->right));
-				// echo $this->generate_right($selected->right)->key;
-				// // $this->walk_bfs();
-				// $c++;
-				// echo $c . PHP_EOL;
-			
-
-			// print_r($q);
-
+			return $output;
 		}
 
 		function debug_print() {
-			$string = '';
-
+			
+			$output = '';
 			$selected = $this->root;
+			$output = $selected->key . '(' . $selected->parent . ')';
 
-			$string = $selected->key . '(' . $selected->parent . ')';
-
-			return $string;
+			return $output;
 		}
 
 		function generate($selected) {
 
-			if (gettype($selected) == 'object') {
-				yield $selected;
-			}
+			// if (gettype($selected) == 'object') {
+				yield $selected->key;
+			// }
 
 			// if (gettype($selected->right) == 'object') {
 			// 	yield $selected->right;
