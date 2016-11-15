@@ -105,56 +105,48 @@
 				$node = $q->dequeue();
 				
 				if ($node->key == $key) {
-					echo 'Key: ' . $node->key . PHP_EOL;
 
-					// If the node has no children...
+					/* If the node has no children... */
 					if ($node->left == '-' && $node->right == '-') {
+						
 						if ($node->parent->left == $node) {
 							$node->parent->left = '-';
-							echo 'deleted left' . PHP_EOL;
 						}
 
 						elseif ($node->parent->right == $node) {
 							$node->parent->right = '-';
-							echo 'deleted right' . PHP_EOL;
 						}
 					}
 
-					// If the node has one child...
+					/* If the node has one child... */
 					elseif (gettype($node->left) == 'object' && $node->right == '-') {
-						echo 'left' . PHP_EOL;
+						
 						if ($node->parent->left == $node) {
 							$node->parent->left = $node->left;
 							$node->left->parent = $node->parent;
-							echo 'deleted with left child replacement' . PHP_EOL;
 						}
 
 						elseif ($node->parent->right == $node) {
 							$node->parent->right = $node->left;
 							$node->left->parent = $node->parent;
-							echo 'deleted with left child replacement' . PHP_EOL;
 						}
 					}
 
 					elseif (gettype($node->right) == 'object' && $node->left == '-') {
-						echo 'right' . PHP_EOL;
+						
 						if ($node->parent->left == $node) {
 							$node->parent->left = $node->right;
 							$node->right->parent = $node->parent;
-							echo 'deleted with right child replacement' . PHP_EOL;
 						}
 
 						elseif ($node->parent->right == $node) {
 							$node->parent->right = $node->right;
 							$node->right->parent = $node->parent;
-							echo 'deleted with right child replacement' . PHP_EOL;
 						}
 					}
 
-					// If both children are objects...
+					/* If both children are objects... */
 					elseif (gettype($node->left) == 'object' && gettype($node->right) == 'object') {
-
-						echo "removing a branch" . PHP_EOL;
 
 						$new_root = $node;
 
@@ -162,8 +154,7 @@
 						$q2->enqueue($new_root);
 
 						$check_value = $new_root->key;
-						// print_r($new_root);
-						$greatest = $new_root->left->key;  // d
+						$greatest = $new_root->left->key; 
 						$deleted_object = $new_root->left;
 
 						// Loop to find the greatest element inside left tree.
@@ -175,7 +166,6 @@
 							if ($removed->key > $greatest && $removed->key < $check_value) {
 								$greatest = $removed->key;
 								$deleted_object = $removed;
-								echo 'To be removed: ' . $greatest . PHP_EOL;
 							}
 
 							if ($removed->left !== '-') {
@@ -187,10 +177,10 @@
 							}
 						}
 
+						// Recursive call to remove the $greatest child node from deeper in the tree.
 						$this->remove($greatest);
 
-						// print_r($this->root);
-
+						// Reassigning the data structure pointers.
 						$deleted_object->parent = $node->parent;
 
 						if ($node->left !== '-') {
@@ -210,12 +200,7 @@
 						elseif ($node->parent->right == $node) {
 							$node->parent->right = $deleted_object;
 						}
-						
-						// return $deleted_object;
-
 					}
-
-					
 				}
 
 				if ($node->left !== '-') {
@@ -233,14 +218,12 @@
 			$output = '';
 
 			if (gettype($node->left) == 'object') {
-				// echo 'Called left: ' . $node->left->value . PHP_EOL;
 				$output .= $this->walk_dfs_inorder($node->left);
 			}
 
 			$output .= $node->value . PHP_EOL;
 
 			if (gettype($node->right) == 'object') {
-				// echo 'Called right: ' . $node->right->value . PHP_EOL;
 				$output .= $this->walk_dfs_inorder($node->right);
 			}
 
@@ -253,12 +236,10 @@
 			$output .= $node->value . PHP_EOL;
 
 			if (gettype($node->left) == 'object') {
-				// echo 'Called left: ' . $node->left->value . PHP_EOL;
 				$output .= $this->walk_dfs_preorder($node->left);
 			}
 
 			if (gettype($node->right) == 'object') {
-				// echo 'Called right: ' . $node->right->value . PHP_EOL;
 				$output .= $this->walk_dfs_preorder($node->right);
 			}
 
@@ -270,12 +251,10 @@
 			$output = '';
 
 			if (gettype($node->left) == 'object') {
-				// echo 'Called left: ' . $node->left->value . PHP_EOL;
 				$output .= $this->walk_dfs_postorder($node->left);
 			}
 
 			if (gettype($node->right) == 'object') {
-				// echo 'Called right: ' . $node->right->value . PHP_EOL;
 				$output .= $this->walk_dfs_postorder($node->right);
 			}
 
@@ -288,8 +267,6 @@
 
 			$q = new SplQueue();
 			$q->enqueue($this->root);
-
-			// print_r($this->root);
 
 			$output = '';
 
@@ -329,12 +306,11 @@
 					$q->enqueue($node->right);
 				}
 				
-				$output .= $node->to_string() . PHP_EOL; // Fix this!
+				$output .= $node->to_string() . PHP_EOL;
 			}
 
 			return $output;
 		}
-
 	}
 
 	class Node {
