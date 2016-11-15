@@ -10,32 +10,48 @@
 
 	$tree->set('h', 'H');
 	$tree->set('a', 'A');
+	$tree->set('b', 'B');
+	$tree->set('e', 'E');
+	$tree->set('j', 'J');
 	$tree->set('d', 'D');
-	$tree->set('e', 'E');
-	$tree->set('e', 'E');
-	$tree->set('q', 'Q');
-	$tree->set('i', 'I');
-	$tree->set('t', 'T');
 	$tree->set('f', 'F');
+	$tree->set('i', 'I');
+	$tree->set('k', 'K');
 	$tree->set('g', 'G');
 
-	$tree->remove('q');
+	echo 'Initial tree: ' . PHP_EOL;
+	echo $tree->debug_print() . PHP_EOL;
 
+	echo 'Lookups: ' . PHP_EOL;
+	echo $tree->get('f') . PHP_EOL;
+	echo $tree->get('b') . PHP_EOL;
+	echo $tree->get('i') . PHP_EOL;
 
-	// echo $tree->get('f');
+	echo PHP_EOL;
 
-	// echo $tree->debug_print() . PHP_EOL;
+	echo 'BFS: ' . PHP_EOL;
+	echo $tree->walk_bfs() . PHP_EOL;
 
-	// $tree->walk_bfs($tree);
-	// $tree->walk_bfs($tree->root);
+	echo 'DFS preorder:' . PHP_EOL;
+	echo $tree->walk_dfs_preorder($tree->root) . PHP_EOL;
 
-	// foreach ($tree->walk_bfs() as $item) {
-	// 	echo $item;
-	// }
+	echo 'DFS inorder:' . PHP_EOL;
+	echo $tree->walk_dfs_inorder($tree->root) . PHP_EOL;
 
-	echo $tree->walk_bfs();
+	echo 'DFS postorder:' . PHP_EOL;
+	echo $tree->walk_dfs_postorder($tree->root) . PHP_EOL;
 
-	echo $tree->debug_print();
+	echo 'Remove b:' . PHP_EOL;
+	$tree->remove('b');
+	echo $tree->debug_print() . PHP_EOL;
+
+	echo 'Remove f:' . PHP_EOL;
+	$tree->remove('f');
+	echo $tree->debug_print() . PHP_EOL;
+
+	echo 'Remove h:' . PHP_EOL;
+	$tree->remove('h');
+	echo $tree->debug_print() . PHP_EOL;
 
 	echo '</pre>';
 

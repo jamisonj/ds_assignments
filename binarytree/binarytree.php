@@ -189,7 +189,7 @@
 
 						$this->remove($greatest);
 
-						print_r($this->root);
+						// print_r($this->root);
 
 						$deleted_object->parent = $node->parent;
 
@@ -228,16 +228,60 @@
 			}
 		}
 
-		function walk_dfs_inorder() {
+		function walk_dfs_inorder($node) {
 
+			$output = '';
+
+			if (gettype($node->left) == 'object') {
+				// echo 'Called left: ' . $node->left->value . PHP_EOL;
+				$output .= $this->walk_dfs_inorder($node->left);
+			}
+
+			$output .= $node->value . PHP_EOL;
+
+			if (gettype($node->right) == 'object') {
+				// echo 'Called right: ' . $node->right->value . PHP_EOL;
+				$output .= $this->walk_dfs_inorder($node->right);
+			}
+
+			return $output;
 		}
 
-		function walk_dfs_preorder() {
+		function walk_dfs_preorder($node) {
+			
+			$output = '';
+			$output .= $node->value . PHP_EOL;
 
+			if (gettype($node->left) == 'object') {
+				// echo 'Called left: ' . $node->left->value . PHP_EOL;
+				$output .= $this->walk_dfs_preorder($node->left);
+			}
+
+			if (gettype($node->right) == 'object') {
+				// echo 'Called right: ' . $node->right->value . PHP_EOL;
+				$output .= $this->walk_dfs_preorder($node->right);
+			}
+
+			return $output;
 		}
 
-		function walk_dfs_postorder() {
+		function walk_dfs_postorder($node) {
+			
+			$output = '';
 
+			if (gettype($node->left) == 'object') {
+				// echo 'Called left: ' . $node->left->value . PHP_EOL;
+				$output .= $this->walk_dfs_postorder($node->left);
+			}
+
+			if (gettype($node->right) == 'object') {
+				// echo 'Called right: ' . $node->right->value . PHP_EOL;
+				$output .= $this->walk_dfs_postorder($node->right);
+			}
+
+			$output .= $node->value . PHP_EOL;
+
+			return $output;
 		}
 
 		function walk_bfs() {
@@ -260,7 +304,7 @@
 					$q->enqueue($node->right);
 				}
 				
-				$output .= $node->key . PHP_EOL;
+				$output .= $node->value . PHP_EOL;
 			}
 
 			return $output;
