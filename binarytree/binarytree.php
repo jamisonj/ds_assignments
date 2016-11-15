@@ -96,7 +96,129 @@
 		}
 
 		function remove($key) {
+			
+			$q = new SplQueue();
+			$q->enqueue($this->root);
 
+			$output = '';
+
+			while (count($q) > 0) {
+
+				$node = $q->dequeue();
+				
+				if ($node->key == $key) {
+					echo 'Key: ' . $node->key . PHP_EOL;
+
+					// If the node has no children...
+					if ($node->left == '-' && $node->right == '-') {
+						if ($node->parent->left == $node) {
+							$node->parent->left = '-';
+							echo 'deleted left' . PHP_EOL;
+						}
+
+						elseif ($node->parent->right == $node) {
+							$node->parent->right = '-';
+							echo 'deleted right' . PHP_EOL;
+						}
+					}
+
+					// If the node has one child...
+					elseif (gettype($node->left) == 'object' && $node->right == '-') {
+						echo 'left' . PHP_EOL;
+						if ($node->parent->left == $node) {
+							$node->parent->left = $node->left;
+							$node->left->parent = $node->parent;
+							echo 'deleted with left child replacement' . PHP_EOL;
+						}
+
+						elseif ($node->parent->right == $node) {
+							$node->parent->right = $node->left;
+							$node->left->parent = $node->parent;
+							echo 'deleted with left child replacement' . PHP_EOL;
+						}
+					}
+
+					elseif (gettype($node->right) == 'object' && $node->left == '-') {
+						echo 'right' . PHP_EOL;
+						if ($node->parent->left == $node) {
+							$node->parent->left = $node->right;
+							$node->right->parent = $node->parent;
+							echo 'deleted with right child replacement' . PHP_EOL;
+						}
+
+						elseif ($node->parent->right == $node) {
+							$node->parent->right = $node->right;
+							$node->right->parent = $node->parent;
+							echo 'deleted with right child replacement' . PHP_EOL;
+						}
+					}
+
+					// If both children are objects...
+					elseif (gettype($node->left) == 'object' && gettype($node->right) == 'object') {
+
+						echo "removing a branch" . PHP_EOL;
+
+						$new_root = $node;
+
+						$q2 = new SplQueue();
+						$q2->enqueue($new_root);
+
+						$check_value = $new_root->key;
+						// print_r($new_root);
+						$greatest = $new_root->left->key;  // d
+						$deleted_object = $new_root->left;
+
+						// Loop to find the greatest element inside left tree.
+						while (count($q2) > 0) {
+
+							$removed = $q2->dequeue();
+
+							// Reassign $greatest to the $removed->key if $removed->key is greater than $greatest and less than $check_value.
+							if ($removed->key > $greatest && $removed->key < $check_value) {
+								$greatest = $removed->key;
+								$deleted_object = $removed;
+								echo 'To be removed: ' . $greatest . PHP_EOL;
+							}
+
+							if ($removed->left !== '-') {
+								$q2->enqueue($removed->left);
+							}
+
+							if ($removed->right !== '-') {
+								$q2->enqueue($removed->right);
+							}
+						}
+
+						$this->remove($greatest);
+
+						$deleted_object->left = $node->left;
+						$deleted_object->right = $node->right;
+						$deleted_object->parent = $node->parent;
+
+						// Set the old item to the new item.
+						if ($node->parent->left == $node) {
+							$node->parent->left = $deleted_object;
+						}
+
+						elseif ($node->parent->right == $node) {
+							$node->parent->right = $deleted_object;
+						}
+						
+						// return $deleted_object;
+
+					}
+
+					
+				}
+
+				if ($node->left !== '-') {
+					$q->enqueue($node->left);
+				}
+
+				if ($node->right !== '-') {
+					$q->enqueue($node->right);
+				}
+			}
 		}
 
 		function walk_dfs_inorder() {
@@ -116,6 +238,8 @@
 			$q = new SplQueue();
 			$q->enqueue($this->root);
 
+			// print_r($this->root);
+
 			$output = '';
 
 			while (count($q) > 0) {
@@ -129,32 +253,37 @@
 					$q->enqueue($node->right);
 				}
 				
-				$output .= $node->key;
+				$output .= $node->key . PHP_EOL;
 			}
 
 			return $output;
 		}
 
 		function debug_print() {
+
+			$q = new SplQueue();
+			$q->enqueue($this->root);
 			
 			$output = '';
-			$selected = $this->root;
-			$output = $selected->key . '(' . $selected->parent . ')';
+
+			while (count($q) > 0) {
+				
+				$node = $q->dequeue();
+
+				if ($node->left !== '-') {
+					$q->enqueue($node->left);
+				}
+
+				if ($node->right !== '-') {
+					$q->enqueue($node->right);
+				}
+				
+				$output .= $node->to_string() . PHP_EOL; // Fix this!
+			}
 
 			return $output;
 		}
 
-		function generate($selected) {
-
-			// if (gettype($selected) == 'object') {
-				yield $selected->key;
-			// }
-
-			// if (gettype($selected->right) == 'object') {
-			// 	yield $selected->right;
-			// }
-			
-		}
 	}
 
 	class Node {
@@ -171,6 +300,17 @@
 			$this->parent = $parent;
 			$this->left = $left;
 			$this->right = $right;
+		}
+
+		function to_string() {
+			if ($this->parent !== '-') {
+				return $this->key . '(' . $this->parent->key . ')';
+			}
+
+			else {
+				return $this->key . '(' . $this->parent . ')';
+			}
+			
 		}
 	}
 

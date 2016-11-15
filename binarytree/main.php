@@ -16,6 +16,10 @@
 	$tree->set('q', 'Q');
 	$tree->set('i', 'I');
 	$tree->set('t', 'T');
+	$tree->set('f', 'F');
+	$tree->set('g', 'G');
+
+	$tree->remove('h');
 
 
 	// echo $tree->get('f');
@@ -30,6 +34,9 @@
 	// }
 
 	echo $tree->walk_bfs();
+
+	echo $tree->debug_print();
+
 	echo '</pre>';
 
 ?>
