@@ -19,7 +19,7 @@
 	$tree->set('f', 'F');
 	$tree->set('g', 'G');
 
-	$tree->remove('h');
+	$tree->remove('q');
 
 
 	// echo $tree->get('f');

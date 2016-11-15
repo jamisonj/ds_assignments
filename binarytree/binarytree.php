@@ -100,8 +100,6 @@
 			$q = new SplQueue();
 			$q->enqueue($this->root);
 
-			$output = '';
-
 			while (count($q) > 0) {
 
 				$node = $q->dequeue();
@@ -191,11 +189,20 @@
 
 						$this->remove($greatest);
 
-						$deleted_object->left = $node->left;
-						$deleted_object->right = $node->right;
+						print_r($this->root);
+
 						$deleted_object->parent = $node->parent;
 
-						// Set the old item to the new item.
+						if ($node->left !== '-') {
+							$deleted_object->left = $node->left;
+							$deleted_object->left->parent = $deleted_object;
+						}
+
+						if ($node->right !== '-') {
+							$deleted_object->right = $node->right;
+							$deleted_object->right->parent = $deleted_object;
+						}
+						
 						if ($node->parent->left == $node) {
 							$node->parent->left = $deleted_object;
 						}
