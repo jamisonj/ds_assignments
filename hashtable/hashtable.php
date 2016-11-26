@@ -24,15 +24,24 @@
 
 		function get($key) {
 
+			$index = $this->get_hash($key);
+			$value = $this->hashtable[$index]->get($key);
+
+			return $value;
 		}
 
 		function remove($key) {
-
+			$index = $this->get_hash($key);
+			$this->hashtable[$index]->remove($key);
 		}
 
 		function debug_print() {
 
 			$output = '';
+
+			foreach ($this->hashtable as $value) {
+				$output .= print_r($value);
+			}
 
 			foreach ($this->hashtable as $key => $value) {
 				$output .= $key . ': ' . preg_replace('/[\r\n]+/', ', ', $value->walk_dfs_inorder($value->root)) . PHP_EOL;

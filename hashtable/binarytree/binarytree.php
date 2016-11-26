@@ -62,35 +62,38 @@
 
 			while ($selected !== '-') {
 
-				// echo 'Starting Key: ' . $selected->key . PHP_EOL;
+				// echo 'Key: ' . $key . PHP_EOL;
+				// echo 'Selected Key: ' . $selected->key . PHP_EOL;
 
 				$value = $selected->value;
 
-				if ($key == $selected->key) {
+				if (trim($key) === trim($selected->key)) {
 					// echo 'Equal to ' . $selected->key . PHP_EOL;
 					$value = $selected->value;
 					$selected = '-';
 				}
 
 				// Check if the key is greater than, less than, or equal to the specified key.
-				elseif ($key < $selected->key) {
+				elseif (trim($key) < trim($selected->key)) {
 					// echo 'Less than ' . $selected->key . PHP_EOL;
 					$selected = $selected->left; // Reassign $selected.
 
-					if ($selected == '-') {
+					if ($selected === '-') {
 						$value = null;
 					}
 				}
 
-				elseif ($key > $selected->key) {
+				elseif (trim($key) > trim($selected->key)) {
 					// echo 'More than ' . $selected->key . PHP_EOL;
 					$selected = $selected->right; // Reassign $selected.
 
-					if ($selected == '-') {
+					if ($selected === '-') {
 						$value = null;
 					} 
 				}
 			}
+
+			// echo $value;
 
 			return $value;
 		}
@@ -104,44 +107,51 @@
 
 				$node = $q->dequeue();
 				
-				if ($node->key == $key) {
+				if (trim($node->key) == trim($key)) {
 
 					/* If the node has no children... */
 					if ($node->left == '-' && $node->right == '-') {
-						
-						if ($node->parent->left == $node) {
-							$node->parent->left = '-';
-						}
 
-						elseif ($node->parent->right == $node) {
-							$node->parent->right = '-';
+						if (gettype($node->parent) == 'object') {
+
+							if ($node->parent->left == $node) {
+								$node->parent->left = '-';
+							}
+
+							elseif ($node->parent->right == $node) {
+								$node->parent->right = '-';
+							}
 						}
 					}
 
 					/* If the node has one child... */
 					elseif (gettype($node->left) == 'object' && $node->right == '-') {
-						
-						if ($node->parent->left == $node) {
-							$node->parent->left = $node->left;
-							$node->left->parent = $node->parent;
-						}
 
-						elseif ($node->parent->right == $node) {
-							$node->parent->right = $node->left;
-							$node->left->parent = $node->parent;
+						if (gettype($node->parent) == 'object') {
+							if ($node->parent->left == $node) {
+								$node->parent->left = $node->left;
+								$node->left->parent = $node->parent;
+							}
+
+							elseif ($node->parent->right == $node) {
+								$node->parent->right = $node->left;
+								$node->left->parent = $node->parent;
+							}
 						}
 					}
 
 					elseif (gettype($node->right) == 'object' && $node->left == '-') {
 						
-						if ($node->parent->left == $node) {
-							$node->parent->left = $node->right;
-							$node->right->parent = $node->parent;
-						}
+						if (gettype($node->parent) == 'object') {
+							if ($node->parent->left == $node) {
+								$node->parent->left = $node->right;
+								$node->right->parent = $node->parent;
+							}
 
-						elseif ($node->parent->right == $node) {
-							$node->parent->right = $node->right;
-							$node->right->parent = $node->parent;
+							elseif ($node->parent->right == $node) {
+								$node->parent->right = $node->right;
+								$node->right->parent = $node->parent;
+							}
 						}
 					}
 
