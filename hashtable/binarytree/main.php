@@ -53,7 +53,7 @@
 	$tree->remove('h');
 	$output .= $tree->debug_print() . PHP_EOL;
 
-	$output .= '</pre>';
+	echo '</pre>';
 
 	// Writing to the output.txt file. This also creates it if it doesn't already exist.
 	$file = fopen("output.txt", "w") or die("Could not open file.");

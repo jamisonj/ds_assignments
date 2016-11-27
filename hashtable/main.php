@@ -3,32 +3,69 @@
 
 	echo "<pre>";
 
-	$hashtable = new StringHashTable();
+	$output = '';
+
+	$stringhashtable = new StringHashTable();
 
 	$filename = "strings.txt";
 	$contents = file($filename);
 
 	foreach($contents as $line) {
-	    // echo $hashtable->get_hash(strtolower($line)) . PHP_EOL;
-	    $hashtable->set(strtolower($line), $line);
+	    $stringhashtable->set(strtolower($line), $line);
 	}
 
-	echo 'String hash table:' . PHP_EOL;
+	$output .= 'String hash table:' . PHP_EOL;
+	$output .= $stringhashtable->debug_print();
 
-	echo $hashtable->debug_print();
+	$output .= PHP_EOL . 'String lookups:' . PHP_EOL;
+	$output .= $stringhashtable->get('indian meal moth');
+	$output .= $stringhashtable->get('orb-weaving spiders (banded garden spider)');
 
-	echo PHP_EOL . 'String lookups:' . PHP_EOL;
+	$guidhashtable = new GuidHashTable();
 
-	echo $hashtable->get('indian meal moth');
-	echo $hashtable->get('orb-weaving spiders (banded garden spider)');
+	$filename = "guids.txt";
+	$contents = file($filename);
 
-	$hashtable->remove('indian meal moth');
-	$hashtable->remove('pseudoscorpions');
-	$hashtable->remove('armyworms/cutworms');
+	foreach($contents as $line) {
+	    $guidhashtable->set(strtolower($line), $line);
+	}
 
-	echo $hashtable->debug_print();
+	$output .= PHP_EOL . 'Guid hash table:' . PHP_EOL;
+	$output .= $guidhashtable->debug_print();
 
-	// print_r($hashtable);
+	$output .= PHP_EOL . 'Guid lookups:' . PHP_EOL;
+	$output .= $guidhashtable->get('00000158691797bd77464883000a001800388ccf');
+	$output .= $guidhashtable->get('00000158691797bd7746488c000a001991ef0003');
 
+	$imagehashtable = new ImageHashTable();
+
+	$directory = "images/";
+
+	// Open a known directory, and proceed to read its contents
+	if (is_dir($directory)) {
+	    if ($handle = opendir($directory)) {
+	        while (($file = readdir($handle)) !== false) {
+	            if (filetype($directory . $file) !== "dir") {
+	            	$image_data = file_get_contents($directory . $file);
+	            	$encoded_image = base64_encode($image_data);
+					$imagehashtable->set(strtolower($file), $file);
+	            }
+	        }
+	        closedir($handle);
+	    }
+	}
+
+	$output .= PHP_EOL . 'Image hash table:' . PHP_EOL;
+	$output .= $imagehashtable->debug_print();
+	
+	$output .= PHP_EOL . 'Image lookups:' . PHP_EOL;
+	$output .= $imagehashtable->get('document.png') . PHP_EOL;
+	$output .= $imagehashtable->get('security_keyandlock.png');
+
+	echo $output;
 	echo "</pre>";
+
+	// Writing to the output.txt file. This also creates it if it doesn't already exist.
+	$file = fopen("output.txt", "w") or die("Could not open file.");
+	fwrite($file, $output);
 ?>

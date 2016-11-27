@@ -95,7 +95,13 @@
 
 			// echo $value;
 
-			return $value;
+			if ($value === null) {
+				throw new Exception('Error: This value does not exist in the tree.');
+			}
+
+			else {
+				return $value;
+			}
 		}
 
 		function remove($key) {

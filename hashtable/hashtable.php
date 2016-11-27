@@ -31,6 +31,7 @@
 		}
 
 		function remove($key) {
+			
 			$index = $this->get_hash($key);
 			$this->hashtable[$index]->remove($key);
 		}
@@ -38,10 +39,6 @@
 		function debug_print() {
 
 			$output = '';
-
-			foreach ($this->hashtable as $value) {
-				$output .= print_r($value);
-			}
 
 			foreach ($this->hashtable as $key => $value) {
 				$output .= $key . ': ' . preg_replace('/[\r\n]+/', ', ', $value->walk_dfs_inorder($value->root)) . PHP_EOL;
@@ -64,7 +61,6 @@
 			$chars = str_split($text);
 
 			$index = 0;
-
 			$sum = 0;
 
 			foreach ($chars as $char) {
@@ -73,11 +69,7 @@
 				$index++;
 			}
 
-			// echo $sum . PHP_EOL;
-
 			$value = $sum % 10;
-
-			// echo $value . PHP_EOL;
 
 			return $value;
 		}
@@ -87,13 +79,39 @@
 		
 		function get_hash($key) {
 
+			$text = preg_replace('/\s+/', '', $key);
+			$chars = str_split($text);
+
+			$sum = 0;
+
+			for ($index = 0; $index < count($chars); $index++) {
+				$chars[$index] = hexdec($chars[$index]) % 10;
+				$sum += $chars[$index];
+			}
+
+			$value = $sum % 10;
+
+			return $value;
 		}
 	}
 
 	class ImageHashTable extends HashTable {
 		
 		function get_hash($key) {
+			
+			$text = preg_replace('/\s+/', '', $key);
+			$chars = str_split($text);
 
+			$sum = 0;
+
+			for ($index = 0; $index < count($chars); $index++) {
+				$chars[$index] = hexdec($chars[$index]) % 10;
+				$sum += $chars[$index];
+			}
+
+			$value = $sum % 10;
+
+			return $value;
 		}
 	}
 ?>
