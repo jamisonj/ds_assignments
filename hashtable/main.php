@@ -41,7 +41,6 @@
 
 	$directory = "images/";
 
-	// Open a known directory, and proceed to read its contents
 	if (is_dir($directory)) {
 	    if ($handle = opendir($directory)) {
 	        while (($file = readdir($handle)) !== false) {
