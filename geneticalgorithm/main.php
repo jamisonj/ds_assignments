@@ -2,6 +2,8 @@
 
 	include 'room.php';
 	include 'course.php';
+	include 'course_assignment.php';
+	include 'solution.php';
 
 	echo '<pre>';
 
@@ -52,6 +54,12 @@
 
 	array_shift($courses);
 	// print_r($courses);
+
+	foreach($courses as $course) {
+		$course_assignment = new CourseAssignment($course, $open_rooms);
+	}
+
+	
 
 	echo '</pre>';
 ?>

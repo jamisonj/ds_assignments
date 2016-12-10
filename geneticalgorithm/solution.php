@@ -2,6 +2,10 @@
 
 	class Solution {
 
+		function __construct($courses, $rooms) {
+
+		}
+
 		// Calculates the fitness function for the current time slot.
 		function getFitness() {
 
