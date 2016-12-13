@@ -43,6 +43,10 @@
 			return $this->schedule;
 		}
 
+		function getAvailableTime($days) {
+
+		}
+
 		// Calculates the fitness function for the current time slot.
 		function getFitness() {
 

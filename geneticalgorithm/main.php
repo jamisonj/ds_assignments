@@ -56,7 +56,13 @@
 	// print_r($courses);
 
 	foreach($courses as $course) {
-		$course_assignment = new CourseAssignment($course, $open_rooms);
+		$course_assignment = new CourseAssignment();
+		$course_assignment->createAssignment($course, $open_rooms);
+	}
+
+	foreach($open_rooms as $room) {
+		echo 'Room: ' . $room->room . PHP_EOL;
+		print_r($room->schedule);
 	}
 
 	
