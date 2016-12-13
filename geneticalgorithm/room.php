@@ -58,6 +58,7 @@
 				}
 			}
 
+			// Combined schedule.
 			// print_r($result);
 
 			return $result;

@@ -25,6 +25,8 @@
 	}
 
 	array_shift($open_rooms);
+
+	// Rooms array for reference:
 	// print_r($open_rooms);
 
 	// Iterate over the CSV file and create a Course object for each class.
@@ -53,12 +55,17 @@
 	}
 
 	array_shift($courses);
+
+	// Courses array for reference:
 	// print_r($courses);
 
 	foreach($courses as $course) {
 		$course_assignment = new CourseAssignment();
 		$course_assignment->createAssignment($course, $open_rooms);
 	}
+
+	echo 'Remaining Room Vacancies:' . PHP_EOL;
+	echo '--------------------------------' . PHP_EOL;
 
 	foreach($open_rooms as $room) {
 		echo 'Room: ' . $room->room . PHP_EOL;

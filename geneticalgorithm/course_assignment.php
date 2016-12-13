@@ -28,8 +28,8 @@
 				}
 
 				echo $course->name . PHP_EOL;
-				echo $course->hours . PHP_EOL;
-				echo 'Section: ' . $i . PHP_EOL;
+				echo 'Hours: ' . $course->hours . PHP_EOL;
+				echo 'Section: ' . ($i + 1) . PHP_EOL;
 				echo 'num_slots: ' . $num_slots . PHP_EOL;
 
 				// Pick a room randomly.
@@ -39,11 +39,12 @@
 
 				// Pick a timeslot that is available on all of the eligible days.
 				$valid_days = $course->get_days();
+				echo 'Valid Days ';
 				print_r($valid_days);
 
 				$common_schedules = $eligible_rooms[$room_key]->getAvailableTimeSlots($valid_days);
 
-				// // Check if the combined schedule has times available. If not, then return without scheduling.
+				// Check if the combined schedule has times available. If not, then return without scheduling.
 				if (empty($common_schedules)) {
 					echo "Course could not be scheduled." . PHP_EOL;
 					echo PHP_EOL;
@@ -55,7 +56,7 @@
 					// Get an initial $timeslot_key to test with.
 					$timeslot_key = array_rand($common_schedules);
 
-					echo 'timeslot_key: ' . $timeslot_key . PHP_EOL;
+					echo 'Starting timeslot_key: ' . $timeslot_key . PHP_EOL;
 
 					$counter = 0;
 
@@ -78,7 +79,6 @@
 
 					$counter = 0;
 
-
 					// Check the adjacent slots constraint.
 					for ($k = 0; $k < $num_slots; $k++) {
 						
@@ -99,7 +99,7 @@
 						$counter++;
 					}
 					
-					echo 'Assigned Timeslot: ' . $eligible_rooms[$room_key]->schedule[$valid_days[0]][$timeslot_key] . ' on ' . $valid_days[0] . PHP_EOL;
+					echo 'Final Assigned Timeslot: ' . $eligible_rooms[$room_key]->schedule[$valid_days[0]][$timeslot_key] . ' on ' . $valid_days[0] . PHP_EOL;
 
 					foreach ($valid_days as $day) {
 
@@ -111,7 +111,7 @@
 						}
 					}
 
-					// Uncomment this line to see the available slots disappear after each scheduling.
+					// See the available slots disappear after each course is scheduled.
 					// print_r($eligible_rooms[$room_key]->schedule);
 				}
 
