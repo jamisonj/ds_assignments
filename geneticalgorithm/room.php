@@ -43,8 +43,24 @@
 			return $this->schedule;
 		}
 
-		function getAvailableTime($days) {
+		// Returns the timeslots both days have in common.
+		function getAvailableTimeSlots($valid_days) {
+			
+			$result = $this->schedule[$valid_days[0]];
 
+			if (count($valid_days) > 1) {
+
+				$count = 0;
+
+				foreach ($valid_days as $day) {
+					$result = array_intersect($result, $this->schedule[$valid_days[$count]]);
+					$count++;
+				}
+			}
+
+			// print_r($result);
+
+			return $result;
 		}
 
 		// Calculates the fitness function for the current time slot.

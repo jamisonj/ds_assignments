@@ -65,7 +65,5 @@
 		print_r($room->schedule);
 	}
 
-	
-
 	echo '</pre>';
 ?>
