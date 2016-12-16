@@ -1,4 +1,7 @@
-# Assignment: TNRB Classrooms
+# README: Genetic Algorithms Final Exam
+### Justin Jamison
+### IS 537
+### 12/15/16
 
 As the room scheduler for the Tanner building, you have been asked to schedule rooms and times for next semester's business management courses.  Your constraints are as follows:
 
