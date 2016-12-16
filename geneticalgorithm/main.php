@@ -7,6 +7,8 @@
 
 	echo '<pre>';
 
+	$output = '';
+
 	// Iterate over the CSV file and create a Room object for each room.
 	$open_rooms = array();
 
@@ -61,8 +63,10 @@
 
 	foreach($courses as $course) {
 		$course_assignment = new CourseAssignment();
-		$course_assignment->createAssignment($course, $open_rooms);
+		$output .= $course_assignment->createAssignment($course, $open_rooms);
 	}
+
+	echo $output;
 
 	echo 'Remaining Room Vacancies:' . PHP_EOL;
 	echo '--------------------------------' . PHP_EOL;
@@ -73,4 +77,8 @@
 	}
 
 	echo '</pre>';
+
+	// Writing to the output.txt file. This also creates it if it doesn't already exist.
+	$file = fopen("output.txt", "w") or die("Could not open file.");
+	fwrite($file, $output);
 ?>
