@@ -4,8 +4,8 @@ Section: 1
 num_slots: 3
 Random room: 151
 Valid Days: monday wednesday 
-Starting timeslot_key: 4
-Final Assigned Timeslot: 10:00 on monday
+Starting timeslot_key: 11
+Final Assigned Timeslot: 1:30 on monday
 
 BUS M 180
 Hours: 1.5
@@ -13,153 +13,155 @@ Section: 1
 num_slots: 3
 Random room: 151
 Valid Days: friday 
-Starting timeslot_key: 2
-Final Assigned Timeslot: 9:00 on friday
+Starting timeslot_key: 6
+Final Assigned Timeslot: 11:00 on friday
 
 BUS M 241
 Hours: 1.5
 Section: 1
 num_slots: 3
-Random room: W208
-Valid Days: wednesday 
-Starting timeslot_key: 4
-Final Assigned Timeslot: 10:00 on wednesday
-
-BUS M 260
-Hours: 1.75
-Section: 1
-num_slots: 4
-Random room: 251
-Valid Days: monday wednesday 
-Starting timeslot_key: 9
-Final Assigned Timeslot: 12:30 on monday
-
-BUS M 260
-Hours: 1.75
-Section: 2
-num_slots: 4
-Random room: W310
-Valid Days: monday wednesday 
-Starting timeslot_key: 2
-Final Assigned Timeslot: 9:00 on monday
-
-BUS M 277
-Hours: 1.5
-Section: 1
-num_slots: 3
 Random room: W240
-Valid Days: tuesday thursday 
-Starting timeslot_key: 15
-Final Assigned Timeslot: 3:30 on tuesday
+Valid Days: wednesday 
+Starting timeslot_key: 16
+timeslot_key reassigned: 10
+Final Assigned Timeslot: 1:00 on wednesday
+
+BUS M 260
+Hours: 1.75
+Section: 1
+num_slots: 4
+Random room: 210
+Valid Days: monday wednesday 
+Starting timeslot_key: 17
+timeslot_key reassigned: 13
+Final Assigned Timeslot: 2:30 on monday
+
+BUS M 260
+Hours: 1.75
+Section: 2
+num_slots: 4
+Random room: W308
+Valid Days: monday wednesday 
+Starting timeslot_key: 10
+Final Assigned Timeslot: 1:00 on monday
 
 BUS M 277
 Hours: 1.5
-Section: 2
+Section: 1
 num_slots: 3
-Random room: 230
+Random room: W408
 Valid Days: tuesday thursday 
 Starting timeslot_key: 12
 Final Assigned Timeslot: 2:00 on tuesday
 
+BUS M 277
+Hours: 1.5
+Section: 2
+num_slots: 3
+Random room: 710
+Valid Days: tuesday thursday 
+Starting timeslot_key: 5
+Final Assigned Timeslot: 10:30 on tuesday
+
 BUS M 313
 Hours: 1.5
 Section: 1
 num_slots: 3
-Random room: 120
+Random room: 260
 Valid Days: thursday 
-Starting timeslot_key: 7
-Final Assigned Timeslot: 11:30 on thursday
+Starting timeslot_key: 15
+Final Assigned Timeslot: 3:30 on thursday
 
 BUS M 313
 Hours: 1.5
 Section: 2
 num_slots: 3
-Random room: W242
+Random room: 280
 Valid Days: thursday 
-Starting timeslot_key: 11
-Final Assigned Timeslot: 1:30 on thursday
+Starting timeslot_key: 1
+Final Assigned Timeslot: 8:30 on thursday
 
 BUS M 313
 Hours: 1.5
 Section: 3
 num_slots: 3
-Random room: W208
+Random room: W408
 Valid Days: thursday 
-Starting timeslot_key: 11
-Final Assigned Timeslot: 1:30 on thursday
-
-BUS M 313
-Hours: 1.5
-Section: 4
-num_slots: 3
-Random room: 260
-Valid Days: thursday 
-Starting timeslot_key: 3
-Final Assigned Timeslot: 9:30 on thursday
-
-BUS M 313
-Hours: 1.5
-Section: 5
-num_slots: 3
-Random room: 230
-Valid Days: thursday 
-Starting timeslot_key: 2
+Starting timeslot_key: 16
+timeslot_key reassigned: 2
 Final Assigned Timeslot: 9:00 on thursday
 
+BUS M 313
+Hours: 1.5
+Section: 4
+num_slots: 3
+Random room: W408
+Valid Days: thursday 
+Starting timeslot_key: 6
+Final Assigned Timeslot: 11:00 on thursday
+
+BUS M 313
+Hours: 1.5
+Section: 5
+num_slots: 3
+Random room: 174
+Valid Days: thursday 
+Starting timeslot_key: 11
+Final Assigned Timeslot: 1:30 on thursday
+
 BUS M 361
 Hours: 1.25
 Section: 1
 num_slots: 3
-Random room: W310
+Random room: W208
 Valid Days: monday wednesday 
-Starting timeslot_key: 15
-Final Assigned Timeslot: 3:30 on monday
+Starting timeslot_key: 0
+Final Assigned Timeslot: 8:00 on monday
 
 BUS M 361
 Hours: 1.25
 Section: 2
 num_slots: 3
-Random room: W308
+Random room: 230
 Valid Days: monday wednesday 
-Starting timeslot_key: 14
-Final Assigned Timeslot: 3:00 on monday
+Starting timeslot_key: 2
+Final Assigned Timeslot: 9:00 on monday
 
 BUS M 361
 Hours: 1.25
 Section: 3
 num_slots: 3
-Random room: 220
+Random room: W242
 Valid Days: monday wednesday 
-Starting timeslot_key: 4
-Final Assigned Timeslot: 10:00 on monday
+Starting timeslot_key: 13
+Final Assigned Timeslot: 2:30 on monday
 
 BUS M 361
 Hours: 1.25
 Section: 4
 num_slots: 3
-Random room: W240
+Random room: 210
 Valid Days: monday wednesday 
-Starting timeslot_key: 8
-Final Assigned Timeslot: 12:00 on monday
+Starting timeslot_key: 9
+Final Assigned Timeslot: 12:30 on monday
 
 BUS M 361
 Hours: 1.25
 Section: 5
 num_slots: 3
-Random room: 260
+Random room: W210
 Valid Days: monday wednesday 
-Starting timeslot_key: 16
-timeslot_key reassigned: 13
-Final Assigned Timeslot: 2:30 on monday
+Starting timeslot_key: 11
+Final Assigned Timeslot: 1:30 on monday
 
 BUS M 361
 Hours: 1.25
 Section: 6
 num_slots: 3
-Random room: 210
+Random room: W308
 Valid Days: monday wednesday 
-Starting timeslot_key: 14
-Final Assigned Timeslot: 3:00 on monday
+Starting timeslot_key: 0
+Final Assigned Timeslot: 8:00 on monday
 
 BUS M 371R
 Hours: 1.5
@@ -167,10 +169,14 @@ Section: 1
 num_slots: 3
 Random room: 151
 Valid Days: monday 
-Starting timeslot_key: 3
-Key 4 did not exist.
-timeslot_key reassigned: 7
-Final Assigned Timeslot: 11:30 on monday
+Starting timeslot_key: 9
+Key 11 did not exist.
+timeslot_key reassigned: 17
+Key 18 did not exist.
+timeslot_key reassigned: 9
+Key 11 did not exist.
+timeslot_key reassigned: 15
+Final Assigned Timeslot: 3:30 on monday
 
 BUS M 371R
 Hours: 1.5
@@ -178,8 +184,8 @@ Section: 2
 num_slots: 3
 Random room: 151
 Valid Days: monday 
-Starting timeslot_key: 14
-Final Assigned Timeslot: 3:00 on monday
+Starting timeslot_key: 6
+Final Assigned Timeslot: 11:00 on monday
 
 BUS M 371R
 Hours: 1.5
@@ -187,75 +193,59 @@ Section: 3
 num_slots: 3
 Random room: 151
 Valid Days: monday 
-Starting timeslot_key: 11
-Final Assigned Timeslot: 1:30 on monday
+Starting timeslot_key: 4
+Key 6 did not exist.
+timeslot_key reassigned: 3
+Final Assigned Timeslot: 9:30 on monday
 
 BUS M 372
 Hours: 1.5
 Section: 1
 num_slots: 3
-Random room: 120
+Random room: 230
+Valid Days: tuesday thursday 
+Starting timeslot_key: 0
+Final Assigned Timeslot: 8:00 on tuesday
+
+BUS M 372
+Hours: 1.5
+Section: 2
+num_slots: 3
+Random room: W118
+Valid Days: tuesday thursday 
+Starting timeslot_key: 14
+Final Assigned Timeslot: 3:00 on tuesday
+
+BUS M 380
+Hours: 1.5
+Section: 1
+num_slots: 3
+Random room: 251
+Valid Days: friday 
+Starting timeslot_key: 0
+Final Assigned Timeslot: 8:00 on friday
+
+BUS M 380
+Hours: 1.5
+Section: 2
+num_slots: 3
+Random room: 251
+Valid Days: friday 
+Starting timeslot_key: 7
+Final Assigned Timeslot: 11:30 on friday
+
+BUS M 390 TTh
+Hours: 1.5
+Section: 1
+num_slots: 3
+Random room: 151
 Valid Days: tuesday thursday 
 Starting timeslot_key: 1
 Final Assigned Timeslot: 8:30 on tuesday
 
-BUS M 372
-Hours: 1.5
-Section: 2
-num_slots: 3
-Random room: 251
-Valid Days: tuesday thursday 
-Starting timeslot_key: 4
-Final Assigned Timeslot: 10:00 on tuesday
-
-BUS M 380
-Hours: 1.5
-Section: 1
-num_slots: 3
-Random room: 284
-Valid Days: friday 
-Starting timeslot_key: 8
-Final Assigned Timeslot: 12:00 on friday
-
-BUS M 380
-Hours: 1.5
-Section: 2
-num_slots: 3
-Random room: 251
-Valid Days: friday 
-Starting timeslot_key: 12
-Final Assigned Timeslot: 2:00 on friday
-
-BUS M 390 TTh
-Hours: 1.5
-Section: 1
-num_slots: 3
-Random room: 251
-Valid Days: tuesday thursday 
-Starting timeslot_key: 0
-Final Assigned Timeslot: 8:00 on tuesday
-
 BUS M 390 TTh
 Hours: 1.5
 Section: 2
-num_slots: 3
-Random room: 151
-Valid Days: tuesday thursday 
-Starting timeslot_key: 13
-Final Assigned Timeslot: 2:30 on tuesday
-
-BUS M 390 TTh
-Hours: 1.5
-Section: 3
-num_slots: 3
-Random room: 151
-Valid Days: tuesday thursday 
-Starting timeslot_key: 0
-Final Assigned Timeslot: 8:00 on tuesday
-
-BUS M 390 TTh
-Hours: 1.5
-Section: 4
 num_slots: 3
 Random room: 251
 Valid Days: tuesday thursday 
@@ -264,156 +254,159 @@ Final Assigned Timeslot: 12:00 on tuesday
 
 BUS M 390 TTh
 Hours: 1.5
+Section: 3
+num_slots: 3
+Random room: 251
+Valid Days: tuesday thursday 
+Starting timeslot_key: 15
+Final Assigned Timeslot: 3:30 on tuesday
+
+BUS M 390 TTh
+Hours: 1.5
+Section: 4
+num_slots: 3
+Random room: 251
+Valid Days: tuesday thursday 
+Starting timeslot_key: 5
+Final Assigned Timeslot: 10:30 on tuesday
+
+BUS M 390 TTh
+Hours: 1.5
 Section: 5
 num_slots: 3
-Random room: 151
+Random room: 251
 Valid Days: tuesday thursday 
-Starting timeslot_key: 3
-Final Assigned Timeslot: 9:30 on tuesday
+Starting timeslot_key: 1
+Final Assigned Timeslot: 8:30 on tuesday
 
 BUS M 390 TTh
 Hours: 1.5
 Section: 6
 num_slots: 3
-Random room: 251
+Random room: 151
 Valid Days: tuesday thursday 
-Starting timeslot_key: 3
-Key 4 did not exist.
-timeslot_key reassigned: 3
-Key 4 did not exist.
-timeslot_key reassigned: 13
-Final Assigned Timeslot: 2:30 on tuesday
-
-BUS M 430
-Hours: 1.5
-Section: 1
-num_slots: 3
-Random room: 284
-Valid Days: monday wednesday 
-Starting timeslot_key: 6
-Final Assigned Timeslot: 11:00 on monday
-
-BUS M 430
-Hours: 1.5
-Section: 2
-num_slots: 3
-Random room: 210
-Valid Days: monday wednesday 
 Starting timeslot_key: 7
-Final Assigned Timeslot: 11:30 on monday
+Final Assigned Timeslot: 11:30 on tuesday
 
 BUS M 430
-Hours: 1.5
-Section: 3
-num_slots: 3
-Random room: W310
-Valid Days: monday wednesday 
-Starting timeslot_key: 12
-Final Assigned Timeslot: 2:00 on monday
-
-BUS M 430
-Hours: 1.5
-Section: 4
-num_slots: 3
-Random room: 170
-Valid Days: monday wednesday 
-Starting timeslot_key: 4
-Final Assigned Timeslot: 10:00 on monday
-
-BUS M 431
-Hours: 1.5
-Section: 1
-num_slots: 3
-Random room: 251
-Valid Days: monday wednesday 
-Starting timeslot_key: 14
-Final Assigned Timeslot: 3:00 on monday
-
-BUS M 440
-Hours: 1.5
-Section: 1
-num_slots: 3
-Random room: 260
-Valid Days: tuesday thursday 
-Starting timeslot_key: 15
-Final Assigned Timeslot: 3:30 on tuesday
-
-BUS M 450
-Hours: 1.5
-Section: 1
-num_slots: 3
-Random room: W118
-Valid Days: monday wednesday 
-Starting timeslot_key: 17
-timeslot_key reassigned: 14
-Final Assigned Timeslot: 3:00 on monday
-
-BUS M 450
-Hours: 1.5
-Section: 2
-num_slots: 3
-Random room: 184
-Valid Days: monday wednesday 
-Starting timeslot_key: 13
-Final Assigned Timeslot: 2:30 on monday
-
-BUS M 450
-Hours: 1.5
-Section: 3
-num_slots: 3
-Random room: W410
-Valid Days: monday wednesday 
-Starting timeslot_key: 6
-Final Assigned Timeslot: 11:00 on monday
-
-BUS M 454
-Hours: 1.5
-Section: 1
-num_slots: 3
-Random room: 170
-Valid Days: tuesday thursday 
-Starting timeslot_key: 9
-Final Assigned Timeslot: 12:30 on tuesday
-
-BUS M 454
-Hours: 1.5
-Section: 2
-num_slots: 3
-Random room: W310
-Valid Days: tuesday thursday 
-Starting timeslot_key: 15
-Final Assigned Timeslot: 3:30 on tuesday
-
-BUS M 457
-Hours: 1.5
-Section: 1
-num_slots: 3
-Random room: W110
-Valid Days: tuesday thursday 
-Starting timeslot_key: 14
-Final Assigned Timeslot: 3:00 on tuesday
-
-BUS M 459
 Hours: 1.5
 Section: 1
 num_slots: 3
 Random room: W108
 Valid Days: monday wednesday 
+Starting timeslot_key: 0
+Final Assigned Timeslot: 8:00 on monday
+
+BUS M 430
+Hours: 1.5
+Section: 2
+num_slots: 3
+Random room: W242
+Valid Days: monday wednesday 
+Starting timeslot_key: 3
+Final Assigned Timeslot: 9:30 on monday
+
+BUS M 430
+Hours: 1.5
+Section: 3
+num_slots: 3
+Random room: 710
+Valid Days: monday wednesday 
+Starting timeslot_key: 6
+Final Assigned Timeslot: 11:00 on monday
+
+BUS M 430
+Hours: 1.5
+Section: 4
+num_slots: 3
+Random room: 180
+Valid Days: monday wednesday 
+Starting timeslot_key: 17
+timeslot_key reassigned: 16
+timeslot_key reassigned: 4
+Final Assigned Timeslot: 10:00 on monday
+
+BUS M 440
+Hours: 1.5
+Section: 1
+num_slots: 3
+Random room: 110
+Valid Days: tuesday thursday 
 Starting timeslot_key: 14
-Final Assigned Timeslot: 3:00 on monday
+Final Assigned Timeslot: 3:00 on tuesday
+
+BUS M 450
+Hours: 1.5
+Section: 1
+num_slots: 3
+Random room: 184
+Valid Days: monday wednesday 
+Starting timeslot_key: 6
+Final Assigned Timeslot: 11:00 on monday
+
+BUS M 450
+Hours: 1.5
+Section: 2
+num_slots: 3
+Random room: W122
+Valid Days: monday wednesday 
+Starting timeslot_key: 11
+Final Assigned Timeslot: 1:30 on monday
+
+BUS M 450
+Hours: 1.5
+Section: 3
+num_slots: 3
+Random room: W108
+Valid Days: monday wednesday 
+Starting timeslot_key: 8
+Final Assigned Timeslot: 12:00 on monday
+
+BUS M 454
+Hours: 1.5
+Section: 1
+num_slots: 3
+Random room: 130
+Valid Days: tuesday thursday 
+Starting timeslot_key: 2
+Final Assigned Timeslot: 9:00 on tuesday
+
+BUS M 454
+Hours: 1.5
+Section: 2
+num_slots: 3
+Random room: 260
+Valid Days: tuesday thursday 
+Starting timeslot_key: 8
+Final Assigned Timeslot: 12:00 on tuesday
+
+BUS M 457
+Hours: 1.5
+Section: 1
+num_slots: 3
+Random room: 110
+Valid Days: tuesday thursday 
+Starting timeslot_key: 17
+timeslot_key reassigned: 8
+Final Assigned Timeslot: 12:00 on tuesday
+
+BUS M 459
+Hours: 1.5
+Section: 1
+num_slots: 3
+Random room: 210
+Valid Days: monday wednesday 
+Starting timeslot_key: 2
+Final Assigned Timeslot: 9:00 on monday
 
 BUS M 459
 Hours: 1.5
 Section: 2
 num_slots: 3
-Random room: W310
+Random room: W242
 Valid Days: monday wednesday 
-Starting timeslot_key: 10
-Key 12 did not exist.
-timeslot_key reassigned: 11
-Key 12 did not exist.
-timeslot_key reassigned: 11
-Key 12 did not exist.
+Starting timeslot_key: 1
+Key 3 did not exist.
 timeslot_key reassigned: 6
 Final Assigned Timeslot: 11:00 on monday
 
@@ -423,440 +416,388 @@ Section: 1
 num_slots: 3
 Random room: 220
 Valid Days: tuesday thursday 
-Starting timeslot_key: 9
-Final Assigned Timeslot: 12:30 on tuesday
+Starting timeslot_key: 7
+Final Assigned Timeslot: 11:30 on tuesday
 
 BUS M 462
 Hours: 1.5
 Section: 1
 num_slots: 3
-Random room: 184
+Random room: W310
 Valid Days: tuesday thursday 
-Starting timeslot_key: 13
-Final Assigned Timeslot: 2:30 on tuesday
+Starting timeslot_key: 4
+Final Assigned Timeslot: 10:00 on tuesday
 
 BUS M 465
 Hours: 1.5
 Section: 1
 num_slots: 3
-Random room: 110
+Random room: W240
 Valid Days: monday wednesday 
-Starting timeslot_key: 8
-Final Assigned Timeslot: 12:00 on monday
+Starting timeslot_key: 2
+Final Assigned Timeslot: 9:00 on monday
 
 BUS M 471
 Hours: 2.25
 Section: 1
 num_slots: 5
-Random room: 280
+Random room: 251
 Valid Days: monday wednesday 
-Starting timeslot_key: 4
-Final Assigned Timeslot: 10:00 on monday
+Starting timeslot_key: 8
+Key 12 did not exist.
+timeslot_key reassigned: 6
+Final Assigned Timeslot: 11:00 on monday
 
 BUS M 471
 Hours: 2.25
 Section: 2
 num_slots: 5
-Random room: W108
+Random room: 280
 Valid Days: monday wednesday 
-Starting timeslot_key: 7
-Final Assigned Timeslot: 11:30 on monday
+Starting timeslot_key: 9
+Final Assigned Timeslot: 12:30 on monday
 
 BUS M 472
 Hours: 2.25
 Section: 1
 num_slots: 5
-Random room: W108
+Random room: 120
 Valid Days: thursday 
-Starting timeslot_key: 14
-timeslot_key reassigned: 7
-Final Assigned Timeslot: 11:30 on thursday
+Starting timeslot_key: 15
+timeslot_key reassigned: 13
+Final Assigned Timeslot: 2:30 on thursday
 
 BUS M 475
 Hours: 1.5
 Section: 1
 num_slots: 3
-Random room: 164
+Random room: 210
 Valid Days: tuesday 
-Starting timeslot_key: 7
-Final Assigned Timeslot: 11:30 on tuesday
+Starting timeslot_key: 3
+Final Assigned Timeslot: 9:30 on tuesday
 
 BUS M 476
 Hours: 1.5
 Section: 1
 num_slots: 3
-Random room: 710
+Random room: W410
 Valid Days: tuesday thursday 
-Starting timeslot_key: 14
-Final Assigned Timeslot: 3:00 on tuesday
+Starting timeslot_key: 4
+Final Assigned Timeslot: 10:00 on tuesday
 
 BUS M 478A
 Hours: 1.5
 Section: 1
 num_slots: 3
-Random room: W118
+Random room: 210
 Valid Days: tuesday thursday 
 Starting timeslot_key: 7
 Final Assigned Timeslot: 11:30 on tuesday
 
-BUS M 481
-Hours: 1.75
-Section: 1
-num_slots: 4
-Random room: 210
-Valid Days: tuesday thursday 
-Starting timeslot_key: 0
-Final Assigned Timeslot: 8:00 on tuesday
-
-BUS M 481
-Hours: 1.75
-Section: 2
-num_slots: 4
-Random room: W210
-Valid Days: tuesday thursday 
-Starting timeslot_key: 5
-Final Assigned Timeslot: 10:30 on tuesday
-
 BUS M 482
 Hours: 1.5
 Section: 1
 num_slots: 3
-Random room: 260
+Random room: 130
 Valid Days: tuesday thursday 
-Starting timeslot_key: 12
-Final Assigned Timeslot: 2:00 on tuesday
-
-BUS M 482
-Hours: 1.5
-Section: 2
-num_slots: 3
-Random room: 260
-Valid Days: tuesday thursday 
-Starting timeslot_key: 2
-Key 3 did not exist.
-timeslot_key reassigned: 7
-Final Assigned Timeslot: 11:30 on tuesday
-
-BUS M 487
-Hours: 1.5
-Section: 1
-num_slots: 3
-Random room: 220
-Valid Days: tuesday thursday 
-Starting timeslot_key: 8
-Key 9 did not exist.
-timeslot_key reassigned: 6
+Starting timeslot_key: 6
 Final Assigned Timeslot: 11:00 on tuesday
 
+BUS M 482
+Hours: 1.5
+Section: 2
+num_slots: 3
+Random room: 151
+Valid Days: tuesday thursday 
+Starting timeslot_key: 17
+timeslot_key reassigned: 17
+timeslot_key reassigned: 4
+Final Assigned Timeslot: 10:00 on tuesday
+
+BUS M 487
+Hours: 1.5
+Section: 1
+num_slots: 3
+Random room: 151
+Valid Days: tuesday thursday 
+Starting timeslot_key: 10
+Final Assigned Timeslot: 1:00 on tuesday
+
 BUS M 487
 Hours: 1.5
 Section: 2
 num_slots: 3
-Random room: W240
+Random room: W210
 Valid Days: tuesday thursday 
-Starting timeslot_key: 9
-Final Assigned Timeslot: 12:30 on tuesday
+Starting timeslot_key: 17
+timeslot_key reassigned: 0
+Final Assigned Timeslot: 8:00 on tuesday
 
 BUS M 487
 Hours: 1.5
 Section: 3
 num_slots: 3
-Random room: W240
+Random room: 284
 Valid Days: tuesday thursday 
-Starting timeslot_key: 0
-Final Assigned Timeslot: 8:00 on tuesday
+Starting timeslot_key: 13
+Final Assigned Timeslot: 2:30 on tuesday
 
 BUS M 487
 Hours: 1.5
 Section: 4
 num_slots: 3
-Random room: W310
+Random room: W242
 Valid Days: tuesday thursday 
-Starting timeslot_key: 6
-Final Assigned Timeslot: 11:00 on tuesday
+Starting timeslot_key: 1
+Final Assigned Timeslot: 8:30 on tuesday
 
 BUS M 487
 Hours: 1.5
 Section: 5
 num_slots: 3
-Random room: W408
+Random room: 110
 Valid Days: tuesday thursday 
-Starting timeslot_key: 15
-Final Assigned Timeslot: 3:30 on tuesday
+Starting timeslot_key: 6
+Key 8 did not exist.
+timeslot_key reassigned: 17
+Key 18 did not exist.
+timeslot_key reassigned: 13
+Key 14 did not exist.
+timeslot_key reassigned: 11
+Final Assigned Timeslot: 1:30 on tuesday
 
 BUS M 489
 Hours: 1.5
 Section: 1
 num_slots: 3
-Random room: W118
+Random room: 260
 Valid Days: tuesday thursday 
-Starting timeslot_key: 14
-Final Assigned Timeslot: 3:00 on tuesday
+Starting timeslot_key: 6
+Key 8 did not exist.
+timeslot_key reassigned: 12
+Final Assigned Timeslot: 2:00 on tuesday
 
 BUS M 490R F
 Hours: 2.25
 Section: 1
 num_slots: 5
-Random room: 270
+Random room: 164
 Valid Days: friday 
-Starting timeslot_key: 15
-timeslot_key reassigned: 1
-Final Assigned Timeslot: 8:30 on friday
+Starting timeslot_key: 5
+Final Assigned Timeslot: 10:30 on friday
 
 BUS M 490R F
 Hours: 2.25
 Section: 2
 num_slots: 5
-Random room: W410
+Random room: 110
 Valid Days: friday 
-Starting timeslot_key: 8
-Final Assigned Timeslot: 12:00 on friday
+Starting timeslot_key: 4
+Final Assigned Timeslot: 10:00 on friday
 
 BUS M 490R F
 Hours: 2.25
 Section: 3
 num_slots: 5
-Random room: 130
+Random room: 164
 Valid Days: friday 
-Starting timeslot_key: 17
-timeslot_key reassigned: 16
-timeslot_key reassigned: 10
-Final Assigned Timeslot: 1:00 on friday
+Starting timeslot_key: 16
+timeslot_key reassigned: 4
+Key 5 did not exist.
+timeslot_key reassigned: 11
+Final Assigned Timeslot: 1:30 on friday
 
 BUS M 490R F
 Hours: 2.25
 Section: 4
 num_slots: 5
-Random room: 230
+Random room: 174
 Valid Days: friday 
-Starting timeslot_key: 17
-timeslot_key reassigned: 4
-Final Assigned Timeslot: 10:00 on friday
+Starting timeslot_key: 10
+Final Assigned Timeslot: 1:00 on friday
 
 BUS M 490R MW
 Hours: 1.25
 Section: 1
 num_slots: 3
-Random room: W122
+Random room: 710
+Valid Days: monday wednesday 
+Starting timeslot_key: 3
+Final Assigned Timeslot: 9:30 on monday
+
+BUS M 490R MW
+Hours: 1.25
+Section: 2
+num_slots: 3
+Random room: W310
 Valid Days: monday wednesday 
 Starting timeslot_key: 13
 Final Assigned Timeslot: 2:30 on monday
 
 BUS M 490R MW
 Hours: 1.25
-Section: 2
-num_slots: 3
-Random room: W118
-Valid Days: monday wednesday 
-Starting timeslot_key: 12
-Key 14 did not exist.
-timeslot_key reassigned: 7
-Final Assigned Timeslot: 11:30 on monday
-
-BUS M 490R MW
-Hours: 1.25
 Section: 3
 num_slots: 3
-Random room: 184
+Random room: 270
 Valid Days: monday wednesday 
-Starting timeslot_key: 17
-timeslot_key reassigned: 10
-Final Assigned Timeslot: 1:00 on monday
+Starting timeslot_key: 13
+Final Assigned Timeslot: 2:30 on monday
 
 BUS M 490R MW
 Hours: 1.25
 Section: 4
 num_slots: 3
-Random room: W242
+Random room: 220
 Valid Days: monday wednesday 
-Starting timeslot_key: 10
-Final Assigned Timeslot: 1:00 on monday
+Starting timeslot_key: 11
+Final Assigned Timeslot: 1:30 on monday
 
 BUS M 490R MW
 Hours: 1.25
 Section: 5
 num_slots: 3
-Random room: W308
+Random room: 280
 Valid Days: monday wednesday 
-Starting timeslot_key: 2
-Final Assigned Timeslot: 9:00 on monday
+Starting timeslot_key: 0
+Final Assigned Timeslot: 8:00 on monday
 
 BUS M 490R MW
 Hours: 1.25
 Section: 6
 num_slots: 3
-Random room: 264
+Random room: 324
 Valid Days: monday wednesday 
-Starting timeslot_key: 11
-Final Assigned Timeslot: 1:30 on monday
+Starting timeslot_key: 17
+timeslot_key reassigned: 9
+Final Assigned Timeslot: 12:30 on monday
 
 BUS M 490R TTh
 Hours: 1.25
 Section: 1
 num_slots: 3
-Random room: W110
+Random room: 270
 Valid Days: tuesday thursday 
-Starting timeslot_key: 11
-Final Assigned Timeslot: 1:30 on tuesday
+Starting timeslot_key: 16
+timeslot_key reassigned: 5
+Final Assigned Timeslot: 10:30 on tuesday
 
 BUS M 490R TTh
 Hours: 1.25
 Section: 2
 num_slots: 3
-Random room: 324
+Random room: 110
 Valid Days: tuesday thursday 
-Starting timeslot_key: 1
-Final Assigned Timeslot: 8:30 on tuesday
+Starting timeslot_key: 2
+Final Assigned Timeslot: 9:00 on tuesday
 
 BUS M 490R TTh
 Hours: 1.25
 Section: 3
 num_slots: 3
-Random room: 151
+Random room: 180
 Valid Days: tuesday thursday 
-Starting timeslot_key: 12
-Key 13 did not exist.
-timeslot_key reassigned: 7
-Final Assigned Timeslot: 11:30 on tuesday
+Starting timeslot_key: 14
+Final Assigned Timeslot: 3:00 on tuesday
 
 BUS M 490R TTh
 Hours: 1.25
 Section: 4
 num_slots: 3
-Random room: 260
+Random room: 180
 Valid Days: tuesday thursday 
-Starting timeslot_key: 1
-Key 3 did not exist.
-timeslot_key reassigned: 6
-Key 7 did not exist.
-timeslot_key reassigned: 2
-Key 3 did not exist.
-timeslot_key reassigned: 11
-Key 12 did not exist.
-timeslot_key reassigned: 11
-Key 12 did not exist.
-timeslot_key reassigned: 1
-Key 3 did not exist.
-timeslot_key reassigned: 0
-Final Assigned Timeslot: 8:00 on tuesday
+Starting timeslot_key: 5
+Final Assigned Timeslot: 10:30 on tuesday
 
 BUS M 490R TTh
 Hours: 1.25
 Section: 5
 num_slots: 3
-Random room: 210
+Random room: 220
 Valid Days: tuesday thursday 
-Starting timeslot_key: 4
-Final Assigned Timeslot: 10:00 on tuesday
+Starting timeslot_key: 12
+Final Assigned Timeslot: 2:00 on tuesday
 
 BUS M 490R TTh
 Hours: 1.25
 Section: 6
 num_slots: 3
-Random room: 151
+Random room: 170
 Valid Days: tuesday thursday 
-Starting timeslot_key: 17
-timeslot_key reassigned: 17
-timeslot_key reassigned: 12
-Key 13 did not exist.
-timeslot_key reassigned: 16
-Key 18 did not exist.
-timeslot_key reassigned: 11
-Key 13 did not exist.
-timeslot_key reassigned: 12
-Key 13 did not exist.
-timeslot_key reassigned: 10
-Final Assigned Timeslot: 1:00 on tuesday
+Starting timeslot_key: 14
+Final Assigned Timeslot: 3:00 on tuesday
 
 BUS M 490R TTh
 Hours: 1.25
 Section: 7
 num_slots: 3
-Random room: W308
-Valid Days: tuesday thursday 
-Starting timeslot_key: 5
-Final Assigned Timeslot: 10:30 on tuesday
-
-BUS M 490R W
-Hours: 2.25
-Section: 1
-num_slots: 5
-Random room: 220
-Valid Days: wednesday 
-Starting timeslot_key: 2
-Key 4 did not exist.
-timeslot_key reassigned: 7
-Final Assigned Timeslot: 11:30 on wednesday
-
-BUS M 490R W
-Hours: 2.25
-Section: 2
-num_slots: 5
-Random room: 184
-Valid Days: wednesday 
-Starting timeslot_key: 8
-Key 10 did not exist.
-timeslot_key reassigned: 6
-Key 10 did not exist.
-timeslot_key reassigned: 8
-Key 10 did not exist.
-timeslot_key reassigned: 1
-Final Assigned Timeslot: 8:30 on wednesday
-
-BUS M 498
-Hours: 0.75
-Section: 1
-num_slots: 2
-Random room: 110
-Valid Days: monday wednesday 
-Starting timeslot_key: 4
-Final Assigned Timeslot: 10:00 on monday
-
-BUS M 498
-Hours: 0.75
-Section: 2
-num_slots: 2
-Random room: W210
-Valid Days: monday wednesday 
-Starting timeslot_key: 5
-Final Assigned Timeslot: 10:30 on monday
-
-BUS M 581
-Hours: 2
-Section: 1
-num_slots: 4
-Random room: W210
-Valid Days: tuesday thursday 
-Starting timeslot_key: 12
-Final Assigned Timeslot: 2:00 on tuesday
-
-BUS M 581
-Hours: 2
-Section: 2
-num_slots: 4
-Random room: W408
+Random room: 174
 Valid Days: tuesday thursday 
 Starting timeslot_key: 0
 Final Assigned Timeslot: 8:00 on tuesday
+
+BUS M 490R W
+Hours: 2.25
+Section: 1
+num_slots: 5
+Random room: W118
+Valid Days: wednesday 
+Starting timeslot_key: 4
+Final Assigned Timeslot: 10:00 on wednesday
+
+BUS M 490R W
+Hours: 2.25
+Section: 2
+num_slots: 5
+Random room: 151
+Valid Days: wednesday 
+Starting timeslot_key: 3
+Final Assigned Timeslot: 9:30 on wednesday
+
+BUS M 498
+Hours: 0.75
+Section: 1
+num_slots: 2
+Random room: W242
+Valid Days: monday wednesday 
+Starting timeslot_key: 11
+Final Assigned Timeslot: 1:30 on monday
+
+BUS M 498
+Hours: 0.75
+Section: 2
+num_slots: 2
+Random room: W208
+Valid Days: monday wednesday 
+Starting timeslot_key: 16
+Final Assigned Timeslot: 4:00 on monday
+
+BUS M 581
+Hours: 2
+Section: 1
+num_slots: 4
+Random room: W210
+Valid Days: tuesday thursday 
+Starting timeslot_key: 15
+timeslot_key reassigned: 8
+Final Assigned Timeslot: 12:00 on tuesday
+
+BUS M 581
+Hours: 2
+Section: 2
+num_slots: 4
+Random room: 151
+Valid Days: tuesday thursday 
+Starting timeslot_key: 15
+timeslot_key reassigned: 15
+timeslot_key reassigned: 13
+Final Assigned Timeslot: 2:30 on tuesday
 
 BUS M 582
 Hours: 2
 Section: 1
 num_slots: 4
-Random room: 220
+Random room: W208
 Valid Days: monday wednesday 
-Starting timeslot_key: 3
-Key 4 did not exist.
-timeslot_key reassigned: 1
-Key 4 did not exist.
-timeslot_key reassigned: 2
-Key 4 did not exist.
-timeslot_key reassigned: 1
-Key 4 did not exist.
-timeslot_key reassigned: 1
-Key 4 did not exist.
-timeslot_key reassigned: 1
-Key 4 did not exist.
-timeslot_key reassigned: 12
+Starting timeslot_key: 12
 Final Assigned Timeslot: 2:00 on monday
 
